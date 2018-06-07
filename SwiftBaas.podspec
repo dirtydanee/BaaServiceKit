@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "SwiftBaaS"
+  s.name         = "SwiftBaas"
   s.version      = "0.0.1"
   s.summary      = "Fast and easy data submission to the Bitcoin blockchain "
 
