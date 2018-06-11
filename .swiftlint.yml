@@ -3,6 +3,8 @@ included:
 excluded:
   - Carthage
   - Pods
+disabled_rules:
+  - trailing_whitespace
 opt_in_rules:
   - array_init
   - attributes

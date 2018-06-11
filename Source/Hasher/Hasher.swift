@@ -9,4 +9,8 @@ final class Hasher {
     func sha256(from string: String) -> String {
         return string.sha256()
     }
+
+    func convertToHexString(data: Data) -> String {
+        return data.toHexString()
+    }
 }

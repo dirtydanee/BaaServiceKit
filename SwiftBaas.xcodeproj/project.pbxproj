@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BAD20CEEA4C009163CE /* APIResponse.swift */; };
+		18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */; };
 		1847EF2F20C87AD6006DD5F7 /* HasherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */; };
 		187C01A620C84E6E008DA9A3 /* SwiftBaas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C019C20C84E6E008DA9A3 /* SwiftBaas.framework */; };
 		187C01BD20C85538008DA9A3 /* Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C01B820C85538008DA9A3 /* Hasher.swift */; };
@@ -22,6 +24,15 @@
 		187C01F320C87869008DA9A3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EE20C87868008DA9A3 /* README.md */; };
 		187C01F420C87869008DA9A3 /* UniversalFramework_Base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EF20C87868008DA9A3 /* UniversalFramework_Base.xcconfig */; };
 		187C01F520C87869008DA9A3 /* UniversalFramework_Test.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01F020C87868008DA9A3 /* UniversalFramework_Test.xcconfig */; };
+		18852B4D20CB02C700A38852 /* BlockchainServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B4C20CB02C700A38852 /* BlockchainServiceInteractor.swift */; };
+		18852B5220CB03C100A38852 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5120CB03C100A38852 /* APIClient.swift */; };
+		18852B5620CB163400A38852 /* ChainpointServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5520CB163400A38852 /* ChainpointServiceInteractor.swift */; };
+		18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5A20CB168100A38852 /* BlockchainRequest.swift */; };
+		18852B5D20CB16A500A38852 /* SubmitHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */; };
+		18852B6220CB17D200A38852 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6120CB17D200A38852 /* Result.swift */; };
+		18852B6720CB1B8E00A38852 /* SubmittedHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6620CB1B8E00A38852 /* SubmittedHash.swift */; };
+		18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6820CB1C3600A38852 /* SwiftBaas+Typealiases.swift */; };
+		18852B6B20CC087F00A38852 /* DiscoverNodesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18432BAD20CEEA4C009163CE /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryRequestTransformer.swift; sourceTree = "<group>"; };
 		1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasherTests.swift; sourceTree = "<group>"; };
 		187C019C20C84E6E008DA9A3 /* SwiftBaas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBaas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C01A520C84E6E008DA9A3 /* SwiftBaasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBaasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +66,15 @@
 		187C01EE20C87868008DA9A3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		187C01EF20C87868008DA9A3 /* UniversalFramework_Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Base.xcconfig; sourceTree = "<group>"; };
 		187C01F020C87868008DA9A3 /* UniversalFramework_Test.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Test.xcconfig; sourceTree = "<group>"; };
+		18852B4C20CB02C700A38852 /* BlockchainServiceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockchainServiceInteractor.swift; sourceTree = "<group>"; };
+		18852B5120CB03C100A38852 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		18852B5520CB163400A38852 /* ChainpointServiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainpointServiceInteractor.swift; sourceTree = "<group>"; };
+		18852B5A20CB168100A38852 /* BlockchainRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockchainRequest.swift; sourceTree = "<group>"; };
+		18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitHashRequest.swift; sourceTree = "<group>"; };
+		18852B6120CB17D200A38852 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		18852B6620CB1B8E00A38852 /* SubmittedHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmittedHash.swift; sourceTree = "<group>"; };
+		18852B6820CB1C3600A38852 /* SwiftBaas+Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftBaas+Typealiases.swift"; sourceTree = "<group>"; };
+		18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverNodesRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18432BB120CEF128009163CE /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
 		187C019220C84E6E008DA9A3 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +149,11 @@
 			children = (
 				187C01BC20C85538008DA9A3 /* SwiftBaas.h */,
 				187C01B920C85538008DA9A3 /* SwiftBaas.swift */,
+				18432BB120CEF128009163CE /* Transformers */,
+				18852B6520CB1B8E00A38852 /* Models */,
+				18852B6020CB17D200A38852 /* General */,
+				18852B5020CB03C100A38852 /* APIClient */,
+				18852B4B20CB02C700A38852 /* BlockchainInteractor */,
 				187C01B720C85538008DA9A3 /* Hasher */,
 				187C01BA20C85538008DA9A3 /* Resources */,
 			);
@@ -165,6 +200,52 @@
 			);
 			path = xcconfigs;
 			sourceTree = SOURCE_ROOT;
+		};
+		18852B4B20CB02C700A38852 /* BlockchainInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				18852B4C20CB02C700A38852 /* BlockchainServiceInteractor.swift */,
+				18852B5520CB163400A38852 /* ChainpointServiceInteractor.swift */,
+			);
+			path = BlockchainInteractor;
+			sourceTree = "<group>";
+		};
+		18852B5020CB03C100A38852 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				18852B5120CB03C100A38852 /* APIClient.swift */,
+				18432BAD20CEEA4C009163CE /* APIResponse.swift */,
+				18852B5920CB168100A38852 /* Requests */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		18852B5920CB168100A38852 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				18852B5A20CB168100A38852 /* BlockchainRequest.swift */,
+				18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */,
+				18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		18852B6020CB17D200A38852 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				18852B6120CB17D200A38852 /* Result.swift */,
+				18852B6820CB1C3600A38852 /* SwiftBaas+Typealiases.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		18852B6520CB1B8E00A38852 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				18852B6620CB1B8E00A38852 /* SubmittedHash.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -298,8 +379,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18852B4D20CB02C700A38852 /* BlockchainServiceInteractor.swift in Sources */,
+				18852B5D20CB16A500A38852 /* SubmitHashRequest.swift in Sources */,
 				187C01BE20C85538008DA9A3 /* SwiftBaas.swift in Sources */,
+				18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */,
+				18852B5620CB163400A38852 /* ChainpointServiceInteractor.swift in Sources */,
+				18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */,
 				187C01BD20C85538008DA9A3 /* Hasher.swift in Sources */,
+				18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */,
+				18852B6B20CC087F00A38852 /* DiscoverNodesRequest.swift in Sources */,
+				18852B6720CB1B8E00A38852 /* SubmittedHash.swift in Sources */,
+				18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */,
+				18852B6220CB17D200A38852 /* Result.swift in Sources */,
+				18852B5220CB03C100A38852 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
