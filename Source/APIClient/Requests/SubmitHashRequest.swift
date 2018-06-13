@@ -1,12 +1,12 @@
 import Alamofire
 
-class SubmitHashRequest: BlockchainRequest {
+final class SubmitHashRequest: BlockchainRequest {
     let nodeURL: NodeURI
     let hashes: [Hash]
 
     init(url: NodeURI, hashes: [Hash]) {
         self.nodeURL = url
-        self.hashes = ["1957db7fe23e4be1740ddeb941ddda7ae0a6b782e536a9e00b5aa82db1e84547"]
+        self.hashes = hashes
     }
 
     var httpMethod: HTTPMethod {
@@ -14,10 +14,14 @@ class SubmitHashRequest: BlockchainRequest {
     }
 
     var url: URL {
-        return self.nodeURL
+        return self.nodeURL.appendingPathComponent("hashes")
     }
 
-    var httpBody: [String: Any]? {
+    var parameters: [String: Any]? {
         return ["hashes": self.hashes]
+    }
+
+    var encoding: ParameterEncoding {
+        return JSONEncoding.default
     }
 }

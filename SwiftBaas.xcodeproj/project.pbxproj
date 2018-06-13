@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181E1F8C20D040BB00CDEF0B /* PayloadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F8B20D040BB00CDEF0B /* PayloadTransformer.swift */; };
+		181E1F9120D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F9020D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift */; };
+		181E1F9420D045B300CDEF0B /* SubmitHashRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F9320D045B300CDEF0B /* SubmitHashRequestTests.swift */; };
+		181E1F9620D0495600CDEF0B /* DiscoverNodesRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F9520D0495600CDEF0B /* DiscoverNodesRequestTests.swift */; };
+		181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F9720D0540F00CDEF0B /* HashRequestStack.swift */; };
 		18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BAD20CEEA4C009163CE /* APIResponse.swift */; };
 		18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */; };
 		1847EF2F20C87AD6006DD5F7 /* HasherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */; };
@@ -46,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181E1F8B20D040BB00CDEF0B /* PayloadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadTransformer.swift; sourceTree = "<group>"; };
+		181E1F9020D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryRequestTransformerTests.swift; sourceTree = "<group>"; };
+		181E1F9320D045B300CDEF0B /* SubmitHashRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitHashRequestTests.swift; sourceTree = "<group>"; };
+		181E1F9520D0495600CDEF0B /* DiscoverNodesRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverNodesRequestTests.swift; sourceTree = "<group>"; };
+		181E1F9720D0540F00CDEF0B /* HashRequestStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashRequestStack.swift; sourceTree = "<group>"; };
 		18432BAD20CEEA4C009163CE /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryRequestTransformer.swift; sourceTree = "<group>"; };
 		1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasherTests.swift; sourceTree = "<group>"; };
@@ -100,9 +110,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181E1F8F20D0412700CDEF0B /* TransformerTests */ = {
+			isa = PBXGroup;
+			children = (
+				181E1F9020D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift */,
+			);
+			path = TransformerTests;
+			sourceTree = "<group>";
+		};
+		181E1F9220D0459E00CDEF0B /* RequestTests */ = {
+			isa = PBXGroup;
+			children = (
+				181E1F9320D045B300CDEF0B /* SubmitHashRequestTests.swift */,
+				181E1F9520D0495600CDEF0B /* DiscoverNodesRequestTests.swift */,
+			);
+			path = RequestTests;
+			sourceTree = "<group>";
+		};
 		18432BB120CEF128009163CE /* Transformers */ = {
 			isa = PBXGroup;
 			children = (
+				181E1F8B20D040BB00CDEF0B /* PayloadTransformer.swift */,
 				18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */,
 			);
 			path = Transformers;
@@ -139,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */,
+				181E1F9220D0459E00CDEF0B /* RequestTests */,
+				181E1F8F20D0412700CDEF0B /* TransformerTests */,
 				187C01AC20C84E6E008DA9A3 /* Info.plist */,
 			);
 			path = SwiftBaasTests;
@@ -151,10 +181,10 @@
 				187C01B920C85538008DA9A3 /* SwiftBaas.swift */,
 				18432BB120CEF128009163CE /* Transformers */,
 				18852B6520CB1B8E00A38852 /* Models */,
-				18852B6020CB17D200A38852 /* General */,
 				18852B5020CB03C100A38852 /* APIClient */,
 				18852B4B20CB02C700A38852 /* BlockchainInteractor */,
 				187C01B720C85538008DA9A3 /* Hasher */,
+				18852B6020CB17D200A38852 /* General */,
 				187C01BA20C85538008DA9A3 /* Resources */,
 			);
 			path = Source;
@@ -206,6 +236,7 @@
 			children = (
 				18852B4C20CB02C700A38852 /* BlockchainServiceInteractor.swift */,
 				18852B5520CB163400A38852 /* ChainpointServiceInteractor.swift */,
+				181E1F9720D0540F00CDEF0B /* HashRequestStack.swift */,
 			);
 			path = BlockchainInteractor;
 			sourceTree = "<group>";
@@ -382,6 +413,7 @@
 				18852B4D20CB02C700A38852 /* BlockchainServiceInteractor.swift in Sources */,
 				18852B5D20CB16A500A38852 /* SubmitHashRequest.swift in Sources */,
 				187C01BE20C85538008DA9A3 /* SwiftBaas.swift in Sources */,
+				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
 				18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */,
 				18852B5620CB163400A38852 /* ChainpointServiceInteractor.swift in Sources */,
 				18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */,
@@ -391,6 +423,7 @@
 				18852B6720CB1B8E00A38852 /* SubmittedHash.swift in Sources */,
 				18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */,
 				18852B6220CB17D200A38852 /* Result.swift in Sources */,
+				181E1F8C20D040BB00CDEF0B /* PayloadTransformer.swift in Sources */,
 				18852B5220CB03C100A38852 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,8 +432,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181E1F9620D0495600CDEF0B /* DiscoverNodesRequestTests.swift in Sources */,
+				181E1F9120D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift in Sources */,
 				1847EF2F20C87AD6006DD5F7 /* HasherTests.swift in Sources */,
 				187C01EA20C8742A008DA9A3 /* (null) in Sources */,
+				181E1F9420D045B300CDEF0B /* SubmitHashRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,7 +577,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 187C01EC20C87868008DA9A3 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -568,7 +604,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 187C01EC20C87868008DA9A3 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";

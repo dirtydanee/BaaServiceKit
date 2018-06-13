@@ -1,6 +1,6 @@
 import Alamofire
 
-class DiscoverNodesRequest: BlockchainRequest {
+final class DiscoverNodesRequest: BlockchainRequest {
 
     let discoveryURL: URL
 
@@ -9,14 +9,18 @@ class DiscoverNodesRequest: BlockchainRequest {
     }
 
     var httpMethod: HTTPMethod {
-        return .post
+        return .get
     }
 
     var url: URL {
         return self.discoveryURL
     }
 
-    var httpBody: [String: Any]? {
+    var parameters: [String: Any]? {
         return nil
+    }
+
+    var encoding: ParameterEncoding {
+        return URLEncoding.default
     }
 }

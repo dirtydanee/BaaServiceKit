@@ -6,12 +6,12 @@ final class APIClient {
         case missingResponseValue
         case invalidResponseType
     }
-
+    // TODO: Daniel Metzing - write tests
     func execute(request: BlockchainRequest, completion: @escaping (Result<APIResponse>) -> Void ) {
-
         Alamofire.request(request.url,
                           method: request.httpMethod,
-                          parameters: request.httpBody)
+                          parameters: request.parameters,
+                          encoding: request.encoding)
             .responseJSON { response in
 
                 guard response.error == nil else {
@@ -19,18 +19,14 @@ final class APIClient {
                     return
                 }
 
-                guard response.result.value != nil else {
+                guard let result = response.result.value,
+                      let request = response.request else {
                     // TODO: Daniel Metzing - Check if the payload is invalid what happens than
                     completion(.failure(Error.missingResponseValue))
                     return
                 }
 
-                guard let json = response.result.value as? JSON else {
-                    completion(.failure(Error.invalidResponseType))
-                    return
-                }
-                // TODO: Daniel Metzing - try to avoid this force unwrap
-                let apiResponse = APIResponse(request: response.request!, json: json)
+                let apiResponse = APIResponse(request: request, result: result)
                 completion(.success(apiResponse))
             }
     }

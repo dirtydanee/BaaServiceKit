@@ -28,4 +28,22 @@ class HasherTests: XCTestCase {
         let secondHash = hasher.sha256(from: string)
         XCTAssertEqual(firstHash, secondHash)
     }
+
+    func testEncodeableHashing() throws {
+        struct EncodableMock: Encodable {
+            let string = "Hello World!"
+        }
+
+        struct InjectEncodableMock: Encodable {
+            let string: String
+        }
+
+        let encodableMock = EncodableMock()
+        let defaultHash = try hasher.sha256(from: encodableMock)
+
+        let injectEncodableMock = InjectEncodableMock(string: "Hello World!")
+        let injectedHash = try hasher.sha256(from: injectEncodableMock)
+
+        XCTAssertEqual(injectedHash, defaultHash)
+    }
 }

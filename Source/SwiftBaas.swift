@@ -1,25 +1,6 @@
-import CryptoSwift
-
-public protocol SwiftBaasService {
-
-    func save(hash: HashIdNode) throws
-    func storedHashes() throws -> [HashIdNode]
-    func clearHashes() throws
-    func clearHash(withIdentifier: HashIdNode) throws
-
-    func generateSHA256(from data: Data) -> Data
-    func generateSHA256(from string: String) -> String
-
-    func submit(hash: String, completion: () -> Result<HashIdNode>)
-    func submit(hash: Data, completion: () -> Result<HashIdNode>)
-
-    func proof(forHashId: HashIdNode, completion: () -> Result<SwiftBaas.Proof>)
-    func verify(_ proof: SwiftBaas.Proof, completion: () -> Result<Bool>)
-}
-
 public class SwiftBaas {
 
-    public struct Proof {
+    public struct Proof: Equatable {
 
         public enum Status {
             // Proof after ~15 minutes of submission
@@ -41,17 +22,75 @@ public class SwiftBaas {
     }
 }
 
-// MARK: - Blockhain interaction
+// MARK: - Database interaction
 
-extension SwiftBaas {
+public extension SwiftBaas {
 
-    func submit(hashes: [String], completion: () -> Result<[SubmittedHash]>) {
-        self.blockchainInteractor.submit(hashes: hashes, completion: completion)
+    func save(hash: HashIdNode) throws {
+
     }
 
-    func submit(hashes: [Data], completion: () ->Result<[SubmittedHash]>) {
+    func storedHashes() throws -> [HashIdNode] {
+        return []
+    }
+
+    func clearHashes() throws {
+
+    }
+
+    func clearHash(withIdentifier: HashIdNode) throws {
+
+    }
+}
+
+// MARK: - Blockhain interaction
+
+public extension SwiftBaas {
+
+    // MARK: - Nodes discovery
+
+    func discoverNodes(completion: @escaping (Result<[NodeURI]>) -> Void) {
+        self.blockchainInteractor.discoverNodes(completion: completion)
+    }
+
+    // MARK: - Hash submission
+
+    func submit(hashes: [String],
+                forNumberOfNodes numberOfNodes: UInt,
+                completion: @escaping (Result<[SubmittedHash]>) -> Void) {
+        self.blockchainInteractor.submit(hashes: hashes, forNumberOfNodes: numberOfNodes, completion: completion)
+    }
+
+    func submit(hashes: [Data],
+                forNumberOfNodes numberOfNodes: UInt,
+                completion: @escaping (Result<[SubmittedHash]>) -> Void) {
         let hexStrings = hashes.map { self.hasher.convertToHexString(data: $0) }
-        self.blockchainInteractor.submit(hashes: hexStrings, completion: completion)
+        self.blockchainInteractor.submit(hashes: hexStrings, forNumberOfNodes: numberOfNodes, completion: completion)
+    }
+
+    func submit(hashes: [Data],
+                toNodeURLs urls: [NodeURI],
+                completion: @escaping (Result<[SubmittedHash]>) -> Void) {
+        let hexStrings = hashes.map { self.hasher.convertToHexString(data: $0) }
+        self.blockchainInteractor.submit(hashes: hexStrings, toNodeURLs: urls, completion: completion)
+    }
+
+    func submit(hashes: [String],
+                toNodeURLs urls: [NodeURI],
+                completion: @escaping (Result<[SubmittedHash]>) -> Void) {
+        self.blockchainInteractor.submit(hashes: hashes, toNodeURLs: urls, completion: completion)
+    }
+
+    // MARK: - Proof retrieval
+
+    func proof(forHashId: HashIdNode, completion: () -> Result<SwiftBaas.Proof>) {
+
+    }
+
+    // MARK: - Proof Verification
+
+    func verify(_ proof: SwiftBaas.Proof, completion: () -> Result<Bool>) {
+
     }
 }
 
@@ -59,11 +98,15 @@ extension SwiftBaas {
 
 public extension SwiftBaas {
 
+    func generateSHA256(from string: String) -> String {
+        return self.hasher.sha256(from: string)
+    }
+
     func generateSHA256(from data: Data) -> Data {
         return self.hasher.sha256(from: data)
     }
 
-    func generateSHA256(from string: String) -> String {
-        return self.hasher.sha256(from: string)
+    func generateSHA256<T>(from encodable: T) throws -> Data where T: Encodable {
+        return try self.hasher.sha256(from: encodable)
     }
 }
