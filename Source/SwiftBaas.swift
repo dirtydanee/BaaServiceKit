@@ -1,7 +1,6 @@
 public class SwiftBaas {
 
     public struct Proof: Equatable {
-
         public enum Status {
             // Proof after ~15 minutes of submission
             case partial

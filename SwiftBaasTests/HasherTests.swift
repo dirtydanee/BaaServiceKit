@@ -39,10 +39,10 @@ class HasherTests: XCTestCase {
         }
 
         let encodableMock = EncodableMock()
-        let defaultHash = try hasher.sha256(from: encodableMock)
+        let defaultHash = try hasher.sha256(from: encodableMock, keyEncodingStrategy: .useDefaultKeys)
 
         let injectEncodableMock = InjectEncodableMock(string: "Hello World!")
-        let injectedHash = try hasher.sha256(from: injectEncodableMock)
+        let injectedHash = try hasher.sha256(from: injectEncodableMock, keyEncodingStrategy: .useDefaultKeys)
 
         XCTAssertEqual(injectedHash, defaultHash)
     }

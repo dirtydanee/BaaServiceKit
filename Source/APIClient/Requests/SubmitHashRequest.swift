@@ -1,6 +1,7 @@
 import Alamofire
 
 final class SubmitHashRequest: BlockchainRequest {
+
     let nodeURL: NodeURI
     let hashes: [Hash]
 

@@ -22,8 +22,6 @@
 		187C01C020C85538008DA9A3 /* SwiftBaas.h in Headers */ = {isa = PBXBuildFile; fileRef = 187C01BC20C85538008DA9A3 /* SwiftBaas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		187C01D920C855F7008DA9A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01D820C855F7008DA9A3 /* Alamofire.framework */; };
 		187C01DB20C855FB008DA9A3 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01DA20C855FB008DA9A3 /* CryptoSwift.framework */; };
-		187C01E420C856DE008DA9A3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01DC20C85601008DA9A3 /* Quick.framework */; };
-		187C01E520C856E1008DA9A3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01DE20C85606008DA9A3 /* Nimble.framework */; };
 		187C01EA20C8742A008DA9A3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		187C01F120C87869008DA9A3 /* UniversalFramework_Framework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EC20C87868008DA9A3 /* UniversalFramework_Framework.xcconfig */; };
 		187C01F220C87869008DA9A3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 187C01ED20C87868008DA9A3 /* LICENSE */; };
@@ -103,8 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187C01E520C856E1008DA9A3 /* Nimble.framework in Frameworks */,
-				187C01E420C856DE008DA9A3 /* Quick.framework in Frameworks */,
 				187C01A620C84E6E008DA9A3 /* SwiftBaas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +334,7 @@
 		187C019320C84E6E008DA9A3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = DirtyLabs;
 				TargetAttributes = {
@@ -487,7 +483,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -551,7 +547,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -637,7 +633,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftBaasTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -646,6 +643,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dirtylabs.SwiftBaasTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4\n\t\t\t\t";
@@ -658,7 +656,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftBaasTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -667,6 +666,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dirtylabs.SwiftBaasTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 			};

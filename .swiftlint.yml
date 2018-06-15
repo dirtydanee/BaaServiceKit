@@ -50,3 +50,4 @@ nesting:
 line_length:
   warning: 140
   error: 160
+  ignores_comments: true
