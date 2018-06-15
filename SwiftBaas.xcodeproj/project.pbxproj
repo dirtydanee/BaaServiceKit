@@ -22,8 +22,6 @@
 		187C01C020C85538008DA9A3 /* SwiftBaas.h in Headers */ = {isa = PBXBuildFile; fileRef = 187C01BC20C85538008DA9A3 /* SwiftBaas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		187C01D920C855F7008DA9A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01D820C855F7008DA9A3 /* Alamofire.framework */; };
 		187C01DB20C855FB008DA9A3 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01DA20C855FB008DA9A3 /* CryptoSwift.framework */; };
-		187C01E420C856DE008DA9A3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01DC20C85601008DA9A3 /* Quick.framework */; };
-		187C01E520C856E1008DA9A3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01DE20C85606008DA9A3 /* Nimble.framework */; };
 		187C01EA20C8742A008DA9A3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		187C01F120C87869008DA9A3 /* UniversalFramework_Framework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EC20C87868008DA9A3 /* UniversalFramework_Framework.xcconfig */; };
 		187C01F220C87869008DA9A3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 187C01ED20C87868008DA9A3 /* LICENSE */; };
@@ -103,8 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187C01E520C856E1008DA9A3 /* Nimble.framework in Frameworks */,
-				187C01E420C856DE008DA9A3 /* Quick.framework in Frameworks */,
 				187C01A620C84E6E008DA9A3 /* SwiftBaas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +139,6 @@
 			children = (
 				187C019E20C84E6E008DA9A3 /* SwiftBaas */,
 				187C01A920C84E6E008DA9A3 /* SwiftBaasTests */,
-				311F795E20CC13A400593400 /* SwiftBaasTests-2 */,
 				187C019D20C84E6E008DA9A3 /* Products */,
 				187C01D720C855F7008DA9A3 /* Frameworks */,
 			);
