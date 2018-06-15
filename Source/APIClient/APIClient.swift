@@ -4,10 +4,9 @@ final class APIClient {
 
     enum Error: Swift.Error {
         case missingResponseValue
-        case invalidResponseType
     }
-    // TODO: Daniel Metzing - write tests
-    func execute(request: BlockchainRequest, completion: @escaping (Result<APIResponse>) -> Void ) {
+
+  func execute(request: BlockchainRequest, completion: @escaping (Result<APIResponse>) -> Void ) {
         Alamofire.request(request.url,
                           method: request.httpMethod,
                           parameters: request.parameters,
