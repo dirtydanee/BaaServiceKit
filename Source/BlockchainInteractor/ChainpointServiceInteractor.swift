@@ -18,7 +18,7 @@ final class ChainpointServiceInteractor: BlockchainServiceInteractor {
     init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
-
+  
     func discoverPublicNodeURLs(completion: ((Result<[URL]>) -> Void)?) {
         let nodeURLIndex = Int(arc4random_uniform(3))
         let discoverNodesRequest = DiscoverNodesRequest(discoveryURL: Constants.nodeURLs[nodeURLIndex])
