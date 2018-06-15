@@ -1,4 +1,4 @@
 struct APIResponse {
     let request: URLRequest
-    let json: JSON
+    let result: Any
 }

@@ -5,6 +5,7 @@ excluded:
   - Pods
 disabled_rules:
   - trailing_whitespace
+  - identifier_name
 opt_in_rules:
   - array_init
   - attributes
@@ -46,3 +47,7 @@ nesting:
  type_level:
   warning: 2
   error: 5
+line_length:
+  warning: 140
+  error: 160
+  ignores_comments: true

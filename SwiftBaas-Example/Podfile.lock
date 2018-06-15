@@ -1,0 +1,22 @@
+PODS:
+  - Alamofire (4.7.2)
+  - CryptoSwift (0.9.0)
+  - SwiftBaas (0.0.1):
+    - Alamofire (~> 4.7)
+    - CryptoSwift (~> 0.9)
+
+DEPENDENCIES:
+  - SwiftBaas (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftBaas:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
+  SwiftBaas: 5f8040705af2a18400e14bcaacf0d19f9b34931d
+
+PODFILE CHECKSUM: a7eefc276eba5adf2f20278082c7cf40a760b980
+
+COCOAPODS: 1.4.0

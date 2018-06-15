@@ -1,4 +1,8 @@
 protocol BlockchainServiceInteractor {
-    func nodes(completion: () -> Result<[NodeURI]>)
-    func submit(hashes: [String], completion: () -> Result<[SubmittedHash]>)
+    var apiClient: APIClient { get }
+
+    func discoverPublicNodeURLs(completion: ((Result<[URL]>) -> Void)?)
+    func configuration(ofNodeAtURL url: URL, completion: ((Result<[Node]>) -> Void)?)
+    func submit(hashes: [String], forNumberOfNodes: UInt, completion: ((Result<[SubmittedHash]>) -> Void)?)
+    func submit(hashes: [String], toNodeURLs urls: [NodeURI], completion: ((Result<[SubmittedHash]>) -> Void)?)
 }

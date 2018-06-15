@@ -1,0 +1,23 @@
+language: swift
+os: osx
+osx_image: xcode9.3
+sudo: enabled
+
+before_install:
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+
+env:
+  - ACTION=build  PLATFORM=Mac      DESTINATION='platform=OS X'
+  - ACTION=test   PLATFORM=Mac      DESTINATION='platform=OS X'
+  - ACTION=build  PLATFORM=iOS      DESTINATION='platform=iOS Simulator,name=iPhone 6S'
+  - ACTION=test   PLATFORM=iOS      DESTINATION='platform=iOS Simulator,name=iPhone 6S'
+  - ACTION=build  PLATFORM=watchOS  DESTINATION='platform=watchOS Simulator,name=Apple Watch - 38mm'
+  - ACTION=build  PLATFORM=tvOS     DESTINATION='platform=tvOS Simulator,name=Apple TV 4K'
+  - ACTION=test   PLATFORM=tvOS     DESTINATION='platform=tvOS Simulator,name=Apple TV 4K'
+
+install:
+  - carthage update --platform $PLATFORM --use-submodules --no-use-binaries
+
+script:
+  - set -o pipefail && xcodebuild -scheme SwiftBaas -workspace SwiftBaas.xcworkspace -destination "$DESTINATION" $ACTION | xcpretty
