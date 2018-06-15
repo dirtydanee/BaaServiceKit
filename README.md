@@ -1,5 +1,6 @@
 # SwiftBaaS
-[![Build Status](https://travis-ci.com/dirtydanee/SwiftBaaS.svg?branch=develop)](https://travis-ci.com/dirtydanee/SwiftBaaS)
+[![Build Status](https://travis-ci.com/dirtydanee/SwiftBaaS.svg?branch=develop)](https://travis-ci.com/dirtydanee/SwiftBaaS)  
+
 Fast and easy submission of data to the Bitcoin blockchain!  
 ## Usage
 
