@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1804F60D20D4007C004A1C4B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804F60C20D4007C004A1C4B /* Node.swift */; };
 		181E1F8C20D040BB00CDEF0B /* PayloadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F8B20D040BB00CDEF0B /* PayloadTransformer.swift */; };
 		181E1F9120D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F9020D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift */; };
 		181E1F9420D045B300CDEF0B /* SubmitHashRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F9320D045B300CDEF0B /* SubmitHashRequestTests.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1804F60C20D4007C004A1C4B /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		181E1F8B20D040BB00CDEF0B /* PayloadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadTransformer.swift; sourceTree = "<group>"; };
 		181E1F9020D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryRequestTransformerTests.swift; sourceTree = "<group>"; };
 		181E1F9320D045B300CDEF0B /* SubmitHashRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitHashRequestTests.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				18852B6620CB1B8E00A38852 /* SubmittedHash.swift */,
+				1804F60C20D4007C004A1C4B /* Node.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */,
 				18852B6B20CC087F00A38852 /* DiscoverNodesRequest.swift in Sources */,
 				18852B6720CB1B8E00A38852 /* SubmittedHash.swift in Sources */,
+				1804F60D20D4007C004A1C4B /* Node.swift in Sources */,
 				18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */,
 				18852B6220CB17D200A38852 /* Result.swift in Sources */,
 				181E1F8C20D040BB00CDEF0B /* PayloadTransformer.swift in Sources */,

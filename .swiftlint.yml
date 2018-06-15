@@ -47,3 +47,6 @@ nesting:
  type_level:
   warning: 2
   error: 5
+line_length:
+  warning: 140
+  error: 160
