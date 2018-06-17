@@ -11,21 +11,15 @@ import SwiftBaas
 
 class ViewController: UIViewController {
 
-    var blockchainService = SwiftBaas()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let record = Record(identifier: "1", description: "My first record")
         do {
-            let hash = try self.blockchainService.generateSHA256(from: record)
-            self.blockchainService.discoverNodes { result in
-                print("balfasz")
-            }
-
-            self.blockchainService.submit(hashes: [hash], forNumberOfNodes: 3) { result in
-                print("lofasz")
-            }
-
+            let blockchainService = try SwiftBaas()
+            let hash = try blockchainService.generateSHA256(from: record)
+            blockchainService.discoverPublicNodeURLs(completion: nil)
+            try blockchainService.save(hash: NodeHash.f)
+//          self.blockchainService.submit(hashes: [hash], forNumberOfNodes: 3, completion: nil)
         } catch {
             print(error)
         }

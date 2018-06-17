@@ -11,41 +11,79 @@ public class SwiftBaas {
 
     private let hasher: Hasher
     private let apiClient: APIClient
-    private let blockchainInteractor: BlockchainServiceInteractor
+    private let persistencyService: PersistencyService
+    private let blockchainService: BlockchainService
 
-    public init() {
+    public init() throws {
         self.hasher = Hasher()
         self.apiClient = APIClient()
-        self.blockchainInteractor = ChainpointServiceInteractor(apiClient: self.apiClient)
+        self.persistencyService = try CoreDataServiceBuilder().withModelName("Records")
+                                                              .withStorageType(.SQLite(filename: "Records.sqlite"))
+                                                              .withNodeHashEntityName("HashNode")
+                                                              .build()
+        self.blockchainService = ChainpointService(apiClient: self.apiClient)
     }
 }
 
 // MARK: - Database interaction
 
 public extension SwiftBaas {
-
-    func save(hash: SubmittedHash) throws {
-
+    
+    /// Save a node hash
+    ///
+    /// - Parameter nodeHash: NodeHash instance desired to be saved
+    /// - Throws: Errors occuring while saving
+    func save(nodeHash: NodeHash) throws {
+        try self.persistencyService.save(nodeHashes: [nodeHash])
     }
-
-    func hash(for string: String) -> SubmittedHash? {
-        return nil
+    
+    /// Read a previously saved node hash
+    ///
+    /// - Parameter hashValue: The hash value of the searched NodeHash instance
+    /// - Returns: NodeHash instance with the given hash value if found, otherwise nil
+    /// - Throws: Errors while searching for the hash
+    func nodeHash(for hashValue: String) throws -> NodeHash? {
+        return try self.persistencyService.nodeHash(forHash: hashValue)
     }
-
-    func hash(for data: Data) -> SubmittedHash? {
-        return nil
+    
+    /// Read a previously saved node hash
+    ///
+    /// - Parameter hashData: The hash value of the searched NodeHash instance
+    /// - Returns: NodeHash instance with the given hash value if found, otherwise nil
+    /// - Throws: Errors while searching for the hash
+    func nodeHash(for hashData: Data) throws -> NodeHash? {
+        return try self.persistencyService.nodeHash(forHash: hashData.toHexString())
     }
-
-    func storedHashes() throws -> [SubmittedHash] {
-        return []
+    
+    /// Read all previously saved node hashes
+    ///
+    /// - Returns: A collection of NodeHash instances
+    /// - Throws: Errors while collecting all NodeHash instances
+    func storedHashes() throws -> [NodeHash] {
+        return try self.persistencyService.storedNodeHashes()
     }
-
-    func clearHashes() throws {
-
+    
+    /// Delete all stored node hashes
+    ///
+    /// - Throws: Errors while deleting node hashes
+    func deleteHashes() throws {
+        try self.persistencyService.deleteNodeHashes()
     }
-
-    func clearHash(withIdentifier: SubmittedHash) throws {
-
+    
+    /// Delete a specific node hash
+    ///
+    /// - Parameter nodeHash: The NodeHash instances to be deleted
+    /// - Throws: Errors while deleting the given node hash
+    func delete(_ nodeHash: NodeHash) throws {
+        try self.persistencyService.deleteNodeHash(nodeHash)
+    }
+    
+    /// Delete a specific node hash with a given hash
+    ///
+    /// - Parameter hashValue: The hash value of the NodeHash instance to be deleted
+    /// - Throws: Errors while deleting the given node hash
+    func delete(forHashValue hashValue: String) throws {
+        try self.persistencyService.deleteNodeHash(forHashValue: hashValue)
     }
 }
 
@@ -59,7 +97,7 @@ public extension SwiftBaas {
     ///
     /// - Parameter completion: On success a collection of URLs to submit hashes to, on failure the description of the occurred error
     func discoverPublicNodeURLs(completion: ((Result<[URL]>) -> Void)?) {
-        self.blockchainInteractor.discoverPublicNodeURLs(completion: completion)
+        self.blockchainService.discoverPublicNodeURLs(completion: completion)
     }
 
     /// Check the configuration of a node at a given URL
@@ -79,11 +117,11 @@ public extension SwiftBaas {
     /// - Parameters:
     ///   - hashes: The hashes as a collection of strings to be submitted on the blockchain
     ///   - numberOfNodes: Non negative integer, presenting how many nodes should the hashes be submitted to
-    ///   - completion: On success a collection of SubmittedHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
+    ///   - completion: On success a collection of NodeHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
     func submit(hashes: [String],
                 forNumberOfNodes numberOfNodes: UInt,
-                completion: @escaping (Result<[SubmittedHash]>) -> Void) {
-        self.blockchainInteractor.submit(hashes: hashes, forNumberOfNodes: numberOfNodes, completion: completion)
+                completion: @escaping (Result<[NodeHash]>) -> Void) {
+        self.blockchainService.submit(hashes: hashes, forNumberOfNodes: numberOfNodes, completion: completion)
     }
 
     /// Submit a collection of hashes as strings to the blockchain to various number of random nodes
@@ -92,12 +130,12 @@ public extension SwiftBaas {
     /// - Parameters:
     ///   - hashes: The hashes as a collection of binary data to be submitted on the blockchain
     ///   - numberOfNodes: Non negative integer, presenting how many nodes should the hashes be submitted to
-    ///   - completion: On success a collection of SubmittedHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
+    ///   - completion: On success a collection of NodeHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
     func submit(hashes: [Data],
                 forNumberOfNodes numberOfNodes: UInt,
-                completion: @escaping (Result<[SubmittedHash]>) -> Void) {
+                completion: @escaping (Result<[NodeHash]>) -> Void) {
         let hexStrings = hashes.map { self.hasher.convertToHexString(data: $0) }
-        self.blockchainInteractor.submit(hashes: hexStrings, forNumberOfNodes: numberOfNodes, completion: completion)
+        self.blockchainService.submit(hashes: hexStrings, forNumberOfNodes: numberOfNodes, completion: completion)
     }
 
     /// Submit a collection of hashes as strings to the blockchain to nodes with specific public URLs
@@ -106,11 +144,11 @@ public extension SwiftBaas {
     /// - Parameters:
     ///   - hashes: The hashes as a collection of strings to be submitted on the blockchain
     ///   - urls: The public URLs of the nodes where the hashes should be submitted
-    ///   - completion: On success a collection of SubmittedHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
+    ///   - completion: On success a collection of NodeHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
     func submit(hashes: [String],
                 toNodeURLs urls: [NodeURI],
-                completion: @escaping (Result<[SubmittedHash]>) -> Void) {
-        self.blockchainInteractor.submit(hashes: hashes, toNodeURLs: urls, completion: completion)
+                completion: @escaping (Result<[NodeHash]>) -> Void) {
+        self.blockchainService.submit(hashes: hashes, toNodeURLs: urls, completion: completion)
     }
 
     /// Submit a collection of hashes as strings to the blockchain to nodes with specific public URLs
@@ -119,17 +157,17 @@ public extension SwiftBaas {
     /// - Parameters:
     ///   - hashes: The hashes as a collection of binary data to be submitted on the blockchain
     ///   - urls: The public URLs of the nodes where the hashes should be submitted
-    ///   - completion: On success a collection of SubmittedHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
+    ///   - completion: On success a collection of NodeHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
     func submit(hashes: [Data],
                 toNodeURLs urls: [URL],
-                completion: @escaping (Result<[SubmittedHash]>) -> Void) {
+                completion: @escaping (Result<[NodeHash]>) -> Void) {
         let hexStrings = hashes.map { self.hasher.convertToHexString(data: $0) }
-        self.blockchainInteractor.submit(hashes: hexStrings, toNodeURLs: urls, completion: completion)
+        self.blockchainService.submit(hashes: hexStrings, toNodeURLs: urls, completion: completion)
     }
 
     // MARK: - Proof retrieval
 
-    func proof(forHashId: HashIdNode, completion: () -> Result<SwiftBaas.Proof>) {
+    func proof(forHashId: Hash, completion: () -> Result<SwiftBaas.Proof>) {
 
     }
 
