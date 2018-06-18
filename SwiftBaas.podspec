@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "10.0"
   s.source       = { :path => './' }
   s.source_files  = "Source/**/*.swift"
+  s.resources = 'Source/Persistency/CoreData/Models/*.xcdatamodeld'
   s.swift_version = '4.1'
   
   s.dependency 'Alamofire', '~> 4.7'
