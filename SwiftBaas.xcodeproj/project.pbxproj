@@ -28,15 +28,21 @@
 		187C01F320C87869008DA9A3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EE20C87868008DA9A3 /* README.md */; };
 		187C01F420C87869008DA9A3 /* UniversalFramework_Base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EF20C87868008DA9A3 /* UniversalFramework_Base.xcconfig */; };
 		187C01F520C87869008DA9A3 /* UniversalFramework_Test.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01F020C87868008DA9A3 /* UniversalFramework_Test.xcconfig */; };
-		18852B4D20CB02C700A38852 /* BlockchainServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B4C20CB02C700A38852 /* BlockchainServiceInteractor.swift */; };
+		18852B4D20CB02C700A38852 /* BlockchainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B4C20CB02C700A38852 /* BlockchainService.swift */; };
 		18852B5220CB03C100A38852 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5120CB03C100A38852 /* APIClient.swift */; };
-		18852B5620CB163400A38852 /* ChainpointServiceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5520CB163400A38852 /* ChainpointServiceInteractor.swift */; };
+		18852B5620CB163400A38852 /* ChainpointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5520CB163400A38852 /* ChainpointService.swift */; };
 		18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5A20CB168100A38852 /* BlockchainRequest.swift */; };
 		18852B5D20CB16A500A38852 /* SubmitHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */; };
 		18852B6220CB17D200A38852 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6120CB17D200A38852 /* Result.swift */; };
-		18852B6720CB1B8E00A38852 /* SubmittedHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6620CB1B8E00A38852 /* SubmittedHash.swift */; };
+		18852B6720CB1B8E00A38852 /* NodeHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6620CB1B8E00A38852 /* NodeHash.swift */; };
 		18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6820CB1C3600A38852 /* SwiftBaas+Typealiases.swift */; };
 		18852B6B20CC087F00A38852 /* DiscoverNodesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */; };
+		188965BE20D6B27D002A164E /* PersistencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965BD20D6B27D002A164E /* PersistencyService.swift */; };
+		188965C720D6B2A7002A164E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965C020D6B2A6002A164E /* CoreDataStack.swift */; };
+		188965C820D6B2A7002A164E /* NodeHashValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965C220D6B2A6002A164E /* NodeHashValueTransformer.swift */; };
+		188965C920D6B2A7002A164E /* NodeHashEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965C420D6B2A6002A164E /* NodeHashEntity.swift */; };
+		188965CA20D6B2A7002A164E /* Records.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 188965C520D6B2A6002A164E /* Records.xcdatamodeld */; };
+		188965CC20D6B301002A164E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965CB20D6B301002A164E /* CoreDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,15 +82,21 @@
 		187C01EE20C87868008DA9A3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		187C01EF20C87868008DA9A3 /* UniversalFramework_Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Base.xcconfig; sourceTree = "<group>"; };
 		187C01F020C87868008DA9A3 /* UniversalFramework_Test.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Test.xcconfig; sourceTree = "<group>"; };
-		18852B4C20CB02C700A38852 /* BlockchainServiceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockchainServiceInteractor.swift; sourceTree = "<group>"; };
+		18852B4C20CB02C700A38852 /* BlockchainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockchainService.swift; sourceTree = "<group>"; };
 		18852B5120CB03C100A38852 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		18852B5520CB163400A38852 /* ChainpointServiceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainpointServiceInteractor.swift; sourceTree = "<group>"; };
+		18852B5520CB163400A38852 /* ChainpointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainpointService.swift; sourceTree = "<group>"; };
 		18852B5A20CB168100A38852 /* BlockchainRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockchainRequest.swift; sourceTree = "<group>"; };
 		18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitHashRequest.swift; sourceTree = "<group>"; };
 		18852B6120CB17D200A38852 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		18852B6620CB1B8E00A38852 /* SubmittedHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmittedHash.swift; sourceTree = "<group>"; };
+		18852B6620CB1B8E00A38852 /* NodeHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeHash.swift; sourceTree = "<group>"; };
 		18852B6820CB1C3600A38852 /* SwiftBaas+Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftBaas+Typealiases.swift"; sourceTree = "<group>"; };
 		18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverNodesRequest.swift; sourceTree = "<group>"; };
+		188965BD20D6B27D002A164E /* PersistencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencyService.swift; sourceTree = "<group>"; };
+		188965C020D6B2A6002A164E /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		188965C220D6B2A6002A164E /* NodeHashValueTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeHashValueTransformer.swift; sourceTree = "<group>"; };
+		188965C420D6B2A6002A164E /* NodeHashEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeHashEntity.swift; sourceTree = "<group>"; };
+		188965C620D6B2A6002A164E /* Records.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Records.xcdatamodel; sourceTree = "<group>"; };
+		188965CB20D6B301002A164E /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,10 +189,11 @@
 			children = (
 				187C01BC20C85538008DA9A3 /* SwiftBaas.h */,
 				187C01B920C85538008DA9A3 /* SwiftBaas.swift */,
+				188965AD20D68D11002A164E /* Persistency */,
 				18432BB120CEF128009163CE /* Transformers */,
 				18852B6520CB1B8E00A38852 /* Models */,
 				18852B5020CB03C100A38852 /* APIClient */,
-				18852B4B20CB02C700A38852 /* BlockchainInteractor */,
+				18852B4B20CB02C700A38852 /* BlockchainService */,
 				187C01B720C85538008DA9A3 /* Hasher */,
 				18852B6020CB17D200A38852 /* General */,
 				187C01BA20C85538008DA9A3 /* Resources */,
@@ -229,14 +242,14 @@
 			path = xcconfigs;
 			sourceTree = SOURCE_ROOT;
 		};
-		18852B4B20CB02C700A38852 /* BlockchainInteractor */ = {
+		18852B4B20CB02C700A38852 /* BlockchainService */ = {
 			isa = PBXGroup;
 			children = (
-				18852B4C20CB02C700A38852 /* BlockchainServiceInteractor.swift */,
-				18852B5520CB163400A38852 /* ChainpointServiceInteractor.swift */,
+				18852B4C20CB02C700A38852 /* BlockchainService.swift */,
+				18852B5520CB163400A38852 /* ChainpointService.swift */,
 				181E1F9720D0540F00CDEF0B /* HashRequestStack.swift */,
 			);
-			path = BlockchainInteractor;
+			path = BlockchainService;
 			sourceTree = "<group>";
 		};
 		18852B5020CB03C100A38852 /* APIClient */ = {
@@ -271,8 +284,45 @@
 		18852B6520CB1B8E00A38852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				18852B6620CB1B8E00A38852 /* SubmittedHash.swift */,
+				18852B6620CB1B8E00A38852 /* NodeHash.swift */,
 				1804F60C20D4007C004A1C4B /* Node.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		188965AD20D68D11002A164E /* Persistency */ = {
+			isa = PBXGroup;
+			children = (
+				188965BD20D6B27D002A164E /* PersistencyService.swift */,
+				188965BF20D6B2A6002A164E /* CoreData */,
+			);
+			path = Persistency;
+			sourceTree = "<group>";
+		};
+		188965BF20D6B2A6002A164E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				188965CB20D6B301002A164E /* CoreDataService.swift */,
+				188965C020D6B2A6002A164E /* CoreDataStack.swift */,
+				188965C120D6B2A6002A164E /* ValueTransformers */,
+				188965C320D6B2A6002A164E /* Models */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		188965C120D6B2A6002A164E /* ValueTransformers */ = {
+			isa = PBXGroup;
+			children = (
+				188965C220D6B2A6002A164E /* NodeHashValueTransformer.swift */,
+			);
+			path = ValueTransformers;
+			sourceTree = "<group>";
+		};
+		188965C320D6B2A6002A164E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				188965C520D6B2A6002A164E /* Records.xcdatamodeld */,
+				188965C420D6B2A6002A164E /* NodeHashEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -409,17 +459,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18852B4D20CB02C700A38852 /* BlockchainServiceInteractor.swift in Sources */,
+				18852B4D20CB02C700A38852 /* BlockchainService.swift in Sources */,
 				18852B5D20CB16A500A38852 /* SubmitHashRequest.swift in Sources */,
 				187C01BE20C85538008DA9A3 /* SwiftBaas.swift in Sources */,
+				188965CA20D6B2A7002A164E /* Records.xcdatamodeld in Sources */,
+				188965C720D6B2A7002A164E /* CoreDataStack.swift in Sources */,
 				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
 				18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */,
-				18852B5620CB163400A38852 /* ChainpointServiceInteractor.swift in Sources */,
+				188965BE20D6B27D002A164E /* PersistencyService.swift in Sources */,
+				188965CC20D6B301002A164E /* CoreDataService.swift in Sources */,
+				18852B5620CB163400A38852 /* ChainpointService.swift in Sources */,
 				18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */,
+				188965C820D6B2A7002A164E /* NodeHashValueTransformer.swift in Sources */,
 				187C01BD20C85538008DA9A3 /* Hasher.swift in Sources */,
 				18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */,
 				18852B6B20CC087F00A38852 /* DiscoverNodesRequest.swift in Sources */,
-				18852B6720CB1B8E00A38852 /* SubmittedHash.swift in Sources */,
+				18852B6720CB1B8E00A38852 /* NodeHash.swift in Sources */,
+				188965C920D6B2A7002A164E /* NodeHashEntity.swift in Sources */,
 				1804F60D20D4007C004A1C4B /* Node.swift in Sources */,
 				18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */,
 				18852B6220CB17D200A38852 /* Result.swift in Sources */,
@@ -577,7 +633,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 187C01EC20C87868008DA9A3 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -604,7 +659,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 187C01EC20C87868008DA9A3 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -703,6 +757,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		188965C520D6B2A6002A164E /* Records.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				188965C620D6B2A6002A164E /* Records.xcdatamodel */,
+			);
+			currentVersion = 188965C620D6B2A6002A164E /* Records.xcdatamodel */;
+			path = Records.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 187C019320C84E6E008DA9A3 /* Project object */;
 }

@@ -5,8 +5,9 @@ final class APIClient {
     enum Error: Swift.Error {
         case missingResponseValue
     }
+    // TODO: Daniel Metzing - write tests
 
-  func execute(request: BlockchainRequest, completion: @escaping (Result<APIResponse>) -> Void ) {
+    func execute(request: BlockchainRequest, completion: @escaping (Result<APIResponse>) -> Void ) {
         Alamofire.request(request.url,
                           method: request.httpMethod,
                           parameters: request.parameters,
@@ -19,14 +20,14 @@ final class APIClient {
                 }
 
                 guard let result = response.result.value,
-                      let request = response.request else {
-                    // TODO: Daniel Metzing - Check if the payload is invalid what happens than
-                    completion(.failure(Error.missingResponseValue))
-                    return
+                    let request = response.request else {
+                        // TODO: Daniel Metzing - Check if the payload is invalid what happens than
+                        completion(.failure(Error.missingResponseValue))
+                        return
                 }
 
                 let apiResponse = APIResponse(request: request, result: result)
                 completion(.success(apiResponse))
-            }
+        }
     }
 }

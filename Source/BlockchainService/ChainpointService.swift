@@ -1,5 +1,5 @@
 // TODO: Daniel Metzing - write tests
-final class ChainpointServiceInteractor: BlockchainServiceInteractor {
+final class ChainpointService: BlockchainService {
     
     enum Error: Swift.Error {
         case maximumAmountOfNodesExceeded 
@@ -18,7 +18,7 @@ final class ChainpointServiceInteractor: BlockchainServiceInteractor {
     init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
-  
+
     func discoverPublicNodeURLs(completion: ((Result<[URL]>) -> Void)?) {
         let nodeURLIndex = Int(arc4random_uniform(3))
         let discoverNodesRequest = DiscoverNodesRequest(discoveryURL: Constants.nodeURLs[nodeURLIndex])
@@ -40,7 +40,7 @@ final class ChainpointServiceInteractor: BlockchainServiceInteractor {
 
     func submit(hashes: [String],
                 forNumberOfNodes numberOfNodes: UInt,
-                completion: ((Result<[SubmittedHash]>) -> Void)?) {
+                completion: ((Result<[NodeHash]>) -> Void)?) {
         self.discoverPublicNodeURLs { [weak self] result in
             switch result {
             case .success(let nodes):
@@ -58,7 +58,7 @@ final class ChainpointServiceInteractor: BlockchainServiceInteractor {
 
     func submit(hashes: [String],
                 toNodeURLs urls: [NodeURI],
-                completion: ((Result<[SubmittedHash]>) -> Void)?) {
+                completion: ((Result<[NodeHash]>) -> Void)?) {
         var hashRequestStack = HashRequestStack(hashes: hashes)
         urls.forEach { hashRequestStack.push(SubmitHashRequest(url: $0, hashes: hashes)) }
         self.submitHashRequest(hashRequestStack.pop(),
@@ -69,8 +69,8 @@ final class ChainpointServiceInteractor: BlockchainServiceInteractor {
 
     private func submitHashRequest(_ request: SubmitHashRequest?,
                                    fromStack _stack: HashRequestStack,
-                                   submittedHashes _hashes: [SubmittedHash],
-                                   completion: ((Result<[SubmittedHash]>) -> Void)?) {
+                                   submittedHashes _hashes: [NodeHash],
+                                   completion: ((Result<[NodeHash]>) -> Void)?) {
         if request == nil {
             completion?(.success(_hashes))
             return
@@ -84,7 +84,7 @@ final class ChainpointServiceInteractor: BlockchainServiceInteractor {
             case .success(let response):
                 print(response)
                 // TODO: Daniel Metzing - Add resposne transformer
-                // TODO: Daniel Metzing - Add SubmittedHash here to hashes
+                // TODO: Daniel Metzing - Add NodeHash here to hashes
                 self?.submitHashRequest(stack.pop(), fromStack: stack, submittedHashes: hashes, completion: completion)
             case .failure(let error):
                 print(error)

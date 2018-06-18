@@ -1,6 +1,5 @@
 import Alamofire
 
-
 final class DiscoverNodesRequest: BlockchainRequest {
 
     let discoveryURL: URL
