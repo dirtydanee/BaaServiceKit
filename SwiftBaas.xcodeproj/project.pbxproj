@@ -43,6 +43,8 @@
 		188965C920D6B2A7002A164E /* NodeHashEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965C420D6B2A6002A164E /* NodeHashEntity.swift */; };
 		188965CA20D6B2A7002A164E /* Records.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 188965C520D6B2A6002A164E /* Records.xcdatamodeld */; };
 		188965CC20D6B301002A164E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965CB20D6B301002A164E /* CoreDataService.swift */; };
+		318D261220D8230D00E9572A /* ProofRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D261120D8230D00E9572A /* ProofRequest.swift */; };
+		318D261420D8251600E9572A /* Proof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D261320D8251600E9572A /* Proof.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		188965C420D6B2A6002A164E /* NodeHashEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeHashEntity.swift; sourceTree = "<group>"; };
 		188965C620D6B2A6002A164E /* Records.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Records.xcdatamodel; sourceTree = "<group>"; };
 		188965CB20D6B301002A164E /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		318D261120D8230D00E9572A /* ProofRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofRequest.swift; sourceTree = "<group>"; };
+		318D261320D8251600E9572A /* Proof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proof.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +272,7 @@
 				18852B5A20CB168100A38852 /* BlockchainRequest.swift */,
 				18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */,
 				18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */,
+				318D261120D8230D00E9572A /* ProofRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			children = (
 				18852B6620CB1B8E00A38852 /* NodeHash.swift */,
 				1804F60C20D4007C004A1C4B /* Node.swift */,
+				318D261320D8251600E9572A /* Proof.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -467,9 +473,11 @@
 				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
 				18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */,
 				188965BE20D6B27D002A164E /* PersistencyService.swift in Sources */,
+				318D261220D8230D00E9572A /* ProofRequest.swift in Sources */,
 				188965CC20D6B301002A164E /* CoreDataService.swift in Sources */,
 				18852B5620CB163400A38852 /* ChainpointService.swift in Sources */,
 				18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */,
+				318D261420D8251600E9572A /* Proof.swift in Sources */,
 				188965C820D6B2A7002A164E /* NodeHashValueTransformer.swift in Sources */,
 				187C01BD20C85538008DA9A3 /* Hasher.swift in Sources */,
 				18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */,

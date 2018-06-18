@@ -17,9 +17,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let record = Record(identifier: "1", description: "My first record")
         do {
-            let hash = try self.blockchainService.generateSHA256(from: record)
+            let hashData = try self.blockchainService.generateSHA256(from: record)
             self.blockchainService.discoverPublicNodeURLs(completion: nil)
-//            self.blockchainService.submit(hashes: [hash], forNumberOfNodes: 3, completion: nil)
+            self.blockchainService.submit(hashes: [hashData], forNumberOfNodes: 3) { (nodeResult) in
+                print("nodeResult: \(nodeResult)")
+            }
+            self.blockchainService.proof(forHashId: "a4b52f60-7322-11e8-876e-0159403461ed") { (result) in
+                print("proof result: \(result)")
+            }
         } catch {
             print(error)
         }

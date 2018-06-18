@@ -131,8 +131,10 @@ public extension SwiftBaas {
 
     // MARK: - Proof retrieval
 
-    func proof(forHashId: HashIdNode, completion: () -> Result<SwiftBaas.Proof>) {
-
+    func proof(forHashId: HashIdNode, completion: @escaping (Result<Proof>) -> Void) {
+        self.blockchainService.proof(forHashId: forHashId) { (proof) in
+            print("proof: \(proof)")
+        }
     }
 
     // MARK: - Proof Verification

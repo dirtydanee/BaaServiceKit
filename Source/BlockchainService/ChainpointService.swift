@@ -38,6 +38,8 @@ final class ChainpointService: BlockchainService {
         // http://nodeURI/config -> see swagger https://app.swaggerhub.com/apis/chainpoint/node/1.0.0#/config
     }
 
+    // MARK: - Submit
+    
     func submit(hashes: [String],
                 forNumberOfNodes numberOfNodes: UInt,
                 completion: ((Result<[NodeHash]>) -> Void)?) {
@@ -66,8 +68,42 @@ final class ChainpointService: BlockchainService {
                                submittedHashes: [],
                                completion: completion)
     }
+    
+    // MARK: Proof
+    
+    func proof(forHashId: HashIdNode, completion: (Result<Proof>) -> Void) {
 
-    private func submitHashRequest(_ request: SubmitHashRequest?,
+        let url = URL(string: "http://35.230.179.171")!
+        let proofRequest = ProofRequest(baseUrl: url, hash: forHashId)
+        
+        self.apiClient.execute(request: proofRequest) { [weak self] result in
+            switch result {
+            case .success(let response):
+                print(response)
+                
+                let data = response.result as! Data
+                do {
+                    let decoder = JSONDecoder()
+                    let gitData = try decoder.decode(ProofResponse.self, from: data)
+                    print(gitData.proof.hash)
+                    
+                } catch let err {
+                    print("Err", err)
+                }
+                
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
+// MARK: - Private methods
+
+private extension ChainpointService {
+    
+    func submitHashRequest(_ request: SubmitHashRequest?,
                                    fromStack _stack: HashRequestStack,
                                    submittedHashes _hashes: [NodeHash],
                                    completion: ((Result<[NodeHash]>) -> Void)?) {
@@ -91,5 +127,9 @@ final class ChainpointService: BlockchainService {
                 self?.submitHashRequest(stack.pop(), fromStack: stack, submittedHashes: hashes, completion: completion)
             }
         }
+    }
+    
+    func queryProof(for hash: Hash, request: ProofRequest, completion: () -> Result<SwiftBaas.Proof>) {
+        
     }
 }
