@@ -76,7 +76,7 @@ final class ChainpointService: BlockchainService {
         let url = URL(string: "http://35.230.179.171")!
         let proofRequest = ProofRequest(baseUrl: url, hash: forHashId)
         
-        self.apiClient.execute(request: proofRequest) { [weak self] result in
+        self.apiClient.execute(request: proofRequest, headers: .chainpointJson) { [weak self] result in
             switch result {
             case .success(let response):
                 print(response)

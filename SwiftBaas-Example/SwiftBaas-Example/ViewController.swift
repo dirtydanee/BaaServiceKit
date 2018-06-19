@@ -17,12 +17,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let record = Record(identifier: "1", description: "My first record")
         do {
-            let hashData = try self.blockchainService.generateSHA256(from: record)
-            self.blockchainService.discoverPublicNodeURLs(completion: nil)
-            self.blockchainService.submit(hashes: [hashData], forNumberOfNodes: 3) { (nodeResult) in
-                print("nodeResult: \(nodeResult)")
-            }
-            self.blockchainService.proof(forHashId: "a4b52f60-7322-11e8-876e-0159403461ed") { (result) in
+//            let hashData = try self.blockchainService.generateSHA256(from: record)
+//            self.blockchainService.discoverPublicNodeURLs(completion: nil)
+//            self.blockchainService.submit(hashes: [hashData], forNumberOfNodes: 3) { (nodeResult) in
+//                print("nodeResult: \(nodeResult)")
+//            }
+            
+            self.blockchainService.proof(forHashId: "3f223780-73fc-11e8-876e-016abea8b406") { (result) in
                 print("proof result: \(result)")
             }
         } catch {

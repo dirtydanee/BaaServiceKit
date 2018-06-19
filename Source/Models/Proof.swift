@@ -37,6 +37,15 @@ public struct Proof: Codable {
 //    }
 //]
 
+// ??
+//[
+//    {
+//        "hash_id_node": "a4b52f60-7322-11e8-876e-0159403461ed",
+//        "proof": null,
+//        "anchors_complete": []
+//    }
+//]
+
 // 2. Partial
 //[
 //    {
