@@ -28,6 +28,8 @@
 		2C4CBBDEC2EFB09616F091D8085054B1 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E860C81D1E84E1DCCED61EDD679A70E9 /* Array+Extension.swift */; };
 		310ABDE80415E39F37B252CA16969837 /* Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBEFA1C3016884818A30C1DF36ECEC9 /* Hasher.swift */; };
 		31751F130B46DF84F0D296F36E283691 /* SwiftBaas+Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411ADA90EFAD005F8A0627C4ABAFCBD /* SwiftBaas+Typealiases.swift */; };
+		31A57D7820DAE6ED002EB6B7 /* Proof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A57D7620DAE6EB002EB6B7 /* Proof.swift */; };
+		31A57D7B20DAE965002EB6B7 /* ChainpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A57D7920DAE8B5002EB6B7 /* ChainpointError.swift */; };
 		332AE3CF5C6F62A0CB28D69FAD83D4F2 /* CompactMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CB0150EC9B4E4B1A25848CB49C3888 /* CompactMap.swift */; };
 		34CEB32C37C9462CC37877D4AB803080 /* ProofRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C3473D5F73FAFFF15BBA23C16235B /* ProofRequest.swift */; };
 		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9F53E29F10FCC9F7A7CDA0DDE38E2 /* TaskDelegate.swift */; };
@@ -98,7 +100,7 @@
 		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103B574253185DB3160063F7440A997 /* Validation.swift */; };
 		BCB963EB00BDF032EB6B4DA695305989 /* PBKDF1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704BCDD5343AA3225E53CF446EC195ED /* PBKDF1.swift */; };
 		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7875F2636AA9D52288570D8CDAAA6 /* ParameterEncoding.swift */; };
-		BE9413D237167D31AB1B59ACDBFC8F5D /* Proof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BFF03875E6BA734698DF6299CD2330 /* Proof.swift */; };
+		BE9413D237167D31AB1B59ACDBFC8F5D /* ChainpointProofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BFF03875E6BA734698DF6299CD2330 /* ChainpointProofResponse.swift */; };
 		C051EAEBD84A5544487743E3F2C8464F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16E08417573A22DFC88D054DC361B28 /* Utils.swift */; };
 		C63395CEBB350459331804F9F5AE82C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 448AF3FBF9D13726A19812E230E6CBA3 /* Alamofire.framework */; };
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C1713111F8B1C4D87F238D303636D5 /* Response.swift */; };
@@ -202,6 +204,8 @@
 		258B124F69B680BD3227702D4C435FFA /* PCBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PCBC.swift; path = Sources/CryptoSwift/BlockMode/PCBC.swift; sourceTree = "<group>"; };
 		2A796E9E16B95CD0C5429023F3A88D2C /* CryptoSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CryptoSwift-umbrella.h"; sourceTree = "<group>"; };
 		2BCC4249DBD18350EE6E468D2537FC61 /* UInt128.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UInt128.swift; path = Sources/CryptoSwift/UInt128.swift; sourceTree = "<group>"; };
+		31A57D7620DAE6EB002EB6B7 /* Proof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proof.swift; sourceTree = "<group>"; };
+		31A57D7920DAE8B5002EB6B7 /* ChainpointError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainpointError.swift; sourceTree = "<group>"; };
 		3344F1DBB99B204084C562C4DA20CC67 /* Rabbit+Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Rabbit+Foundation.swift"; path = "Sources/CryptoSwift/Foundation/Rabbit+Foundation.swift"; sourceTree = "<group>"; };
 		39C1713111F8B1C4D87F238D303636D5 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
 		3BBEFA1C3016884818A30C1DF36ECEC9 /* Hasher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Hasher.swift; sourceTree = "<group>"; };
@@ -227,7 +231,7 @@
 		5B5DA14EE6C8A960A85FB0E408A6E854 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BE9F53E29F10FCC9F7A7CDA0DDE38E2 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		5F335363B66EBE925FEBA0A4192BF802 /* Array+Foundation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Foundation.swift"; path = "Sources/CryptoSwift/Foundation/Array+Foundation.swift"; sourceTree = "<group>"; };
-		60BFF03875E6BA734698DF6299CD2330 /* Proof.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Proof.swift; sourceTree = "<group>"; };
+		60BFF03875E6BA734698DF6299CD2330 /* ChainpointProofResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChainpointProofResponse.swift; sourceTree = "<group>"; };
 		61988289372BA2C684B7A490B6C59E60 /* ECB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ECB.swift; path = Sources/CryptoSwift/BlockMode/ECB.swift; sourceTree = "<group>"; };
 		636C3473D5F73FAFFF15BBA23C16235B /* ProofRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProofRequest.swift; sourceTree = "<group>"; };
 		64577489503E054ACE2C0085C614AB57 /* Collection+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Collection+Extension.swift"; path = "Sources/CryptoSwift/Collection+Extension.swift"; sourceTree = "<group>"; };
@@ -362,9 +366,10 @@
 		0284212EBA653B52933F429ED30EED05 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3168D7F820DAE133001AFB30 /* ChainpointResponse */,
 				B08BAFA33AA396EE54731A593284AE3C /* Node.swift */,
 				9B3890EFB8307589B9F01B5500E4B610 /* NodeHash.swift */,
-				60BFF03875E6BA734698DF6299CD2330 /* Proof.swift */,
+				31A57D7620DAE6EB002EB6B7 /* Proof.swift */,
 			);
 			name = Models;
 			path = Source/Models;
@@ -394,6 +399,15 @@
 				0EACD8C6579FFC90880557FBDF58EC2A /* NodeHashValueTransformer.swift */,
 			);
 			path = ValueTransformers;
+			sourceTree = "<group>";
+		};
+		3168D7F820DAE133001AFB30 /* ChainpointResponse */ = {
+			isa = PBXGroup;
+			children = (
+				60BFF03875E6BA734698DF6299CD2330 /* ChainpointProofResponse.swift */,
+				31A57D7920DAE8B5002EB6B7 /* ChainpointError.swift */,
+			);
+			path = ChainpointResponse;
 			sourceTree = "<group>";
 		};
 		3F2E55643FD944B04096E55BE3AEBE9C /* General */ = {
@@ -887,11 +901,13 @@
 				E99652F37297826EA169868D5322BD6F /* NodeHashValueTransformer.swift in Sources */,
 				27F02ED58C4ADEEE0B563F3767C469E3 /* PayloadTransformer.swift in Sources */,
 				13539809046638637986A1529F5899E8 /* PersistencyService.swift in Sources */,
-				BE9413D237167D31AB1B59ACDBFC8F5D /* Proof.swift in Sources */,
+				31A57D7820DAE6ED002EB6B7 /* Proof.swift in Sources */,
+				BE9413D237167D31AB1B59ACDBFC8F5D /* ChainpointProofResponse.swift in Sources */,
 				34CEB32C37C9462CC37877D4AB803080 /* ProofRequest.swift in Sources */,
 				67DEE13B9EA4A44FA0C11B2E9FDDF753 /* Result.swift in Sources */,
 				6FCC0C14591971F42F46F40C732B52C4 /* SubmitHashRequest.swift in Sources */,
 				31751F130B46DF84F0D296F36E283691 /* SwiftBaas+Typealiases.swift in Sources */,
+				31A57D7B20DAE965002EB6B7 /* ChainpointError.swift in Sources */,
 				DD9E671FE64E87817F960F88BEB54135 /* SwiftBaas-dummy.m in Sources */,
 				EEDC85B2BDBE8B305563BBA9D8656BD4 /* SwiftBaas.swift in Sources */,
 			);

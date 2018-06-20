@@ -15,19 +15,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let record = Record(identifier: "1", description: "My first record")
-        do {
+//        let record = Record(identifier: "1", description: "My first record")
+//        do {
 //            let hashData = try self.blockchainService.generateSHA256(from: record)
 //            self.blockchainService.discoverPublicNodeURLs(completion: nil)
 //            self.blockchainService.submit(hashes: [hashData], forNumberOfNodes: 3) { (nodeResult) in
 //                print("nodeResult: \(nodeResult)")
 //            }
-            
-            self.blockchainService.proof(forHashId: "3f223780-73fc-11e8-876e-016abea8b406") { (result) in
-                print("proof result: \(result)")
+//        } catch {
+//            print(error)
+//        }
+        
+        self.blockchainService.proof(forHashId: "d669a990-74bd-11e8-876e-0131efc60961") { (result) in
+            switch result {
+            case .success(let proof):
+                print(proof)
+            case .failure(let error):
+                print(error)
             }
-        } catch {
-            print(error)
         }
     }
 }

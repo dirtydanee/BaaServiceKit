@@ -70,33 +70,57 @@ final class ChainpointService: BlockchainService {
     }
     
     // MARK: Proof
-    
-    func proof(forHashId: HashIdNode, completion: (Result<Proof>) -> Void) {
+    func proof(forHashId: HashIdNode, completion: @escaping (Result<Proof>) -> Void) {
 
+        // TODO: David Szurma - Should discuss the endpoint structure
         let url = URL(string: "http://35.230.179.171")!
         let proofRequest = ProofRequest(baseUrl: url, hash: forHashId)
         
-        self.apiClient.execute(request: proofRequest, headers: .chainpointJson) { [weak self] result in
+        self.apiClient.execute(request: proofRequest, headers: .chainpointJson) { result in
             switch result {
             case .success(let response):
-                print(response)
                 
-                let data = response.result as! Data
                 do {
-                    let decoder = JSONDecoder()
-                    let gitData = try decoder.decode(ProofResponse.self, from: data)
-                    print(gitData.proof.hash)
-                    
-                } catch let err {
-                    print("Err", err)
+                    let data = try JSONSerialization.data(withJSONObject: response.result)
+                    try self.tryToParseError(from: data)
+                    // TODO: David Szurma - fix force unwrap (.first!)
+                    let decodedProof = try JSONDecoder().decode([ChainpointProofResponse].self, from: data).first!
+                    completion(.success(Proof.create(from: decodedProof)))
+                } catch let error {
+                    completion(.failure(error))
                 }
                 
-                
             case .failure(let error):
-                print(error)
+                completion(.failure(error))
             }
         }
     }
+    
+//    func proof(forHashId: [HashIdNode], completion: @escaping (Result<[Proof]>) -> Void) {
+//
+//        let url = URL(string: "http://35.230.179.171")!
+//        let proofRequest = ProofRequest(baseUrl: url, hash: forHashId)
+//
+//        self.apiClient.execute(request: proofRequest, headers: .chainpointJson) { result in
+//            switch result {
+//            case .success(let response):
+//
+//                do {
+//                    let json = try JSONSerialization.data(withJSONObject: response.result)
+//                    let decodedProfes = try JSONDecoder().decode([ChainpointProofResponse].self, from: json)
+//                    let proofs: [Proof] = decodedProfes.reduce(into: []) { (inoutResult, cpResponse) in
+//                        inoutResult.append(Proof.create(from: cpResponse))
+//                    }
+//                    completion(.success(proofs))
+//                } catch let error {
+//                    completion(.failure(error))
+//                }
+//
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        }
+//    }
 }
 
 // MARK: - Private methods
@@ -129,7 +153,17 @@ private extension ChainpointService {
         }
     }
     
-    func queryProof(for hash: Hash, request: ProofRequest, completion: () -> Result<SwiftBaas.Proof>) {
+    func queryProof(for hash: Hash, request: ProofRequest, completion: () -> Result<Proof>) {
         
+    }
+    
+    /// Data should be JSON
+    private func tryToParseError(from data: Data) throws {
+        do {
+            let decodedError = try JSONDecoder().decode(ChainpointError.self, from: data)
+            throw decodedError
+        } catch {
+            // Do nothing this case means that this is not an error JSON from Chainpoint server.
+        }
     }
 }
