@@ -1,10 +1,3 @@
-//
-//  ChainpointHashResponse.swift
-//  Alamofire
-//
-//  Created by David Szurma on 2018. 06. 24..
-//
-
 import Foundation
 
 struct ChainpointHashResponse: Codable {

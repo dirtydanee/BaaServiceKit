@@ -1,10 +1,3 @@
-//
-//  Proof.swift
-//  Alamofire
-//
-//  Created by David Szurma on 2018. 06. 20..
-//
-
 import Foundation
 
 public struct Proof {
