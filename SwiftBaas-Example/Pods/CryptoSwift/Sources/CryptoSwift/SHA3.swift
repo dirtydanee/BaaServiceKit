@@ -17,10 +17,10 @@
 //  http://keccak.noekeon.org/specs_summary.html
 //
 
-#if canImport(Darwin)
-import Darwin
+#if os(Linux) || os(Android) || os(FreeBSD)
+    import Glibc
 #else
-import Glibc
+    import Darwin
 #endif
 
 public final class SHA3: DigestType {

@@ -19,8 +19,6 @@
 /// The Advanced Encryption Standard (AES)
 public final class AES: BlockCipher {
     public enum Error: Swift.Error {
-        /// Invalid key
-        case invalidKeySize
         /// Data padding is required
         case dataPaddingRequired
         /// Invalid Data
@@ -43,15 +41,25 @@ public final class AES: BlockCipher {
         }
     }
 
-    private let variantNr: Int
-    private let variantNb: Int
-    private let variantNk: Int
+    private lazy var variantNr: Int = self.variant.Nr
+    private lazy var variantNb: Int = self.variant.Nb
+    private lazy var variantNk: Int = self.variant.Nk
 
     public static let blockSize: Int = 16 // 128 /8
     public let keySize: Int
 
-    /// AES Variant
-    public let variant: Variant
+    public var variant: Variant {
+        switch keySize * 8 {
+        case 128:
+            return .aes128
+        case 192:
+            return .aes192
+        case 256:
+            return .aes256
+        default:
+            preconditionFailure("Unknown AES variant for given key.")
+        }
+    }
 
     // Parameters
     let key: Key
@@ -116,23 +124,7 @@ public final class AES: BlockCipher {
         self.key = Key(bytes: key)
         self.blockMode = blockMode
         self.padding = padding
-        self.keySize = self.key.count
-
-        // Validate key size
-        switch keySize * 8 {
-        case 128:
-            variant = .aes128
-        case 192:
-            variant = .aes192
-        case 256:
-            variant = .aes256
-        default:
-            throw Error.invalidKeySize
-        }
-
-        variantNb = variant.Nb
-        variantNk = variant.Nk
-        variantNr = variant.Nr
+        keySize = self.key.count
     }
 
     internal func encrypt(block: ArraySlice<UInt8>) -> Array<UInt8>? {
@@ -364,7 +356,7 @@ private extension AES {
 
     private func expandKey(_ key: Key, variant _: Variant) -> Array<Array<UInt32>> {
         func convertExpandedKey(_ expanded: Array<UInt8>) -> Array<Array<UInt32>> {
-            return expanded.batched(by: 4).map({ UInt32(bytes: $0.reversed()) }).batched(by: 4).map { Array($0) }
+            return expanded.batched(by: 4).map({ UInt32(bytes: $0.reversed()) }).batched(by: 4).map({ Array($0) })
         }
 
         /*

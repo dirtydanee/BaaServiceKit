@@ -14,10 +14,10 @@
 //  - This notice may not be removed or altered from any source or binary distribution.
 //
 
-#if canImport(Darwin)
-import Darwin
+#if os(Linux) || os(Android) || os(FreeBSD)
+    import Glibc
 #else
-import Glibc
+    import Darwin
 #endif
 
 /* array of bits */
@@ -30,9 +30,9 @@ extension Int {
 extension FixedWidthInteger {
     @_transparent
     func bytes(totalBytes: Int = MemoryLayout<Self>.size) -> Array<UInt8> {
-        return arrayOfBytes(value: self.littleEndian, length: totalBytes)
+        return arrayOfBytes(value: self, length: totalBytes)
         // TODO: adjust bytes order
-        // var value = self.littleEndian
+        // var value = self
         // return withUnsafeBytes(of: &value, Array.init).reversed()
     }
 }

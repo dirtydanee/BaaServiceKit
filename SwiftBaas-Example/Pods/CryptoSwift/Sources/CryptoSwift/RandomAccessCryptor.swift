@@ -14,9 +14,7 @@
 //
 
 /// Random access cryptor
-public protocol Cryptor { }
-
-public protocol RandomAccessCryptor: Cryptor {
+public protocol RandomAccessCryptor: Updatable {
     /// Seek to position in file, if block mode allows random access.
     ///
     /// - parameter to: new value of counter
