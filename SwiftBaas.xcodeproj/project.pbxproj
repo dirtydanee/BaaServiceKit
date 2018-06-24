@@ -45,6 +45,12 @@
 		188965CC20D6B301002A164E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965CB20D6B301002A164E /* CoreDataService.swift */; };
 		318D261220D8230D00E9572A /* ProofRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D261120D8230D00E9572A /* ProofRequest.swift */; };
 		318D261420D8251600E9572A /* Proof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D261320D8251600E9572A /* Proof.swift */; };
+		31AA705420E03C3E00FB77E8 /* HeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705320E03C3D00FB77E8 /* HeaderType.swift */; };
+		31AA705A20E03C6900FB77E8 /* ChainpointProofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705620E03C6900FB77E8 /* ChainpointProofResponse.swift */; };
+		31AA705B20E03C6900FB77E8 /* ChainpointHashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705720E03C6900FB77E8 /* ChainpointHashResponse.swift */; };
+		31AA705C20E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf in Resources */ = {isa = PBXBuildFile; fileRef = 31AA705820E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf */; };
+		31AA705D20E03C6900FB77E8 /* ChainpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705920E03C6900FB77E8 /* ChainpointError.swift */; };
+		31AA705F20E03C8800FB77E8 /* APIErrorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705E20E03C8700FB77E8 /* APIErrorTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +107,12 @@
 		188965CB20D6B301002A164E /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		318D261120D8230D00E9572A /* ProofRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofRequest.swift; sourceTree = "<group>"; };
 		318D261320D8251600E9572A /* Proof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proof.swift; sourceTree = "<group>"; };
+		31AA705320E03C3D00FB77E8 /* HeaderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderType.swift; sourceTree = "<group>"; };
+		31AA705620E03C6900FB77E8 /* ChainpointProofResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointProofResponse.swift; sourceTree = "<group>"; };
+		31AA705720E03C6900FB77E8 /* ChainpointHashResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointHashResponse.swift; sourceTree = "<group>"; };
+		31AA705820E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "E-02 -1. PINCE ALAPRAJZ 2018..pdf"; sourceTree = "<group>"; };
+		31AA705920E03C6900FB77E8 /* ChainpointError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointError.swift; sourceTree = "<group>"; };
+		31AA705E20E03C8700FB77E8 /* APIErrorTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +271,7 @@
 		18852B5020CB03C100A38852 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				31AA705E20E03C8700FB77E8 /* APIErrorTransformer.swift */,
 				18852B5120CB03C100A38852 /* APIClient.swift */,
 				18432BAD20CEEA4C009163CE /* APIResponse.swift */,
 				18852B5920CB168100A38852 /* Requests */,
@@ -269,6 +282,7 @@
 		18852B5920CB168100A38852 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				31AA705320E03C3D00FB77E8 /* HeaderType.swift */,
 				18852B5A20CB168100A38852 /* BlockchainRequest.swift */,
 				18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */,
 				18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */,
@@ -289,6 +303,7 @@
 		18852B6520CB1B8E00A38852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				31AA705520E03C6900FB77E8 /* ChainpointResponse */,
 				18852B6620CB1B8E00A38852 /* NodeHash.swift */,
 				1804F60C20D4007C004A1C4B /* Node.swift */,
 				318D261320D8251600E9572A /* Proof.swift */,
@@ -331,6 +346,17 @@
 				188965C420D6B2A6002A164E /* NodeHashEntity.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		31AA705520E03C6900FB77E8 /* ChainpointResponse */ = {
+			isa = PBXGroup;
+			children = (
+				31AA705620E03C6900FB77E8 /* ChainpointProofResponse.swift */,
+				31AA705720E03C6900FB77E8 /* ChainpointHashResponse.swift */,
+				31AA705820E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf */,
+				31AA705920E03C6900FB77E8 /* ChainpointError.swift */,
+			);
+			path = ChainpointResponse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31AA705C20E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf in Resources */,
 				187C01F420C87869008DA9A3 /* UniversalFramework_Base.xcconfig in Resources */,
 				187C01F320C87869008DA9A3 /* README.md in Resources */,
 				187C01F520C87869008DA9A3 /* UniversalFramework_Test.xcconfig in Resources */,
@@ -468,9 +495,11 @@
 				18852B4D20CB02C700A38852 /* BlockchainService.swift in Sources */,
 				18852B5D20CB16A500A38852 /* SubmitHashRequest.swift in Sources */,
 				187C01BE20C85538008DA9A3 /* SwiftBaas.swift in Sources */,
+				31AA705D20E03C6900FB77E8 /* ChainpointError.swift in Sources */,
 				188965CA20D6B2A7002A164E /* Records.xcdatamodeld in Sources */,
 				188965C720D6B2A7002A164E /* CoreDataStack.swift in Sources */,
 				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
+				31AA705F20E03C8800FB77E8 /* APIErrorTransformer.swift in Sources */,
 				18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */,
 				188965BE20D6B27D002A164E /* PersistencyService.swift in Sources */,
 				318D261220D8230D00E9572A /* ProofRequest.swift in Sources */,
@@ -480,13 +509,16 @@
 				318D261420D8251600E9572A /* Proof.swift in Sources */,
 				188965C820D6B2A7002A164E /* NodeHashValueTransformer.swift in Sources */,
 				187C01BD20C85538008DA9A3 /* Hasher.swift in Sources */,
+				31AA705B20E03C6900FB77E8 /* ChainpointHashResponse.swift in Sources */,
 				18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */,
 				18852B6B20CC087F00A38852 /* DiscoverNodesRequest.swift in Sources */,
 				18852B6720CB1B8E00A38852 /* NodeHash.swift in Sources */,
 				188965C920D6B2A7002A164E /* NodeHashEntity.swift in Sources */,
 				1804F60D20D4007C004A1C4B /* Node.swift in Sources */,
+				31AA705A20E03C6900FB77E8 /* ChainpointProofResponse.swift in Sources */,
 				18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */,
 				18852B6220CB17D200A38852 /* Result.swift in Sources */,
+				31AA705420E03C3E00FB77E8 /* HeaderType.swift in Sources */,
 				181E1F8C20D040BB00CDEF0B /* PayloadTransformer.swift in Sources */,
 				18852B5220CB03C100A38852 /* APIClient.swift in Sources */,
 			);
