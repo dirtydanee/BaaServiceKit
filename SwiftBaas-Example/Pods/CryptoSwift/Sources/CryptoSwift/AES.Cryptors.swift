@@ -28,19 +28,19 @@ extension AES: Cryptors {
 // MARK: Encryptor
 
 extension AES {
-    public struct Encryptor: Cryptor, Updatable {
+    public struct Encryptor: Updatable {
         private var worker: BlockModeWorker
         private let padding: Padding
-        // Accumulated bytes. Not all processed bytes.
         private var accumulated = Array<UInt8>()
         private var processedBytesTotalCount: Int = 0
+        private let paddingRequired: Bool
 
         init(aes: AES) throws {
             padding = aes.padding
             worker = try aes.blockMode.worker(blockSize: AES.blockSize, cipherOperation: aes.encrypt)
+            paddingRequired = aes.blockMode.options.contains(.paddingRequired)
         }
 
-        // MARK: Updatable
         public mutating func update(withBytes bytes: ArraySlice<UInt8>, isLast: Bool = false) throws -> Array<UInt8> {
             accumulated += bytes
 
@@ -52,17 +52,12 @@ extension AES {
             var encrypted = Array<UInt8>(reserveCapacity: accumulated.count)
             for chunk in accumulated.batched(by: AES.blockSize) {
                 if isLast || (accumulated.count - processedBytes) >= AES.blockSize {
-                    encrypted += worker.encrypt(block: chunk)
+                    encrypted += worker.encrypt(chunk)
                     processedBytes += chunk.count
                 }
             }
             accumulated.removeFirst(processedBytes)
             processedBytesTotalCount += processedBytes
-
-            if var finalizingWorker = worker as? BlockModeWorkerFinalizing, isLast == true {
-                encrypted = try finalizingWorker.finalize(encrypt: encrypted.slice)
-            }
-
             return encrypted
         }
     }
@@ -71,12 +66,12 @@ extension AES {
 // MARK: Decryptor
 
 extension AES {
-    public struct Decryptor: RandomAccessCryptor, Updatable {
+    public struct Decryptor: RandomAccessCryptor {
         private var worker: BlockModeWorker
         private let padding: Padding
-        private let additionalBufferSize: Int
         private var accumulated = Array<UInt8>()
         private var processedBytesTotalCount: Int = 0
+        private let paddingRequired: Bool
 
         private var offset: Int = 0
         private var offsetToRemove: Int = 0
@@ -84,13 +79,15 @@ extension AES {
         init(aes: AES) throws {
             padding = aes.padding
 
-            if aes.blockMode.options.contains(.useEncryptToDecrypt) {
+            switch aes.blockMode {
+            case .CFB, .OFB, .CTR:
+                // CFB, OFB, CTR uses encryptBlock to decrypt
                 worker = try aes.blockMode.worker(blockSize: AES.blockSize, cipherOperation: aes.encrypt)
-            } else {
+            default:
                 worker = try aes.blockMode.worker(blockSize: AES.blockSize, cipherOperation: aes.decrypt)
             }
 
-            additionalBufferSize = worker.additionalBufferSize
+            paddingRequired = aes.blockMode.options.contains(.paddingRequired)
         }
 
         public mutating func update(withBytes bytes: ArraySlice<UInt8>, isLast: Bool = false) throws -> Array<UInt8> {
@@ -103,33 +100,11 @@ extension AES {
                 accumulated += bytes
             }
 
-            // If a worker (eg GCM) can combine ciphertext + tag
-            // we need to remove tag from the ciphertext.
-            if !isLast && accumulated.count < worker.blockSize + additionalBufferSize {
-                return []
-            }
-
-            let accumulatedWithoutSuffix: Array<UInt8>
-            if additionalBufferSize > 0 {
-                // FIXME: how slow is that?
-                accumulatedWithoutSuffix = Array(accumulated.prefix(accumulated.count - additionalBufferSize))
-            } else {
-                accumulatedWithoutSuffix = accumulated
-            }
-
-            var processedBytesCount = 0
-            var plaintext = Array<UInt8>(reserveCapacity: accumulatedWithoutSuffix.count)
-            // Processing in a block-size manner. It's good for block modes, but bad for stream modes.
-            for var chunk in accumulatedWithoutSuffix.batched(by: worker.blockSize) {
-                if isLast || (accumulatedWithoutSuffix.count - processedBytesCount) >= worker.blockSize {
-
-                    if isLast, var finalizingWorker = worker as? BlockModeWorkerFinalizing {
-                        chunk = try finalizingWorker.willDecryptLast(block: chunk + accumulated.suffix(additionalBufferSize)) // tag size
-                    }
-
-                    if !chunk.isEmpty {
-                        plaintext += worker.decrypt(block: chunk)
-                    }
+            var processedBytes = 0
+            var plaintext = Array<UInt8>(reserveCapacity: accumulated.count)
+            for chunk in accumulated.batched(by: AES.blockSize) {
+                if isLast || (accumulated.count - processedBytes) >= AES.blockSize {
+                    plaintext += worker.decrypt(chunk)
 
                     // remove "offset" from the beginning of first chunk
                     if offsetToRemove > 0 {
@@ -137,18 +112,14 @@ extension AES {
                         offsetToRemove = 0
                     }
 
-                    if var finalizingWorker = worker as? BlockModeWorkerFinalizing, isLast == true {
-                        plaintext = try finalizingWorker.didDecryptLast(block: plaintext.slice)
-                    }
-
-                    processedBytesCount += chunk.count
+                    processedBytes += chunk.count
                 }
             }
-            accumulated.removeFirst(processedBytesCount) // super-slow
-            processedBytesTotalCount += processedBytesCount
+            accumulated.removeFirst(processedBytes)
+            processedBytesTotalCount += processedBytes
 
             if isLast {
-                plaintext = padding.remove(from: plaintext, blockSize: worker.blockSize)
+                plaintext = padding.remove(from: plaintext, blockSize: AES.blockSize)
             }
 
             return plaintext
@@ -159,10 +130,10 @@ extension AES {
                 return false
             }
 
-            worker.counter = UInt(position / AES.blockSize) // TODO: worker.blockSize
+            worker.counter = UInt(position / AES.blockSize)
             self.worker = worker
 
-            offset = position % worker.blockSize
+            offset = position % AES.blockSize
 
             accumulated = []
 

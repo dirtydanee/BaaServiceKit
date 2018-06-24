@@ -25,8 +25,6 @@ public final class Blowfish {
         case invalidKeyOrInitializationVector
         /// Invalid IV
         case invalidInitializationVector
-        /// Invalid block mode
-        case invalidBlockMode
     }
 
     public static let blockSize: Int = 8 // 64 bit
@@ -314,7 +312,7 @@ public final class Blowfish {
         ],
     ]
 
-    public init(key: Array<UInt8>, blockMode: BlockMode = CBC(iv: Array<UInt8>(repeating: 0, count: Blowfish.blockSize)), padding: Padding) throws {
+    public init(key: Array<UInt8>, blockMode: BlockMode = .CBC(iv: Array<UInt8>(repeating: 0, count: Blowfish.blockSize)), padding: Padding) throws {
         precondition(key.count >= 5 && key.count <= 56)
 
         self.blockMode = blockMode
@@ -331,9 +329,10 @@ public final class Blowfish {
     private func setupBlockModeWorkers() throws {
         encryptWorker = try blockMode.worker(blockSize: Blowfish.blockSize, cipherOperation: encrypt)
 
-        if blockMode.options.contains(.useEncryptToDecrypt) {
+        switch blockMode {
+        case .CFB, .OFB, .CTR:
             decryptWorker = try blockMode.worker(blockSize: Blowfish.blockSize, cipherOperation: encrypt)
-        } else {
+        default:
             decryptWorker = try blockMode.worker(blockSize: Blowfish.blockSize, cipherOperation: decrypt)
         }
     }
@@ -504,7 +503,7 @@ extension Blowfish: Cipher {
         out.reserveCapacity(bytes.count)
 
         for chunk in bytes.batched(by: Blowfish.blockSize) {
-            out += encryptWorker.encrypt(block: chunk)
+            out += encryptWorker.encrypt(chunk)
         }
 
         if blockMode.options.contains(.paddingRequired) && (out.count % Blowfish.blockSize != 0) {
@@ -527,7 +526,7 @@ extension Blowfish: Cipher {
         out.reserveCapacity(bytes.count)
 
         for chunk in Array(bytes).batched(by: Blowfish.blockSize) {
-            out += decryptWorker.decrypt(block: chunk) // FIXME: copying here is innefective
+            out += decryptWorker.decrypt(chunk) // FIXME: copying here is innefective
         }
 
         out = padding.remove(from: out, blockSize: Blowfish.blockSize)

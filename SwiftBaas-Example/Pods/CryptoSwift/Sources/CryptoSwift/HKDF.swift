@@ -16,10 +16,10 @@
 //  https://www.ietf.org/rfc/rfc5869.txt
 //
 
-#if canImport(Darwin)
-import Darwin
+#if os(Linux) || os(Android) || os(FreeBSD)
+    import Glibc
 #else
-import Glibc
+    import Darwin
 #endif
 
 /// A key derivation function.
