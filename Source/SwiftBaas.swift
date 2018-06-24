@@ -121,17 +121,12 @@ public extension SwiftBaas {
     }
 
     // MARK: - Proof retrieval
-
-    func proof(forHashId: HashIdNode, completion: @escaping (Result<Proof>) -> Void) {
-        self.blockchainService.proof(forHashId: forHashId, completion: completion)
-    }
-    
-    func proof(forHashIds: [HashIdNode], completion: @escaping (Result<[Proof]>) -> Void) {
-    
+    func proof(for nodeHashes: [NodeHash],
+               completion: @escaping (Result<[Proof]>) -> Void) {
+        self.blockchainService.proof(for: nodeHashes, completion: completion)
     }
 
     // MARK: - Proof Verification
-
     internal func verify(_ proof: Proof, completion: () -> Result<Bool>) {
 
     }

@@ -17,10 +17,10 @@ public struct Proof {
     }
     
     let hashIdNode: String
-    let hash: Hash
+    let hash: Hash?
     
     static func create(from chainPointProof: ChainpointProofResponse) -> Proof {
         return Proof(hashIdNode: chainPointProof.hashIdNode,
-                     hash: chainPointProof.proof.hash)
+                     hash: chainPointProof.proof?.hash)
     }
 }

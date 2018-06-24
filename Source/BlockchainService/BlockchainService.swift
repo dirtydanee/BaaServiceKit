@@ -6,5 +6,5 @@ protocol BlockchainService {
     func submit(hashes: [String], forNumberOfNodes: UInt, completion: ((Result<[NodeHash]>) -> Void)?)
     func submit(hashes: [String], toNodeURLs urls: [NodeURI], completion: ((Result<[NodeHash]>) -> Void)?)
     
-    func proof(forHashId: HashIdNode, completion: @escaping (Result<Proof>) -> Void)
+    func proof(for nodeHashes: [NodeHash], completion: @escaping (Result<[Proof]>) -> Void)
 }

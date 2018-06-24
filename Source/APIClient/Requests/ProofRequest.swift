@@ -3,11 +3,13 @@ import Alamofire
 final class ProofRequest: BlockchainRequest {
     
     let baseUrl: URL
-    let hash: Hash
+    let hashes: [Hash]
+    private let headerType: HeaderType
     
-    init(baseUrl: URL, hash: Hash) {
+    init(baseUrl: URL, hashes: [Hash], headerType: HeaderType) {
         self.baseUrl = baseUrl
-        self.hash = hash
+        self.hashes = hashes
+        self.headerType = headerType
     }
     
     var httpMethod: HTTPMethod {
@@ -15,14 +17,29 @@ final class ProofRequest: BlockchainRequest {
     }
     
     var url: URL {
-        return self.baseUrl.appendingPathComponent("proofs").appendingPathComponent(self.hash)
+        return self.baseUrl.appendingPathComponent("proofs")
     }
     
-    var parameters: [String: Any]? {
-        return nil
+    var header: HTTPHeaders? {
+        var headerTemp = self.headerType.value()
+        
+        var hashesHeaderValue = ""
+        for (index, hash) in self.hashes.enumerated() {
+            
+            if index == 0 {
+                hashesHeaderValue += hash
+            } else {
+                hashesHeaderValue += "," + hash
+
+            }
+        }
+        
+        headerTemp["hashids"] = hashesHeaderValue
+        return headerTemp
     }
     
     var encoding: ParameterEncoding {
-        return URLEncoding.default
+        return JSONEncoding.default
     }
+    
 }

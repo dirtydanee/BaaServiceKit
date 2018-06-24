@@ -16,10 +16,6 @@ final class DiscoverNodesRequest: BlockchainRequest {
         return self.discoveryURL
     }
 
-    var parameters: [String: Any]? {
-        return nil
-    }
-
     var encoding: ParameterEncoding {
         return URLEncoding.default
     }

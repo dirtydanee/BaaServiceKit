@@ -1,0 +1,41 @@
+//
+//  ChainpointHashResponse.swift
+//  Alamofire
+//
+//  Created by David Szurma on 2018. 06. 24..
+//
+
+import Foundation
+
+struct ChainpointHashResponse: Codable {
+    
+    struct Meta: Codable {
+        let submittedAt: String // Date
+        let processingHints: [String: String]
+        
+        enum CodingKeys: String, CodingKey {
+            case processingHints = "processing_hints"
+            case submittedAt = "submitted_at"
+        }
+    }
+    let meta: ChainpointHashResponse.Meta
+    let hashes: [[String: String]]
+}
+
+
+//{
+//    "meta": {
+//        "submitted_at": "2017-05-02T15:16:44Z",
+//        "processing_hints": {
+//            "cal": "2017-05-02T15:17:44Z",
+//            "eth": "2017-05-02T15:27:44Z",
+//            "btc": "2017-05-02T16:17:44Z"
+//        }
+//    },
+//    "hashes": [
+//    {
+//    "hash_id_node": "5a001650-2f4a-11e7-ad22-37b426116bc4",
+//    "hash": "11cd8a380e8d5fd3ac47c1f880390341d40b11485e8ae946d8fa3d466f23fe89"
+//    }
+//    ]
+//}

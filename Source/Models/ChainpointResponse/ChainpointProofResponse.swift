@@ -37,7 +37,7 @@ struct ChainpointProofResponse: Codable {
     }
     
     let hashIdNode: String
-    let proof: ChainpointProofResponse.Proof
+    let proof: ChainpointProofResponse.Proof?
     let anchorsComplete: [String]
 
     enum CodingKeys: String, CodingKey {
@@ -45,6 +45,16 @@ struct ChainpointProofResponse: Codable {
         case proof = "proof"
         case anchorsComplete = "anchors_complete"
     }
+    
+    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        let hashIdNode = try container.decode(String.self, forKey: .hashIdNode)
+//        let proof = try container.decode(ChainpointProofResponse.Proof.self, forKey: .proof)
+//        let anchorsComplete = try container.decode([String].self, forKey: .anchorsComplete)
+//        
+//        self.init(hashIdNode: hashIdNode, proof: proof, anchorsComplete: anchorsComplete)
+//    }
 }
 
 // Examples

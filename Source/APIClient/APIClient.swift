@@ -1,33 +1,23 @@
 import Alamofire
 
 final class APIClient {
-
-    enum HeaderType {
-        case chainpointJson
-        
-        func value() -> HTTPHeaders {
-            switch self {
-            case .chainpointJson:
-                return [
-                    "Content-Type":"application/json",
-                    "Accept": "application/vnd.chainpoint.ld+json"
-                ]
-            }
-        }
-    }
+    
+    // TODO: David Szurma - merge APIErrorTransformer Error type
+    private let errorTransformer = APIErrorTransformer()
     
     enum Error: Swift.Error {
         case missingResponseValue
     }
+    
     // TODO: Daniel Metzing - write tests
 
-    func execute(request: BlockchainRequest, headers: HeaderType? = nil, completion: @escaping (Result<APIResponse>) -> Void ) {
+    func execute(request: BlockchainRequest, completion: @escaping (Result<APIResponse>) -> Void ) {
         
         Alamofire.request(request.url,
                           method: request.httpMethod,
                           parameters: request.parameters,
                           encoding: request.encoding,
-                          headers: headers?.value())
+                          headers: request.header)
             .responseJSON { response in
 
                 guard response.error == nil else {
@@ -45,5 +35,9 @@ final class APIClient {
                 let apiResponse = APIResponse(request: request, result: result)
                 completion(.success(apiResponse))
         }
+    }
+    
+    func handleErrorIfNeeded(from data: Data) -> Swift.Error? {
+        return self.errorTransformer.tryToParseError(from: data)
     }
 }
