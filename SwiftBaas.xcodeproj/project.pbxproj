@@ -22,7 +22,6 @@
 		187C01C020C85538008DA9A3 /* SwiftBaas.h in Headers */ = {isa = PBXBuildFile; fileRef = 187C01BC20C85538008DA9A3 /* SwiftBaas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		187C01D920C855F7008DA9A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01D820C855F7008DA9A3 /* Alamofire.framework */; };
 		187C01DB20C855FB008DA9A3 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01DA20C855FB008DA9A3 /* CryptoSwift.framework */; };
-		187C01EA20C8742A008DA9A3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		187C01F120C87869008DA9A3 /* UniversalFramework_Framework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EC20C87868008DA9A3 /* UniversalFramework_Framework.xcconfig */; };
 		187C01F220C87869008DA9A3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 187C01ED20C87868008DA9A3 /* LICENSE */; };
 		187C01F320C87869008DA9A3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EE20C87868008DA9A3 /* README.md */; };
@@ -48,7 +47,6 @@
 		31AA705420E03C3E00FB77E8 /* HeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705320E03C3D00FB77E8 /* HeaderType.swift */; };
 		31AA705A20E03C6900FB77E8 /* ChainpointProofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705620E03C6900FB77E8 /* ChainpointProofResponse.swift */; };
 		31AA705B20E03C6900FB77E8 /* ChainpointHashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705720E03C6900FB77E8 /* ChainpointHashResponse.swift */; };
-		31AA705C20E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf in Resources */ = {isa = PBXBuildFile; fileRef = 31AA705820E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf */; };
 		31AA705D20E03C6900FB77E8 /* ChainpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705920E03C6900FB77E8 /* ChainpointError.swift */; };
 		31AA705F20E03C8800FB77E8 /* APIErrorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705E20E03C8700FB77E8 /* APIErrorTransformer.swift */; };
 /* End PBXBuildFile section */
@@ -110,7 +108,6 @@
 		31AA705320E03C3D00FB77E8 /* HeaderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderType.swift; sourceTree = "<group>"; };
 		31AA705620E03C6900FB77E8 /* ChainpointProofResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointProofResponse.swift; sourceTree = "<group>"; };
 		31AA705720E03C6900FB77E8 /* ChainpointHashResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointHashResponse.swift; sourceTree = "<group>"; };
-		31AA705820E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "E-02 -1. PINCE ALAPRAJZ 2018..pdf"; sourceTree = "<group>"; };
 		31AA705920E03C6900FB77E8 /* ChainpointError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointError.swift; sourceTree = "<group>"; };
 		31AA705E20E03C8700FB77E8 /* APIErrorTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -353,7 +350,6 @@
 			children = (
 				31AA705620E03C6900FB77E8 /* ChainpointProofResponse.swift */,
 				31AA705720E03C6900FB77E8 /* ChainpointHashResponse.swift */,
-				31AA705820E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf */,
 				31AA705920E03C6900FB77E8 /* ChainpointError.swift */,
 			);
 			path = ChainpointResponse;
@@ -452,7 +448,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31AA705C20E03C6900FB77E8 /* E-02 -1. PINCE ALAPRAJZ 2018..pdf in Resources */,
 				187C01F420C87869008DA9A3 /* UniversalFramework_Base.xcconfig in Resources */,
 				187C01F320C87869008DA9A3 /* README.md in Resources */,
 				187C01F520C87869008DA9A3 /* UniversalFramework_Test.xcconfig in Resources */,
@@ -531,7 +526,6 @@
 				181E1F9620D0495600CDEF0B /* DiscoverNodesRequestTests.swift in Sources */,
 				181E1F9120D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift in Sources */,
 				1847EF2F20C87AD6006DD5F7 /* HasherTests.swift in Sources */,
-				187C01EA20C8742A008DA9A3 /* (null) in Sources */,
 				181E1F9420D045B300CDEF0B /* SubmitHashRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
