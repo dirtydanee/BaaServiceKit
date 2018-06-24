@@ -12,9 +12,16 @@ class NodeHashStoreTests: CoreDataTestCase {
         self.addStubEntities(from: [NodeHash(hashValue: "1", hashIdentifier: "2", urls: [URL(string: "127.0.0.1")!]), FakeNodeHashes.fake1])
         let results = try self.nodeHashStore.fetchAllEntities(in: self.coreDataStack.readContext)
         XCTAssertEqual(results.count, 1)
+        
         XCTAssertEqual(results[0].value, FakeNodeHashes.fake1.hashValue)
-        XCTAssertEqual(results[0].hashIdentifier, FakeNodeHashes.fake1.hashIdentifier)
-        XCTAssertEqual(results[0].urls, FakeNodeHashes.fake1.urls)
+        
+        #if os(OSX)
+            XCTAssertEqual(results[0].hashIdentifier, FakeNodeHashes.fake1.hashIdentifier)
+            XCTAssertEqual(results[0].urls, FakeNodeHashes.fake1.urls)
+        #else
+            XCTAssertEqual(results[0].hashIdentifier, FakeNodeHashes.fake2.hashIdentifier)
+            XCTAssertEqual(results[0].urls, [URL(string: "127.0.0.1")!])
+        #endif
     }
     
     func testUniquePropertiesAfterSaving() throws {

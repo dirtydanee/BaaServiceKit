@@ -18,7 +18,6 @@ class ViewController: UIViewController {
             let blockchainService = try SwiftBaas()
             let hash = try blockchainService.generateSHA256(from: record)
             blockchainService.discoverPublicNodeURLs(completion: nil)
-            try blockchainService.save(hash: NodeHash.f)
         } catch {
             print(error)
         }

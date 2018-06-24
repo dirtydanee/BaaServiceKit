@@ -40,14 +40,17 @@ extension CoreDataService: PersistencyService {
 
     func deleteNodeHashes() throws {
         try self.nodeHashStore.deleteNodeHashes(in: self.stack.readContext, withCoordinator: self.stack.persistentStoreCoordinator)
+        self.saveChanges()
     }
 
     func deleteNodeHash(_ nodeHash: NodeHash) throws {
-        
+        try self.nodeHashStore.delete(nodeHash: nodeHash, in: self.stack.writeContext)
+        self.saveChanges()
     }
     
     func deleteNodeHash(forHashValue hashValue: String) throws {
-        
+        try self.nodeHashStore.delete(hash: hashValue, in: self.stack.writeContext)
+        self.saveChanges()
     }
 }
 

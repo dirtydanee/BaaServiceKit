@@ -30,6 +30,8 @@ final class CoreDataStack {
     }
 
     func saveChanges() {
+        // TODO: Daniel Metzing - This should be an async call, but needs to be verified on the UI.
+        // Shall i propagate the success / failure of the saving back to the caller?
         self.writeContext.performAndWait {
             do {
                 if self.writeContext.hasChanges {
