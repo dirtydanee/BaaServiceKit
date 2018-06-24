@@ -1,7 +1,6 @@
 import CoreData
 
-final class CoreDataStack {
-    
+final class CoreDataStack {    
     let modelName: String
     let storageType: StorageType
 

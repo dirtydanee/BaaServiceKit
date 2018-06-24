@@ -19,7 +19,6 @@ class ViewController: UIViewController {
             let hash = try blockchainService.generateSHA256(from: record)
             blockchainService.discoverPublicNodeURLs(completion: nil)
             try blockchainService.save(hash: NodeHash.f)
-//          self.blockchainService.submit(hashes: [hash], forNumberOfNodes: 3, completion: nil)
         } catch {
             print(error)
         }
