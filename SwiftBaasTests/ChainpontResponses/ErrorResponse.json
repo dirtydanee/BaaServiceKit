@@ -1,0 +1,4 @@
+{
+    "code": "InvalidArgument",
+    "message": "invalid request, bad hash_id"
+}

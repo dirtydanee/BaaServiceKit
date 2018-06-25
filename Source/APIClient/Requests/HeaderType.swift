@@ -15,7 +15,6 @@ enum HeaderType {
             ]
         case .chainpointLdJson:
             return [
-                "Content-Type": "application/json",
                 "Accept": "application/vnd.chainpoint.ld+json"
             ]
         }

@@ -70,41 +70,42 @@ final class ChainpointService: BlockchainService {
     }
     
     // MARK: Proof
-    func proof(for nodeHashes: [NodeHash], completion: @escaping (Result<[Proof]>) -> Void) {
+    
+    // TODO: David Szurma - support proof request from different endpoints
+    func proof(for nodeHashes: [NodeHash],
+               completion: ((Result<[Proof]>) -> Void)?) {
         
+        // TODO: David Szurma - Handle force unwrap
         let url = nodeHashes.first!.nodeURIs.first!
         let hashes: [Hash] = nodeHashes.reduce(into: []) { (result, nodeHash) in
             return result.append(nodeHash.hashIdNode)
         }
         let proofRequest = ProofRequest(baseUrl: url, hashes: hashes, headerType: .chainpointLdJson)
-        
         self.apiClient.execute(request: proofRequest) { [weak self] result in
+            
             switch result {
             case .success(let response):
-                
-                print("proof response: \(response)")
 
                 do {
                     let data = try JSONSerialization.data(withJSONObject: response.result)
                     if let error = self?.apiClient.handleErrorIfNeeded(from: data) {
-                        completion(.failure(error))
+                        completion?(.failure(error))
                         return
                     }
                     
                     let decodedProofs = try JSONDecoder().decode([ChainpointProofResponse].self, from: data)
-//
                     var proofs = [Proof]()
                     for decodedProof in decodedProofs {
                         proofs.append(Proof.create(from: decodedProof))
                     }
                     
-                    completion(.success(proofs))
+                    completion?(.success(proofs))
                 } catch let error {
-                    completion(.failure(error))
+                    completion?(.failure(error))
                 }
                 
             case .failure(let error):
-                completion(.failure(error))
+                completion?(.failure(error))
             }
         }
     }
@@ -126,15 +127,11 @@ private extension ChainpointService {
         var stack = _stack
         var hashes = _hashes
         
+        // TODO: Throw error somehow
+        
         self.apiClient.execute(request: request!) { [weak self] result in
             switch result {
             case .success(let response):
-                
-                print(response)
-                
-                // TODO: Daniel Metzing add error handling
-                // TODO: Daniel Metzing - Add resposne transformer
-                // TODO: Daniel Metzing - Add NodeHash here to hashes
                 
                 do {
                     let data = try JSONSerialization.data(withJSONObject: response.result)
@@ -143,7 +140,7 @@ private extension ChainpointService {
                         print(error)
                     }
                     
-                    let chainpointHashResponse = try JSONDecoder().decode(ChainpointHashResponse.self, from: data)
+                    let chainpointHashResponse = try ChainpointHashResponse.jsonDecoder.decode(ChainpointHashResponse.self, from: data)
                     hashes.append(NodeHash.make(from: chainpointHashResponse, url: response.request.url))
                     
                 } catch let error {

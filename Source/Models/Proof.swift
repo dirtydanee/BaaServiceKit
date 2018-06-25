@@ -1,7 +1,6 @@
-import Foundation
-
 public struct Proof {
     
+    // TODO: Discuss: Is it true for all services?
     public enum Status {
         // Proof after ~15 minutes of submission
         case partial
@@ -11,6 +10,7 @@ public struct Proof {
     
     let hashIdNode: String
     let hash: Hash?
+    let status = Proof.Status.partial
     
     static func create(from chainPointProof: ChainpointProofResponse) -> Proof {
         return Proof(hashIdNode: chainPointProof.hashIdNode,

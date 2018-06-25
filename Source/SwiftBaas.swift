@@ -120,9 +120,13 @@ public extension SwiftBaas {
         self.blockchainService.submit(hashes: hexStrings, toNodeURLs: urls, completion: completion)
     }
 
-    // MARK: - Proof retrieval
+    /// Retrieve a partial Chainpoint Proof
+    ///
+    /// - Parameters:
+    ///   - nodeHashes:
+    ///   - completion: On success a collection of Proof objects
     func proof(for nodeHashes: [NodeHash],
-               completion: @escaping (Result<[Proof]>) -> Void) {
+               completion: ((Result<[Proof]>) -> Void)?) {
         self.blockchainService.proof(for: nodeHashes, completion: completion)
     }
 
