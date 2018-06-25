@@ -14,10 +14,13 @@ public class SwiftBaas {
     private let persistencyService: PersistencyService
     private let blockchainService: BlockchainService
 
-    public init() {
+    public init() throws {
         self.hasher = Hasher()
         self.apiClient = APIClient()
-        self.persistencyService = CoreDataService(modelName: "Records")
+        self.persistencyService = try CoreDataServiceBuilder().withModelName("Records")
+                                                              .withStorageType(.SQLite(filename: "Records.sqlite"))
+                                                              .withNodeHashEntityName("HashNode")
+                                                              .build()
         self.blockchainService = ChainpointService(apiClient: self.apiClient)
     }
 }
@@ -25,29 +28,62 @@ public class SwiftBaas {
 // MARK: - Database interaction
 
 public extension SwiftBaas {
-
-    func save(hash: NodeHash) throws {
-
+    
+    /// Save a node hash
+    ///
+    /// - Parameter nodeHash: NodeHash instance desired to be saved
+    /// - Throws: Errors occuring while saving
+    func save(nodeHash: NodeHash) throws {
+        try self.persistencyService.save(nodeHashes: [nodeHash])
     }
-
-    func hash(for string: String) -> NodeHash? {
-        return nil
+    
+    /// Read a previously saved node hash
+    ///
+    /// - Parameter hashValue: The hash value of the searched NodeHash instance
+    /// - Returns: NodeHash instance with the given hash value if found, otherwise nil
+    /// - Throws: Errors while searching for the hash
+    func nodeHash(for hashValue: String) throws -> NodeHash? {
+        return try self.persistencyService.nodeHash(forHash: hashValue)
     }
-
-    func hash(for data: Data) -> NodeHash? {
-        return nil
+    
+    /// Read a previously saved node hash
+    ///
+    /// - Parameter hashData: The hash value of the searched NodeHash instance
+    /// - Returns: NodeHash instance with the given hash value if found, otherwise nil
+    /// - Throws: Errors while searching for the hash
+    func nodeHash(for hashData: Data) throws -> NodeHash? {
+        return try self.persistencyService.nodeHash(forHash: hashData.toHexString())
     }
-
+    
+    /// Read all previously saved node hashes
+    ///
+    /// - Returns: A collection of NodeHash instances
+    /// - Throws: Errors while collecting all NodeHash instances
     func storedHashes() throws -> [NodeHash] {
-        return []
+        return try self.persistencyService.storedNodeHashes()
     }
-
-    func clearHashes() throws {
-
+    
+    /// Delete all stored node hashes
+    ///
+    /// - Throws: Errors while deleting node hashes
+    func deleteHashes() throws {
+        try self.persistencyService.deleteNodeHashes()
     }
-
-    func clearHash(withIdentifier: NodeHash) throws {
-
+    
+    /// Delete a specific node hash
+    ///
+    /// - Parameter nodeHash: The NodeHash instances to be deleted
+    /// - Throws: Errors while deleting the given node hash
+    func delete(_ nodeHash: NodeHash) throws {
+        try self.persistencyService.deleteNodeHash(nodeHash)
+    }
+    
+    /// Delete a specific node hash with a given hash
+    ///
+    /// - Parameter hashValue: The hash value of the NodeHash instance to be deleted
+    /// - Throws: Errors while deleting the given node hash
+    func delete(forHashValue hashValue: String) throws {
+        try self.persistencyService.deleteNodeHash(forHashValue: hashValue)
     }
 }
 
@@ -131,7 +167,7 @@ public extension SwiftBaas {
 
     // MARK: - Proof retrieval
 
-    func proof(forHashId: HashIdNode, completion: () -> Result<SwiftBaas.Proof>) {
+    func proof(forHashId: Hash, completion: () -> Result<SwiftBaas.Proof>) {
 
     }
 

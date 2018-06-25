@@ -1,5 +1,5 @@
-public struct NodeHash: Codable {
-    let hash: Hash
-    let hashIdNode: HashIdNode
-    let nodeURIs: [NodeURI]
+public struct NodeHash: Codable, Equatable {
+    public let hashValue: Hash
+    public let hashIdentifier: Hash
+    public let urls: [NodeURI]
 }
