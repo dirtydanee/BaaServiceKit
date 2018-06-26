@@ -76,9 +76,9 @@ final class ChainpointService: BlockchainService {
                completion: ((Result<[Proof]>) -> Void)?) {
         
         // TODO: David Szurma - Handle force unwrap
-        let url = nodeHashes.first!.nodeURIs.first!
+        let url = nodeHashes.first!.urls.first!
         let hashes: [Hash] = nodeHashes.reduce(into: []) { (result, nodeHash) in
-            return result.append(nodeHash.hashIdNode)
+            return result.append(nodeHash.hashIdentifier)
         }
         let proofRequest = ProofRequest(baseUrl: url, hashes: hashes, headerType: .chainpointLdJson)
         self.apiClient.execute(request: proofRequest) { [weak self] result in

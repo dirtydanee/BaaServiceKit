@@ -17,6 +17,7 @@
     "path": "./"
   },
   "source_files": "Source/**/*.swift",
+  "resources": "Source/Persistency/CoreData/Models/*.xcdatamodeld",
   "swift_version": "4.1",
   "dependencies": {
     "Alamofire": [

@@ -22,11 +22,15 @@
 		187C01C020C85538008DA9A3 /* SwiftBaas.h in Headers */ = {isa = PBXBuildFile; fileRef = 187C01BC20C85538008DA9A3 /* SwiftBaas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		187C01D920C855F7008DA9A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01D820C855F7008DA9A3 /* Alamofire.framework */; };
 		187C01DB20C855FB008DA9A3 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C01DA20C855FB008DA9A3 /* CryptoSwift.framework */; };
+		187C01EA20C8742A008DA9A3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		187C01F120C87869008DA9A3 /* UniversalFramework_Framework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EC20C87868008DA9A3 /* UniversalFramework_Framework.xcconfig */; };
 		187C01F220C87869008DA9A3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 187C01ED20C87868008DA9A3 /* LICENSE */; };
 		187C01F320C87869008DA9A3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EE20C87868008DA9A3 /* README.md */; };
 		187C01F420C87869008DA9A3 /* UniversalFramework_Base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01EF20C87868008DA9A3 /* UniversalFramework_Base.xcconfig */; };
 		187C01F520C87869008DA9A3 /* UniversalFramework_Test.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 187C01F020C87868008DA9A3 /* UniversalFramework_Test.xcconfig */; };
+		187D846520DD3C5300A36991 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D846420DD3C5300A36991 /* DataStore.swift */; };
+		187D846720DD430000A36991 /* NodeHashToEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D846620DD430000A36991 /* NodeHashToEntityMapper.swift */; };
+		187D846920DD44E700A36991 /* NodeHashToEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D846820DD44E700A36991 /* NodeHashToEntityMapper.swift */; };
 		18852B4D20CB02C700A38852 /* BlockchainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B4C20CB02C700A38852 /* BlockchainService.swift */; };
 		18852B5220CB03C100A38852 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5120CB03C100A38852 /* APIClient.swift */; };
 		18852B5620CB163400A38852 /* ChainpointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5520CB163400A38852 /* ChainpointService.swift */; };
@@ -39,22 +43,25 @@
 		188965C720D6B2A7002A164E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965C020D6B2A6002A164E /* CoreDataStack.swift */; };
 		188965C820D6B2A7002A164E /* NodeHashValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965C220D6B2A6002A164E /* NodeHashValueTransformer.swift */; };
 		188965C920D6B2A7002A164E /* NodeHashEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965C420D6B2A6002A164E /* NodeHashEntity.swift */; };
-		188965CA20D6B2A7002A164E /* Records.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 188965C520D6B2A6002A164E /* Records.xcdatamodeld */; };
 		188965CC20D6B301002A164E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188965CB20D6B301002A164E /* CoreDataService.swift */; };
-		3154422320E160B800075C8E /* SuccessFakeHashRespons.json in Sources */ = {isa = PBXBuildFile; fileRef = 3154422220E160B800075C8E /* SuccessFakeHashRespons.json */; };
-		3154422520E1641300075C8E /* ErrorResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 3154422420E1641300075C8E /* ErrorResponse.json */; };
-		3154422B20E18D9300075C8E /* PartialFakeProofResponse.json in Sources */ = {isa = PBXBuildFile; fileRef = 3154422A20E18D9300075C8E /* PartialFakeProofResponse.json */; };
-		3154422D20E18DC200075C8E /* FakeProofResponse1.json in Sources */ = {isa = PBXBuildFile; fileRef = 3154422C20E18DC200075C8E /* FakeProofResponse1.json */; };
-		3154422F20E18DD800075C8E /* FakeProofResponse2.json in Sources */ = {isa = PBXBuildFile; fileRef = 3154422E20E18DD800075C8E /* FakeProofResponse2.json */; };
-		3154423520E18E0A00075C8E /* SubmitHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154423120E18DFA00075C8E /* SubmitHashRequest.swift */; };
-		3154423620E18E1900075C8E /* ProofRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154423220E18DFA00075C8E /* ProofRequest.swift */; };
-		3154423820E18F1000075C8E /* ProofRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154423720E18F1000075C8E /* ProofRequestTests.swift */; };
-		318D261420D8251600E9572A /* Proof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D261320D8251600E9572A /* Proof.swift */; };
-		31AA705420E03C3E00FB77E8 /* HeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705320E03C3D00FB77E8 /* HeaderType.swift */; };
-		31AA705A20E03C6900FB77E8 /* ChainpointProofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705620E03C6900FB77E8 /* ChainpointProofResponse.swift */; };
-		31AA705B20E03C6900FB77E8 /* ChainpointHashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705720E03C6900FB77E8 /* ChainpointHashResponse.swift */; };
-		31AA705D20E03C6900FB77E8 /* ChainpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705920E03C6900FB77E8 /* ChainpointError.swift */; };
-		31AA705F20E03C8800FB77E8 /* APIErrorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA705E20E03C8700FB77E8 /* APIErrorTransformer.swift */; };
+		18A9E6D420D6BC2700E31F55 /* NodeHashStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6D320D6BC2700E31F55 /* NodeHashStore.swift */; };
+		18A9E6DB20D6C2CA00E31F55 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6DA20D6C2CA00E31F55 /* CoreDataServiceTests.swift */; };
+		18A9E6E020D6CAD500E31F55 /* CoreData+BaasKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6DF20D6CAD500E31F55 /* CoreData+BaasKit.swift */; };
+		18A9E6E420D6D25600E31F55 /* NodeHashStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6E320D6D25600E31F55 /* NodeHashStoreTests.swift */; };
+		18A9E6EC20D6D88F00E31F55 /* CoreDataServiceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6EA20D6D88F00E31F55 /* CoreDataServiceBuilder.swift */; };
+		18A9E6EF20D83EDD00E31F55 /* NSPersistentStoreCoordinator+BaasKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6EE20D83EDD00E31F55 /* NSPersistentStoreCoordinator+BaasKit.swift */; };
+		18A9E6F120D83F0000E31F55 /* NSManagedObjectModel+BaasKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6F020D83F0000E31F55 /* NSManagedObjectModel+BaasKit.swift */; };
+		18A9E6F320D8414100E31F55 /* CoreDataServiceBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6F220D8414100E31F55 /* CoreDataServiceBuilderTests.swift */; };
+		18A9E6F520D8433C00E31F55 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6F420D8433C00E31F55 /* CoreDataTestCase.swift */; };
+		18A9E6FB20D8EA6000E31F55 /* Records.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6F920D8EA6000E31F55 /* Records.xcdatamodeld */; };
+		3154423D20E2D6C000075C8E /* APIErrorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154423C20E2D6BF00075C8E /* APIErrorTransformer.swift */; };
+		3154424120E2D6CB00075C8E /* SubmitHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154423F20E2D6CB00075C8E /* SubmitHashRequest.swift */; };
+		3154424220E2D6CB00075C8E /* ProofRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424020E2D6CB00075C8E /* ProofRequest.swift */; };
+		3154424420E2D6D300075C8E /* HeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424320E2D6D300075C8E /* HeaderType.swift */; };
+		3154424620E2D6F300075C8E /* Proof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424520E2D6F300075C8E /* Proof.swift */; };
+		3154424B20E2D6F900075C8E /* ChainpointProofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424820E2D6F900075C8E /* ChainpointProofResponse.swift */; };
+		3154424C20E2D6F900075C8E /* ChainpointHashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */; };
+		3154424D20E2D6F900075C8E /* ChainpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424A20E2D6F900075C8E /* ChainpointError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +101,9 @@
 		187C01EE20C87868008DA9A3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		187C01EF20C87868008DA9A3 /* UniversalFramework_Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Base.xcconfig; sourceTree = "<group>"; };
 		187C01F020C87868008DA9A3 /* UniversalFramework_Test.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Test.xcconfig; sourceTree = "<group>"; };
+		187D846420DD3C5300A36991 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		187D846620DD430000A36991 /* NodeHashToEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeHashToEntityMapper.swift; sourceTree = "<group>"; };
+		187D846820DD44E700A36991 /* NodeHashToEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeHashToEntityMapper.swift; sourceTree = "<group>"; };
 		18852B4C20CB02C700A38852 /* BlockchainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockchainService.swift; sourceTree = "<group>"; };
 		18852B5120CB03C100A38852 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		18852B5520CB163400A38852 /* ChainpointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainpointService.swift; sourceTree = "<group>"; };
@@ -106,22 +116,25 @@
 		188965C020D6B2A6002A164E /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		188965C220D6B2A6002A164E /* NodeHashValueTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeHashValueTransformer.swift; sourceTree = "<group>"; };
 		188965C420D6B2A6002A164E /* NodeHashEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeHashEntity.swift; sourceTree = "<group>"; };
-		188965C620D6B2A6002A164E /* Records.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Records.xcdatamodel; sourceTree = "<group>"; };
 		188965CB20D6B301002A164E /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
-		3154422220E160B800075C8E /* SuccessFakeHashRespons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SuccessFakeHashRespons.json; sourceTree = "<group>"; };
-		3154422420E1641300075C8E /* ErrorResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ErrorResponse.json; sourceTree = "<group>"; };
-		3154422A20E18D9300075C8E /* PartialFakeProofResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PartialFakeProofResponse.json; sourceTree = "<group>"; };
-		3154422C20E18DC200075C8E /* FakeProofResponse1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeProofResponse1.json; sourceTree = "<group>"; };
-		3154422E20E18DD800075C8E /* FakeProofResponse2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FakeProofResponse2.json; sourceTree = "<group>"; };
-		3154423120E18DFA00075C8E /* SubmitHashRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitHashRequest.swift; sourceTree = "<group>"; };
-		3154423220E18DFA00075C8E /* ProofRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProofRequest.swift; sourceTree = "<group>"; };
-		3154423720E18F1000075C8E /* ProofRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofRequestTests.swift; sourceTree = "<group>"; };
-		318D261320D8251600E9572A /* Proof.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proof.swift; sourceTree = "<group>"; };
-		31AA705320E03C3D00FB77E8 /* HeaderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderType.swift; sourceTree = "<group>"; };
-		31AA705620E03C6900FB77E8 /* ChainpointProofResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointProofResponse.swift; sourceTree = "<group>"; };
-		31AA705720E03C6900FB77E8 /* ChainpointHashResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointHashResponse.swift; sourceTree = "<group>"; };
-		31AA705920E03C6900FB77E8 /* ChainpointError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointError.swift; sourceTree = "<group>"; };
-		31AA705E20E03C8700FB77E8 /* APIErrorTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorTransformer.swift; sourceTree = "<group>"; };
+		18A9E6D320D6BC2700E31F55 /* NodeHashStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeHashStore.swift; sourceTree = "<group>"; };
+		18A9E6DA20D6C2CA00E31F55 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
+		18A9E6DF20D6CAD500E31F55 /* CoreData+BaasKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreData+BaasKit.swift"; sourceTree = "<group>"; };
+		18A9E6E320D6D25600E31F55 /* NodeHashStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeHashStoreTests.swift; sourceTree = "<group>"; };
+		18A9E6EA20D6D88F00E31F55 /* CoreDataServiceBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataServiceBuilder.swift; sourceTree = "<group>"; };
+		18A9E6EE20D83EDD00E31F55 /* NSPersistentStoreCoordinator+BaasKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+BaasKit.swift"; sourceTree = "<group>"; };
+		18A9E6F020D83F0000E31F55 /* NSManagedObjectModel+BaasKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectModel+BaasKit.swift"; sourceTree = "<group>"; };
+		18A9E6F220D8414100E31F55 /* CoreDataServiceBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceBuilderTests.swift; sourceTree = "<group>"; };
+		18A9E6F420D8433C00E31F55 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
+		18A9E6FA20D8EA6000E31F55 /* Records.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Records.xcdatamodel; sourceTree = "<group>"; };
+		3154423C20E2D6BF00075C8E /* APIErrorTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorTransformer.swift; sourceTree = "<group>"; };
+		3154423F20E2D6CB00075C8E /* SubmitHashRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitHashRequest.swift; sourceTree = "<group>"; };
+		3154424020E2D6CB00075C8E /* ProofRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProofRequest.swift; sourceTree = "<group>"; };
+		3154424320E2D6D300075C8E /* HeaderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderType.swift; sourceTree = "<group>"; };
+		3154424520E2D6F300075C8E /* Proof.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proof.swift; sourceTree = "<group>"; };
+		3154424820E2D6F900075C8E /* ChainpointProofResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointProofResponse.swift; sourceTree = "<group>"; };
+		3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointHashResponse.swift; sourceTree = "<group>"; };
+		3154424A20E2D6F900075C8E /* ChainpointError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +178,7 @@
 		18432BB120CEF128009163CE /* Transformers */ = {
 			isa = PBXGroup;
 			children = (
+				3154423C20E2D6BF00075C8E /* APIErrorTransformer.swift */,
 				181E1F8B20D040BB00CDEF0B /* PayloadTransformer.swift */,
 				18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */,
 			);
@@ -174,7 +188,7 @@
 		187C019220C84E6E008DA9A3 = {
 			isa = PBXGroup;
 			children = (
-				187C019E20C84E6E008DA9A3 /* SwiftBaas */,
+				187C01B620C85538008DA9A3 /* Source */,
 				187C01A920C84E6E008DA9A3 /* SwiftBaasTests */,
 				187C019D20C84E6E008DA9A3 /* Products */,
 				187C01D720C855F7008DA9A3 /* Frameworks */,
@@ -190,23 +204,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		187C019E20C84E6E008DA9A3 /* SwiftBaas */ = {
-			isa = PBXGroup;
-			children = (
-				187C01B620C85538008DA9A3 /* Source */,
-			);
-			path = SwiftBaas;
-			sourceTree = "<group>";
-		};
 		187C01A920C84E6E008DA9A3 /* SwiftBaasTests */ = {
 			isa = PBXGroup;
 			children = (
-				3154422120E1608A00075C8E /* ChainpontResponses */,
 				1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */,
+				18A9E6D920D6C2CA00E31F55 /* CoreDataServiceTests */,
 				181E1F9220D0459E00CDEF0B /* RequestTests */,
 				181E1F8F20D0412700CDEF0B /* TransformerTests */,
 				187C01AC20C84E6E008DA9A3 /* Info.plist */,
-				3154423720E18F1000075C8E /* ProofRequestTests.swift */,
 			);
 			path = SwiftBaasTests;
 			sourceTree = "<group>";
@@ -282,7 +287,6 @@
 		18852B5020CB03C100A38852 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
-				31AA705E20E03C8700FB77E8 /* APIErrorTransformer.swift */,
 				18852B5120CB03C100A38852 /* APIClient.swift */,
 				18432BAD20CEEA4C009163CE /* APIResponse.swift */,
 				18852B5920CB168100A38852 /* Requests */,
@@ -293,8 +297,8 @@
 		18852B5920CB168100A38852 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				3154423020E18DFA00075C8E /* ChainpointRequests */,
-				31AA705320E03C3D00FB77E8 /* HeaderType.swift */,
+				3154424320E2D6D300075C8E /* HeaderType.swift */,
+				3154423E20E2D6CB00075C8E /* ChainpointRequests */,
 				18852B5A20CB168100A38852 /* BlockchainRequest.swift */,
 				18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */,
 			);
@@ -313,10 +317,10 @@
 		18852B6520CB1B8E00A38852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				31AA705520E03C6900FB77E8 /* ChainpointResponse */,
+				3154424720E2D6F900075C8E /* ChainpointResponse */,
+				3154424520E2D6F300075C8E /* Proof.swift */,
 				18852B6620CB1B8E00A38852 /* NodeHash.swift */,
 				1804F60C20D4007C004A1C4B /* Node.swift */,
-				318D261320D8251600E9572A /* Proof.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +339,9 @@
 			children = (
 				188965CB20D6B301002A164E /* CoreDataService.swift */,
 				188965C020D6B2A6002A164E /* CoreDataStack.swift */,
+				18A9E6E920D6D88F00E31F55 /* Builders */,
+				18A9E6DE20D6CAD500E31F55 /* Helpers */,
+				18A9E6D220D6BC2700E31F55 /* Stores */,
 				188965C120D6B2A6002A164E /* ValueTransformers */,
 				188965C320D6B2A6002A164E /* Models */,
 			);
@@ -345,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				188965C220D6B2A6002A164E /* NodeHashValueTransformer.swift */,
+				187D846620DD430000A36991 /* NodeHashToEntityMapper.swift */,
 			);
 			path = ValueTransformers;
 			sourceTree = "<group>";
@@ -352,39 +360,66 @@
 		188965C320D6B2A6002A164E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				188965C520D6B2A6002A164E /* Records.xcdatamodeld */,
+				18A9E6F920D8EA6000E31F55 /* Records.xcdatamodeld */,
 				188965C420D6B2A6002A164E /* NodeHashEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		3154422120E1608A00075C8E /* ChainpontResponses */ = {
+		18A9E6D220D6BC2700E31F55 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				3154422220E160B800075C8E /* SuccessFakeHashRespons.json */,
-				3154422A20E18D9300075C8E /* PartialFakeProofResponse.json */,
-				3154422C20E18DC200075C8E /* FakeProofResponse1.json */,
-				3154422E20E18DD800075C8E /* FakeProofResponse2.json */,
-				3154422420E1641300075C8E /* ErrorResponse.json */,
+				187D846420DD3C5300A36991 /* DataStore.swift */,
+				18A9E6D320D6BC2700E31F55 /* NodeHashStore.swift */,
 			);
-			path = ChainpontResponses;
+			path = Stores;
 			sourceTree = "<group>";
 		};
-		3154423020E18DFA00075C8E /* ChainpointRequests */ = {
+		18A9E6D920D6C2CA00E31F55 /* CoreDataServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				3154423120E18DFA00075C8E /* SubmitHashRequest.swift */,
-				3154423220E18DFA00075C8E /* ProofRequest.swift */,
+				18A9E6F420D8433C00E31F55 /* CoreDataTestCase.swift */,
+				18A9E6F220D8414100E31F55 /* CoreDataServiceBuilderTests.swift */,
+				18A9E6DA20D6C2CA00E31F55 /* CoreDataServiceTests.swift */,
+				18A9E6E320D6D25600E31F55 /* NodeHashStoreTests.swift */,
+				187D846820DD44E700A36991 /* NodeHashToEntityMapper.swift */,
+			);
+			path = CoreDataServiceTests;
+			sourceTree = "<group>";
+		};
+		18A9E6DE20D6CAD500E31F55 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				18A9E6DF20D6CAD500E31F55 /* CoreData+BaasKit.swift */,
+				18A9E6EE20D83EDD00E31F55 /* NSPersistentStoreCoordinator+BaasKit.swift */,
+				18A9E6F020D83F0000E31F55 /* NSManagedObjectModel+BaasKit.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		18A9E6E920D6D88F00E31F55 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				18A9E6EA20D6D88F00E31F55 /* CoreDataServiceBuilder.swift */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
+		3154423E20E2D6CB00075C8E /* ChainpointRequests */ = {
+			isa = PBXGroup;
+			children = (
+				3154423F20E2D6CB00075C8E /* SubmitHashRequest.swift */,
+				3154424020E2D6CB00075C8E /* ProofRequest.swift */,
 			);
 			path = ChainpointRequests;
 			sourceTree = "<group>";
 		};
-		31AA705520E03C6900FB77E8 /* ChainpointResponse */ = {
+		3154424720E2D6F900075C8E /* ChainpointResponse */ = {
 			isa = PBXGroup;
 			children = (
-				31AA705620E03C6900FB77E8 /* ChainpointProofResponse.swift */,
-				31AA705720E03C6900FB77E8 /* ChainpointHashResponse.swift */,
-				31AA705920E03C6900FB77E8 /* ChainpointError.swift */,
+				3154424820E2D6F900075C8E /* ChainpointProofResponse.swift */,
+				3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */,
+				3154424A20E2D6F900075C8E /* ChainpointError.swift */,
 			);
 			path = ChainpointResponse;
 			sourceTree = "<group>";
@@ -494,7 +529,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3154422520E1641300075C8E /* ErrorResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,32 +558,39 @@
 			files = (
 				18852B4D20CB02C700A38852 /* BlockchainService.swift in Sources */,
 				187C01BE20C85538008DA9A3 /* SwiftBaas.swift in Sources */,
-				31AA705D20E03C6900FB77E8 /* ChainpointError.swift in Sources */,
-				188965CA20D6B2A7002A164E /* Records.xcdatamodeld in Sources */,
 				188965C720D6B2A7002A164E /* CoreDataStack.swift in Sources */,
+				18A9E6F120D83F0000E31F55 /* NSManagedObjectModel+BaasKit.swift in Sources */,
+				18A9E6E020D6CAD500E31F55 /* CoreData+BaasKit.swift in Sources */,
 				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
-				31AA705F20E03C8800FB77E8 /* APIErrorTransformer.swift in Sources */,
+				3154424B20E2D6F900075C8E /* ChainpointProofResponse.swift in Sources */,
+				18A9E6EC20D6D88F00E31F55 /* CoreDataServiceBuilder.swift in Sources */,
 				18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */,
 				188965BE20D6B27D002A164E /* PersistencyService.swift in Sources */,
+				18A9E6EF20D83EDD00E31F55 /* NSPersistentStoreCoordinator+BaasKit.swift in Sources */,
 				188965CC20D6B301002A164E /* CoreDataService.swift in Sources */,
 				18852B5620CB163400A38852 /* ChainpointService.swift in Sources */,
 				18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */,
-				318D261420D8251600E9572A /* Proof.swift in Sources */,
-				3154423620E18E1900075C8E /* ProofRequest.swift in Sources */,
 				188965C820D6B2A7002A164E /* NodeHashValueTransformer.swift in Sources */,
 				187C01BD20C85538008DA9A3 /* Hasher.swift in Sources */,
-				3154423520E18E0A00075C8E /* SubmitHashRequest.swift in Sources */,
-				31AA705B20E03C6900FB77E8 /* ChainpointHashResponse.swift in Sources */,
 				18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */,
 				18852B6B20CC087F00A38852 /* DiscoverNodesRequest.swift in Sources */,
 				18852B6720CB1B8E00A38852 /* NodeHash.swift in Sources */,
 				188965C920D6B2A7002A164E /* NodeHashEntity.swift in Sources */,
+				18A9E6D420D6BC2700E31F55 /* NodeHashStore.swift in Sources */,
+				187D846520DD3C5300A36991 /* DataStore.swift in Sources */,
+				3154424620E2D6F300075C8E /* Proof.swift in Sources */,
+				3154424D20E2D6F900075C8E /* ChainpointError.swift in Sources */,
+				18A9E6FB20D8EA6000E31F55 /* Records.xcdatamodeld in Sources */,
+				3154424420E2D6D300075C8E /* HeaderType.swift in Sources */,
+				3154423D20E2D6C000075C8E /* APIErrorTransformer.swift in Sources */,
 				1804F60D20D4007C004A1C4B /* Node.swift in Sources */,
-				31AA705A20E03C6900FB77E8 /* ChainpointProofResponse.swift in Sources */,
 				18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */,
 				18852B6220CB17D200A38852 /* Result.swift in Sources */,
-				31AA705420E03C3E00FB77E8 /* HeaderType.swift in Sources */,
 				181E1F8C20D040BB00CDEF0B /* PayloadTransformer.swift in Sources */,
+				3154424C20E2D6F900075C8E /* ChainpointHashResponse.swift in Sources */,
+				3154424220E2D6CB00075C8E /* ProofRequest.swift in Sources */,
+				187D846720DD430000A36991 /* NodeHashToEntityMapper.swift in Sources */,
+				3154424120E2D6CB00075C8E /* SubmitHashRequest.swift in Sources */,
 				18852B5220CB03C100A38852 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,14 +599,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A9E6DB20D6C2CA00E31F55 /* CoreDataServiceTests.swift in Sources */,
+				18A9E6E420D6D25600E31F55 /* NodeHashStoreTests.swift in Sources */,
 				181E1F9620D0495600CDEF0B /* DiscoverNodesRequestTests.swift in Sources */,
-				3154423820E18F1000075C8E /* ProofRequestTests.swift in Sources */,
-				3154422F20E18DD800075C8E /* FakeProofResponse2.json in Sources */,
-				3154422320E160B800075C8E /* SuccessFakeHashRespons.json in Sources */,
-				3154422D20E18DC200075C8E /* FakeProofResponse1.json in Sources */,
 				181E1F9120D0412700CDEF0B /* DiscoveryRequestTransformerTests.swift in Sources */,
+				18A9E6F320D8414100E31F55 /* CoreDataServiceBuilderTests.swift in Sources */,
 				1847EF2F20C87AD6006DD5F7 /* HasherTests.swift in Sources */,
-				3154422B20E18D9300075C8E /* PartialFakeProofResponse.json in Sources */,
+				187D846920DD44E700A36991 /* NodeHashToEntityMapper.swift in Sources */,
+				187C01EA20C8742A008DA9A3 /* (null) in Sources */,
+				18A9E6F520D8433C00E31F55 /* CoreDataTestCase.swift in Sources */,
 				181E1F9420D045B300CDEF0B /* SubmitHashRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -833,12 +875,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		188965C520D6B2A6002A164E /* Records.xcdatamodeld */ = {
+		18A9E6F920D8EA6000E31F55 /* Records.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				188965C620D6B2A6002A164E /* Records.xcdatamodel */,
+				18A9E6FA20D8EA6000E31F55 /* Records.xcdatamodel */,
 			);
-			currentVersion = 188965C620D6B2A6002A164E /* Records.xcdatamodel */;
+			currentVersion = 18A9E6FA20D8EA6000E31F55 /* Records.xcdatamodel */;
 			path = Records.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -1,97 +1,44 @@
 import CoreData
 
-final class CoreDataStack {
-
-    enum Error: Swift.Error {
-        case invalidEntityName(String)
-        case unfoundEntity
-    }
-
+final class CoreDataStack {    
     let modelName: String
+    let storageType: StorageType
 
-    private(set) lazy var saveContext: NSManagedObjectContext = {
-        let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        context.parent = self.privateContext
-        return context
-    }()
+    let model: NSManagedObjectModel
+    let persistentStoreCoordinator: NSPersistentStoreCoordinator
+    let writeContext: NSManagedObjectContext
+    let readContext: NSManagedObjectContext
 
-    private lazy var privateContext: NSManagedObjectContext = {
-        let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        privateContext.persistentStoreCoordinator = self.persistentStoreCoordinator
-        return privateContext
-    }()
-
-    private lazy var model: NSManagedObjectModel = {
-        guard let modelURL = Bundle.main.url(forResource: self.modelName, withExtension: "momd") else {
-            fatalError("Unable to Find Data Model")
-        }
-
-        guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
-            fatalError("Unable to Load Data Model")
-        }
-
-        return managedObjectModel
-    }()
-
-    private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
-        let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.model)
-
-        let fileManager = FileManager.default
-        let storeName = "\(self.modelName).sqlite"
-
-        guard let documentsDirectoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            fatalError("Unable to Load Document Directory")
-        }
-
-        let persistentStoreURL = documentsDirectoryURL.appendingPathComponent(storeName)
-        do {
-            try persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType,
-                                                              configurationName: nil,
-                                                              at: persistentStoreURL,
-                                                              options: nil)
-        } catch {
-            fatalError("Unable to Add Persistent Store")
-        }
-
-        return persistentStoreCoordinator
-    }()
-
-    init(modelName: String) {
+    init(modelName: String, storageType: StorageType) throws {
         self.modelName = modelName
-        ValueTransformer.setValueTransformer(NodeHashValueTransformer(),
-                                             forName: NSValueTransformerName(rawValue: "NodeHashValueTransformer"))
-    }
+        self.storageType = storageType
+        let model = try NSManagedObjectModel.makeModel(for: modelName, inBundleForClass: CoreDataStack.self)
+        let persistentStoreCoordinator = try NSPersistentStoreCoordinator.makePersistentStoreCoordinator(for: model,
+                                                                                                         forStorageType: storageType)
 
-    func save(_ context: NSManagedObjectContext) {
-        context.perform {
-            do {
-                if context.hasChanges {
-                    try context.save()
-                }
-            } catch {
-                print("Unable to save context: \(context)")
-            }
-        }
+        let writeContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        writeContext.persistentStoreCoordinator = persistentStoreCoordinator
+        writeContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
+        
+        let readContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        readContext.persistentStoreCoordinator = persistentStoreCoordinator
+
+        self.writeContext = writeContext
+        self.readContext = readContext
+        self.model = model
+        self.persistentStoreCoordinator = persistentStoreCoordinator
     }
 
     func saveChanges() {
-        self.saveContext.perform {
+        // TODO: Daniel Metzing - This should be an async call, but needs to be verified on the UI.
+        // Shall i propagate the success / failure of the saving back to the caller?
+        self.writeContext.performAndWait {
             do {
-                if self.saveContext.hasChanges {
-                    try self.saveContext.save()
+                if self.writeContext.hasChanges {
+                    try self.writeContext.save()
                 }
             } catch {
                 print("Failed to saving. Error: \(error.localizedDescription)")
-            }
-
-            self.privateContext.perform {
-                if self.privateContext.hasChanges {
-                    do {
-                        try self.privateContext.save()
-                    } catch {
-                        print("Failed to saving private context. Error: \(error.localizedDescription)")
-                    }
-                }
             }
         }
     }

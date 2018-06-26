@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 //                        self?.proof(for: nodeResults)
 //                    })
 
-                     self?.proof(for: self.makeSampleNodeHash())
+                     self?.proof(for: NodeHash.makeSampleNodeHash())
                     
                 case .failure(let error):
                     print(error)
@@ -77,12 +77,6 @@ class ViewController: UIViewController {
         }
         
         return randomString
-    }
-    
-    func makeSampleNodeHash() -> [NodeHash] {
-        return [NodeHash(hash: "3f05d5a8a1365ffcbc921349dafdf72d78a96993930e2780498dcc5e5113af28",
-                  hashIdNode: "aa32ff50-78b6-11e8-88f6-0125005fac04",
-                  nodeURIs: [URL(string: "http://45.76.233.183")!])]
     }
 }
 
