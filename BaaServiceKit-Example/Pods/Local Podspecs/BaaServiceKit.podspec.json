@@ -1,0 +1,30 @@
+{
+  "name": "BaaServiceKit",
+  "version": "0.0.1",
+  "summary": "Fast and easy data submission to the Bitcoin blockchain",
+  "homepage": "https://github.com/dirtydanee/BaaServiceKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Daniel Metzing": "daniel.metzing@gmail.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "path": "./"
+  },
+  "source_files": "Source/**/*.swift",
+  "resources": "Source/Persistency/CoreData/Models/*.xcdatamodeld",
+  "swift_version": "4.1",
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.7"
+    ],
+    "CryptoSwift": [
+      "~> 0.9"
+    ]
+  }
+}

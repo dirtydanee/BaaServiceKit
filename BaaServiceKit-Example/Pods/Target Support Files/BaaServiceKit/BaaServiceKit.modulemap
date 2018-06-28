@@ -1,0 +1,6 @@
+framework module BaaServiceKit {
+  umbrella header "BaaServiceKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
