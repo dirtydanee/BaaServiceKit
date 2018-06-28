@@ -20,7 +20,7 @@ final class ProofRequest: BlockchainRequest {
         return self.baseUrl.appendingPathComponent("proofs")
     }
     
-    var header: HTTPHeaders? {
+    var headers: HTTPHeaders? {
         var headerTemp = self.headerType.value()
         
         var hashesHeaderValue = ""

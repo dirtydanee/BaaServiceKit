@@ -166,8 +166,7 @@ public extension SwiftBaas {
         self.blockchainService.proof(for: nodeHashes, completion: completion)
     }
 
-    // MARK: - Proof Verification
-    internal func verify(_ proof: Proof, completion: () -> Result<Bool>) {
+    func verify(_ proof: Proof, completion: () -> Result<Bool>) {
 
     }
 }

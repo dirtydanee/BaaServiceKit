@@ -24,7 +24,7 @@ final class SubmitHashRequest: BlockchainRequest {
         return ["hashes": self.hashes]
     }
     
-    var header: HTTPHeaders? {
+    var headers: HTTPHeaders? {
         return self.headerType.value()
     }
     

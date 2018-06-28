@@ -16,6 +16,12 @@
 		18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BAD20CEEA4C009163CE /* APIResponse.swift */; };
 		18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */; };
 		1847EF2F20C87AD6006DD5F7 /* HasherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */; };
+		186E0B9A20E54C7A00F209AD /* PartialFakeProofResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9520E54C7A00F209AD /* PartialFakeProofResponse.json */; };
+		186E0B9B20E54C7A00F209AD /* ErrorResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9620E54C7A00F209AD /* ErrorResponse.json */; };
+		186E0B9C20E54C7A00F209AD /* SuccessFakeHashRespons.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9720E54C7A00F209AD /* SuccessFakeHashRespons.json */; };
+		186E0B9D20E54C7A00F209AD /* FakeProofResponse2.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9820E54C7A00F209AD /* FakeProofResponse2.json */; };
+		186E0B9E20E54C7A00F209AD /* FakeProofResponse1.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9920E54C7A00F209AD /* FakeProofResponse1.json */; };
+		186E0BA020E54CB100F209AD /* NodeHash+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E0B9F20E54CB100F209AD /* NodeHash+Fake.swift */; };
 		187C01A620C84E6E008DA9A3 /* SwiftBaas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C019C20C84E6E008DA9A3 /* SwiftBaas.framework */; };
 		187C01BD20C85538008DA9A3 /* Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C01B820C85538008DA9A3 /* Hasher.swift */; };
 		187C01BE20C85538008DA9A3 /* SwiftBaas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C01B920C85538008DA9A3 /* SwiftBaas.swift */; };
@@ -84,6 +90,12 @@
 		18432BAD20CEEA4C009163CE /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryRequestTransformer.swift; sourceTree = "<group>"; };
 		1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasherTests.swift; sourceTree = "<group>"; };
+		186E0B9520E54C7A00F209AD /* PartialFakeProofResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartialFakeProofResponse.json; sourceTree = "<group>"; };
+		186E0B9620E54C7A00F209AD /* ErrorResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ErrorResponse.json; sourceTree = "<group>"; };
+		186E0B9720E54C7A00F209AD /* SuccessFakeHashRespons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SuccessFakeHashRespons.json; sourceTree = "<group>"; };
+		186E0B9820E54C7A00F209AD /* FakeProofResponse2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FakeProofResponse2.json; sourceTree = "<group>"; };
+		186E0B9920E54C7A00F209AD /* FakeProofResponse1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FakeProofResponse1.json; sourceTree = "<group>"; };
+		186E0B9F20E54CB100F209AD /* NodeHash+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NodeHash+Fake.swift"; sourceTree = "<group>"; };
 		187C019C20C84E6E008DA9A3 /* SwiftBaas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBaas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C01A520C84E6E008DA9A3 /* SwiftBaasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBaasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C01AC20C84E6E008DA9A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,6 +197,26 @@
 			path = Transformers;
 			sourceTree = "<group>";
 		};
+		186E0B9320E54C7A00F209AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				186E0B9420E54C7A00F209AD /* ChainpontResponses */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		186E0B9420E54C7A00F209AD /* ChainpontResponses */ = {
+			isa = PBXGroup;
+			children = (
+				186E0B9520E54C7A00F209AD /* PartialFakeProofResponse.json */,
+				186E0B9620E54C7A00F209AD /* ErrorResponse.json */,
+				186E0B9720E54C7A00F209AD /* SuccessFakeHashRespons.json */,
+				186E0B9820E54C7A00F209AD /* FakeProofResponse2.json */,
+				186E0B9920E54C7A00F209AD /* FakeProofResponse1.json */,
+			);
+			path = ChainpontResponses;
+			sourceTree = "<group>";
+		};
 		187C019220C84E6E008DA9A3 = {
 			isa = PBXGroup;
 			children = (
@@ -208,9 +240,11 @@
 			isa = PBXGroup;
 			children = (
 				1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */,
+				186E0B9F20E54CB100F209AD /* NodeHash+Fake.swift */,
 				18A9E6D920D6C2CA00E31F55 /* CoreDataServiceTests */,
 				181E1F9220D0459E00CDEF0B /* RequestTests */,
 				181E1F8F20D0412700CDEF0B /* TransformerTests */,
+				186E0B9320E54C7A00F209AD /* Resources */,
 				187C01AC20C84E6E008DA9A3 /* Info.plist */,
 			);
 			path = SwiftBaasTests;
@@ -529,6 +563,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186E0B9E20E54C7A00F209AD /* FakeProofResponse1.json in Resources */,
+				186E0B9A20E54C7A00F209AD /* PartialFakeProofResponse.json in Resources */,
+				186E0B9D20E54C7A00F209AD /* FakeProofResponse2.json in Resources */,
+				186E0B9B20E54C7A00F209AD /* ErrorResponse.json in Resources */,
+				186E0B9C20E54C7A00F209AD /* SuccessFakeHashRespons.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +648,7 @@
 				187C01EA20C8742A008DA9A3 /* (null) in Sources */,
 				18A9E6F520D8433C00E31F55 /* CoreDataTestCase.swift in Sources */,
 				181E1F9420D045B300CDEF0B /* SubmitHashRequestTests.swift in Sources */,
+				186E0BA020E54CB100F209AD /* NodeHash+Fake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

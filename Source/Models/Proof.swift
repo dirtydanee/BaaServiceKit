@@ -1,6 +1,6 @@
 public struct Proof {
     
-    // TODO: Discuss: Is it true for all services?
+    // TODO: David Szurma - Discuss: Is it true for all services?
     public enum Status {
         // Proof after ~15 minutes of submission
         case partial

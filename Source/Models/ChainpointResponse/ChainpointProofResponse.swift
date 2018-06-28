@@ -1,4 +1,4 @@
-// TODO: - Write tests
+// TODO: David Szurma - Write tests
 struct ChainpointProofResponse: Decodable {
     
     struct Proof: Decodable {
@@ -9,7 +9,7 @@ struct ChainpointProofResponse: Decodable {
             let label: String
             
             enum CodingKeys: String, CodingKey {
-                case label = "label"
+                case label
             }
         }
         
@@ -24,13 +24,13 @@ struct ChainpointProofResponse: Decodable {
         
         enum CodingKeys: String, CodingKey {
             case context = "@context"
-            case type = "type"
-            case hash = "hash"
-            case hashIdNode = "hash_id_node"
-            case hashSubmittedNodeAt = "hash_submitted_node_at"
-            case hashIdCore = "hash_id_core"
-            case hashSubmittedCoreAt = "hash_submitted_core_at"
-            case branches = "branches"
+            case type
+            case hash
+            case hashIdNode
+            case hashSubmittedNodeAt
+            case hashIdCore
+            case hashSubmittedCoreAt
+            case branches
         }
     }
     
@@ -39,8 +39,8 @@ struct ChainpointProofResponse: Decodable {
     let anchorsComplete: [String]
 
     enum CodingKeys: String, CodingKey {
-        case hashIdNode = "hash_id_node"
-        case proof = "proof"
-        case anchorsComplete = "anchors_complete"
+        case hashIdNode
+        case proof
+        case anchorsComplete
     }
 }

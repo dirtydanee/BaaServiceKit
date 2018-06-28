@@ -127,8 +127,7 @@ private extension ChainpointService {
         var stack = _stack
         var hashes = _hashes
         
-        // TODO: Throw error somehow
-        
+        // TODO: David Szurma - Throw error somehow
         self.apiClient.execute(request: request!) { [weak self] result in
             switch result {
             case .success(let response):

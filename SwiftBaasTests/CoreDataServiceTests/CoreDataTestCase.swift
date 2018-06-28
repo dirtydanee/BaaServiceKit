@@ -4,14 +4,6 @@ import CoreData
 
 class CoreDataTestCase: XCTestCase {
     
-    struct FakeNodeHashes {
-        static let fake1 = NodeHash(hashValue: "1", hashIdentifier: "1", urls: [URL(string: "http://127.0.0.1")!])
-        static let fake2 = NodeHash(hashValue: "2", hashIdentifier: "2", urls: [URL(string: "http://127.0.0.1")!])
-        static let fake3 = NodeHash(hashValue: "3", hashIdentifier: "3", urls: [URL(string: "http://127.0.0.1")!])
-        
-        static let allFakes = [FakeNodeHashes.fake1, FakeNodeHashes.fake2, FakeNodeHashes.fake3]
-    }
-    
     var coreDataStack: CoreDataStack!
     var nodeHashStore: NodeHashStore!
     var coreDataService: CoreDataService!
