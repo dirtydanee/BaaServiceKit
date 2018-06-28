@@ -1,4 +1,5 @@
 // TODO: Daniel Metzing - Write tests
+// TODO: SubmitHashRequest should be more general, using protocol to support multiple services
 struct HashRequestStack {
 
     let hashes: [Hash]

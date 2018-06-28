@@ -8,14 +8,9 @@ PODS:
 DEPENDENCIES:
   - SwiftBaas (from `../`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Alamofire
-    - CryptoSwift
-
 EXTERNAL SOURCES:
   SwiftBaas:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -24,4 +19,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 166fb06db5993113c0721df1cd4a5c30c848c4ee
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0

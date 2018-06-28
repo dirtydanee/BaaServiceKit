@@ -1,14 +1,5 @@
 public class SwiftBaas {
 
-    public struct Proof: Equatable {
-        public enum Status {
-            // Proof after ~15 minutes of submission
-            case partial
-            // Proof after ~120 minutes of submission
-            case full
-        }
-    }
-
     private let hasher: Hasher
     private let apiClient: APIClient
     private let persistencyService: PersistencyService
@@ -165,15 +156,17 @@ public extension SwiftBaas {
         self.blockchainService.submit(hashes: hexStrings, toNodeURLs: urls, completion: completion)
     }
 
-    // MARK: - Proof retrieval
-
-    func proof(forHashId: Hash, completion: () -> Result<SwiftBaas.Proof>) {
-
+    /// Retrieve a partial Chainpoint Proof
+    ///
+    /// - Parameters:
+    ///   - nodeHashes:
+    ///   - completion: On success a collection of Proof objects
+    func proof(for nodeHashes: [NodeHash],
+               completion: ((Result<[Proof]>) -> Void)?) {
+        self.blockchainService.proof(for: nodeHashes, completion: completion)
     }
 
-    // MARK: - Proof Verification
-
-    func verify(_ proof: SwiftBaas.Proof, completion: () -> Result<Bool>) {
+    func verify(_ proof: Proof, completion: () -> Result<Bool>) {
 
     }
 }

@@ -16,6 +16,12 @@
 		18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BAD20CEEA4C009163CE /* APIResponse.swift */; };
 		18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */; };
 		1847EF2F20C87AD6006DD5F7 /* HasherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */; };
+		186E0B9A20E54C7A00F209AD /* PartialFakeProofResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9520E54C7A00F209AD /* PartialFakeProofResponse.json */; };
+		186E0B9B20E54C7A00F209AD /* ErrorResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9620E54C7A00F209AD /* ErrorResponse.json */; };
+		186E0B9C20E54C7A00F209AD /* SuccessFakeHashRespons.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9720E54C7A00F209AD /* SuccessFakeHashRespons.json */; };
+		186E0B9D20E54C7A00F209AD /* FakeProofResponse2.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9820E54C7A00F209AD /* FakeProofResponse2.json */; };
+		186E0B9E20E54C7A00F209AD /* FakeProofResponse1.json in Resources */ = {isa = PBXBuildFile; fileRef = 186E0B9920E54C7A00F209AD /* FakeProofResponse1.json */; };
+		186E0BA020E54CB100F209AD /* NodeHash+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E0B9F20E54CB100F209AD /* NodeHash+Fake.swift */; };
 		187C01A620C84E6E008DA9A3 /* SwiftBaas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C019C20C84E6E008DA9A3 /* SwiftBaas.framework */; };
 		187C01BD20C85538008DA9A3 /* Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C01B820C85538008DA9A3 /* Hasher.swift */; };
 		187C01BE20C85538008DA9A3 /* SwiftBaas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C01B920C85538008DA9A3 /* SwiftBaas.swift */; };
@@ -35,7 +41,6 @@
 		18852B5220CB03C100A38852 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5120CB03C100A38852 /* APIClient.swift */; };
 		18852B5620CB163400A38852 /* ChainpointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5520CB163400A38852 /* ChainpointService.swift */; };
 		18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5A20CB168100A38852 /* BlockchainRequest.swift */; };
-		18852B5D20CB16A500A38852 /* SubmitHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */; };
 		18852B6220CB17D200A38852 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6120CB17D200A38852 /* Result.swift */; };
 		18852B6720CB1B8E00A38852 /* NodeHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6620CB1B8E00A38852 /* NodeHash.swift */; };
 		18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18852B6820CB1C3600A38852 /* SwiftBaas+Typealiases.swift */; };
@@ -55,6 +60,14 @@
 		18A9E6F320D8414100E31F55 /* CoreDataServiceBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6F220D8414100E31F55 /* CoreDataServiceBuilderTests.swift */; };
 		18A9E6F520D8433C00E31F55 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6F420D8433C00E31F55 /* CoreDataTestCase.swift */; };
 		18A9E6FB20D8EA6000E31F55 /* Records.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18A9E6F920D8EA6000E31F55 /* Records.xcdatamodeld */; };
+		3154423D20E2D6C000075C8E /* APIErrorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154423C20E2D6BF00075C8E /* APIErrorTransformer.swift */; };
+		3154424120E2D6CB00075C8E /* SubmitHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154423F20E2D6CB00075C8E /* SubmitHashRequest.swift */; };
+		3154424220E2D6CB00075C8E /* ProofRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424020E2D6CB00075C8E /* ProofRequest.swift */; };
+		3154424420E2D6D300075C8E /* HeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424320E2D6D300075C8E /* HeaderType.swift */; };
+		3154424620E2D6F300075C8E /* Proof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424520E2D6F300075C8E /* Proof.swift */; };
+		3154424B20E2D6F900075C8E /* ChainpointProofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424820E2D6F900075C8E /* ChainpointProofResponse.swift */; };
+		3154424C20E2D6F900075C8E /* ChainpointHashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */; };
+		3154424D20E2D6F900075C8E /* ChainpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424A20E2D6F900075C8E /* ChainpointError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +90,12 @@
 		18432BAD20CEEA4C009163CE /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryRequestTransformer.swift; sourceTree = "<group>"; };
 		1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasherTests.swift; sourceTree = "<group>"; };
+		186E0B9520E54C7A00F209AD /* PartialFakeProofResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartialFakeProofResponse.json; sourceTree = "<group>"; };
+		186E0B9620E54C7A00F209AD /* ErrorResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ErrorResponse.json; sourceTree = "<group>"; };
+		186E0B9720E54C7A00F209AD /* SuccessFakeHashRespons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SuccessFakeHashRespons.json; sourceTree = "<group>"; };
+		186E0B9820E54C7A00F209AD /* FakeProofResponse2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FakeProofResponse2.json; sourceTree = "<group>"; };
+		186E0B9920E54C7A00F209AD /* FakeProofResponse1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FakeProofResponse1.json; sourceTree = "<group>"; };
+		186E0B9F20E54CB100F209AD /* NodeHash+Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NodeHash+Fake.swift"; sourceTree = "<group>"; };
 		187C019C20C84E6E008DA9A3 /* SwiftBaas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBaas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C01A520C84E6E008DA9A3 /* SwiftBaasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBaasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C01AC20C84E6E008DA9A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,7 +120,6 @@
 		18852B5120CB03C100A38852 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		18852B5520CB163400A38852 /* ChainpointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainpointService.swift; sourceTree = "<group>"; };
 		18852B5A20CB168100A38852 /* BlockchainRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockchainRequest.swift; sourceTree = "<group>"; };
-		18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitHashRequest.swift; sourceTree = "<group>"; };
 		18852B6120CB17D200A38852 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		18852B6620CB1B8E00A38852 /* NodeHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeHash.swift; sourceTree = "<group>"; };
 		18852B6820CB1C3600A38852 /* SwiftBaas+Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftBaas+Typealiases.swift"; sourceTree = "<group>"; };
@@ -121,6 +139,14 @@
 		18A9E6F220D8414100E31F55 /* CoreDataServiceBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceBuilderTests.swift; sourceTree = "<group>"; };
 		18A9E6F420D8433C00E31F55 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
 		18A9E6FA20D8EA6000E31F55 /* Records.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Records.xcdatamodel; sourceTree = "<group>"; };
+		3154423C20E2D6BF00075C8E /* APIErrorTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorTransformer.swift; sourceTree = "<group>"; };
+		3154423F20E2D6CB00075C8E /* SubmitHashRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitHashRequest.swift; sourceTree = "<group>"; };
+		3154424020E2D6CB00075C8E /* ProofRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProofRequest.swift; sourceTree = "<group>"; };
+		3154424320E2D6D300075C8E /* HeaderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderType.swift; sourceTree = "<group>"; };
+		3154424520E2D6F300075C8E /* Proof.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proof.swift; sourceTree = "<group>"; };
+		3154424820E2D6F900075C8E /* ChainpointProofResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointProofResponse.swift; sourceTree = "<group>"; };
+		3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointHashResponse.swift; sourceTree = "<group>"; };
+		3154424A20E2D6F900075C8E /* ChainpointError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,10 +190,31 @@
 		18432BB120CEF128009163CE /* Transformers */ = {
 			isa = PBXGroup;
 			children = (
+				3154423C20E2D6BF00075C8E /* APIErrorTransformer.swift */,
 				181E1F8B20D040BB00CDEF0B /* PayloadTransformer.swift */,
 				18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */,
 			);
 			path = Transformers;
+			sourceTree = "<group>";
+		};
+		186E0B9320E54C7A00F209AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				186E0B9420E54C7A00F209AD /* ChainpontResponses */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		186E0B9420E54C7A00F209AD /* ChainpontResponses */ = {
+			isa = PBXGroup;
+			children = (
+				186E0B9520E54C7A00F209AD /* PartialFakeProofResponse.json */,
+				186E0B9620E54C7A00F209AD /* ErrorResponse.json */,
+				186E0B9720E54C7A00F209AD /* SuccessFakeHashRespons.json */,
+				186E0B9820E54C7A00F209AD /* FakeProofResponse2.json */,
+				186E0B9920E54C7A00F209AD /* FakeProofResponse1.json */,
+			);
+			path = ChainpontResponses;
 			sourceTree = "<group>";
 		};
 		187C019220C84E6E008DA9A3 = {
@@ -193,9 +240,11 @@
 			isa = PBXGroup;
 			children = (
 				1847EF2E20C87AD6006DD5F7 /* HasherTests.swift */,
+				186E0B9F20E54CB100F209AD /* NodeHash+Fake.swift */,
 				18A9E6D920D6C2CA00E31F55 /* CoreDataServiceTests */,
 				181E1F9220D0459E00CDEF0B /* RequestTests */,
 				181E1F8F20D0412700CDEF0B /* TransformerTests */,
+				186E0B9320E54C7A00F209AD /* Resources */,
 				187C01AC20C84E6E008DA9A3 /* Info.plist */,
 			);
 			path = SwiftBaasTests;
@@ -282,8 +331,9 @@
 		18852B5920CB168100A38852 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				3154424320E2D6D300075C8E /* HeaderType.swift */,
+				3154423E20E2D6CB00075C8E /* ChainpointRequests */,
 				18852B5A20CB168100A38852 /* BlockchainRequest.swift */,
-				18852B5C20CB16A500A38852 /* SubmitHashRequest.swift */,
 				18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */,
 			);
 			path = Requests;
@@ -301,6 +351,8 @@
 		18852B6520CB1B8E00A38852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3154424720E2D6F900075C8E /* ChainpointResponse */,
+				3154424520E2D6F300075C8E /* Proof.swift */,
 				18852B6620CB1B8E00A38852 /* NodeHash.swift */,
 				1804F60C20D4007C004A1C4B /* Node.swift */,
 			);
@@ -385,6 +437,25 @@
 				18A9E6EA20D6D88F00E31F55 /* CoreDataServiceBuilder.swift */,
 			);
 			path = Builders;
+			sourceTree = "<group>";
+		};
+		3154423E20E2D6CB00075C8E /* ChainpointRequests */ = {
+			isa = PBXGroup;
+			children = (
+				3154423F20E2D6CB00075C8E /* SubmitHashRequest.swift */,
+				3154424020E2D6CB00075C8E /* ProofRequest.swift */,
+			);
+			path = ChainpointRequests;
+			sourceTree = "<group>";
+		};
+		3154424720E2D6F900075C8E /* ChainpointResponse */ = {
+			isa = PBXGroup;
+			children = (
+				3154424820E2D6F900075C8E /* ChainpointProofResponse.swift */,
+				3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */,
+				3154424A20E2D6F900075C8E /* ChainpointError.swift */,
+			);
+			path = ChainpointResponse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +563,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186E0B9E20E54C7A00F209AD /* FakeProofResponse1.json in Resources */,
+				186E0B9A20E54C7A00F209AD /* PartialFakeProofResponse.json in Resources */,
+				186E0B9D20E54C7A00F209AD /* FakeProofResponse2.json in Resources */,
+				186E0B9B20E54C7A00F209AD /* ErrorResponse.json in Resources */,
+				186E0B9C20E54C7A00F209AD /* SuccessFakeHashRespons.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,12 +596,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18852B4D20CB02C700A38852 /* BlockchainService.swift in Sources */,
-				18852B5D20CB16A500A38852 /* SubmitHashRequest.swift in Sources */,
 				187C01BE20C85538008DA9A3 /* SwiftBaas.swift in Sources */,
 				188965C720D6B2A7002A164E /* CoreDataStack.swift in Sources */,
 				18A9E6F120D83F0000E31F55 /* NSManagedObjectModel+BaasKit.swift in Sources */,
 				18A9E6E020D6CAD500E31F55 /* CoreData+BaasKit.swift in Sources */,
 				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
+				3154424B20E2D6F900075C8E /* ChainpointProofResponse.swift in Sources */,
 				18A9E6EC20D6D88F00E31F55 /* CoreDataServiceBuilder.swift in Sources */,
 				18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */,
 				188965BE20D6B27D002A164E /* PersistencyService.swift in Sources */,
@@ -541,12 +617,19 @@
 				188965C920D6B2A7002A164E /* NodeHashEntity.swift in Sources */,
 				18A9E6D420D6BC2700E31F55 /* NodeHashStore.swift in Sources */,
 				187D846520DD3C5300A36991 /* DataStore.swift in Sources */,
+				3154424620E2D6F300075C8E /* Proof.swift in Sources */,
+				3154424D20E2D6F900075C8E /* ChainpointError.swift in Sources */,
 				18A9E6FB20D8EA6000E31F55 /* Records.xcdatamodeld in Sources */,
+				3154424420E2D6D300075C8E /* HeaderType.swift in Sources */,
+				3154423D20E2D6C000075C8E /* APIErrorTransformer.swift in Sources */,
 				1804F60D20D4007C004A1C4B /* Node.swift in Sources */,
 				18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */,
 				18852B6220CB17D200A38852 /* Result.swift in Sources */,
 				181E1F8C20D040BB00CDEF0B /* PayloadTransformer.swift in Sources */,
+				3154424C20E2D6F900075C8E /* ChainpointHashResponse.swift in Sources */,
+				3154424220E2D6CB00075C8E /* ProofRequest.swift in Sources */,
 				187D846720DD430000A36991 /* NodeHashToEntityMapper.swift in Sources */,
+				3154424120E2D6CB00075C8E /* SubmitHashRequest.swift in Sources */,
 				18852B5220CB03C100A38852 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,6 +648,7 @@
 				187C01EA20C8742A008DA9A3 /* (null) in Sources */,
 				18A9E6F520D8433C00E31F55 /* CoreDataTestCase.swift in Sources */,
 				181E1F9420D045B300CDEF0B /* SubmitHashRequestTests.swift in Sources */,
+				186E0BA020E54CB100F209AD /* NodeHash+Fake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
