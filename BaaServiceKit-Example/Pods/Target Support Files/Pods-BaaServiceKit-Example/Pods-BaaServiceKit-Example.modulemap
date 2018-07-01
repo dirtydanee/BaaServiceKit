@@ -1,0 +1,6 @@
+framework module Pods_BaaServiceKit_Example {
+  umbrella header "Pods-BaaServiceKit-Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,8 @@
+platform :ios, '10.0'
+use_frameworks!
+
+target 'BaaServiceKit-Example' do
+ 
+  pod 'BaaServiceKit', :path => '../'
+
+end

@@ -20,4 +20,4 @@ install:
   - carthage update --platform $PLATFORM --use-submodules --no-use-binaries
 
 script:
-  - set -o pipefail && xcodebuild -scheme SwiftBaas -workspace SwiftBaas.xcworkspace -destination "$DESTINATION" $ACTION | xcpretty
+  - set -o pipefail && xcodebuild -scheme BaaServiceKit -workspace BaaServiceKit.xcworkspace -destination "$DESTINATION" $ACTION | xcpretty
