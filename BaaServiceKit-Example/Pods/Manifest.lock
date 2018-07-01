@@ -8,11 +8,6 @@ PODS:
 DEPENDENCIES:
   - BaaServiceKit (from `../`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Alamofire
-    - CryptoSwift
-
 EXTERNAL SOURCES:
   BaaServiceKit:
     :path: "../"
@@ -24,4 +19,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 2127e0d8e158b4b0b65b94048b11dc0e5df722dc
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0
