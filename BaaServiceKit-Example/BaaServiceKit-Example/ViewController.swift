@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import SwiftBaas
+import BaaServiceKit
 
 class ViewController: UIViewController {
-    
-    var blockchainService = SwiftBaas()
+    // TODO: Daniel Metzing - Maybe initaliser should not be throwing?
+    var blockchainService = try! BaaService()
     
     override func viewDidLoad() {
         super.viewDidLoad()

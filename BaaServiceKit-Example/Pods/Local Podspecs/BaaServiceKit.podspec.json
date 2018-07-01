@@ -1,6 +1,6 @@
 {
   "name": "BaaServiceKit",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "summary": "Fast and easy data submission to the Bitcoin blockchain",
   "homepage": "https://github.com/dirtydanee/BaaServiceKit",
   "license": {
@@ -17,7 +17,7 @@
     "path": "./"
   },
   "source_files": "Source/**/*.swift",
-  "resources": "Source/Persistency/CoreData/Models/*.xcdatamodeld",
+  "resources": "Source/PersistencyService/CoreData/Models/*.xcdatamodeld",
   "swift_version": "4.1",
   "dependencies": {
     "Alamofire": [

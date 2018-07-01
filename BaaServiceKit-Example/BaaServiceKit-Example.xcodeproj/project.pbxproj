@@ -15,7 +15,6 @@
 		183D56BB20E01BB1004925C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D56B420E01BB1004925C7 /* AppDelegate.swift */; };
 		183D56BC20E01BB1004925C7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183D56B520E01BB1004925C7 /* Info.plist */; };
 		1F57A70CFB86F2FB9B1FB27F /* Pods_BaaServiceKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38522D534BBD7E0B49D228AE /* Pods_BaaServiceKit_Example.framework */; };
-		45B30EE80BC59835CF954F20 /* Pods_SwiftBaas_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3760B5156465F8C3ADECE6A6 /* Pods_SwiftBaas_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,7 +52,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B30EE80BC59835CF954F20 /* Pods_SwiftBaas_Example.framework in Frameworks */,
 				1F57A70CFB86F2FB9B1FB27F /* Pods_BaaServiceKit_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,7 +132,6 @@
 				18432BBB20CEF3BA009163CE /* Resources */,
 				D7D704F91C6445A7D1959985 /* [CP] Embed Pods Frameworks */,
 				182C544720D8ECC600ACE7F8 /* Embed Frameworks */,
-				C06BCACA59703F4BA856152C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,21 +206,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C06BCACA59703F4BA856152C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftBaas-Example/Pods-SwiftBaas-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D7D704F91C6445A7D1959985 /* [CP] Embed Pods Frameworks */ = {

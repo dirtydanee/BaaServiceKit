@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="NodeHash" representedClassName="BaaServiceKit.NodeHashEntity" syncable="YES">
         <attribute name="hashIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="urls" optional="YES" attributeType="Transformable" valueTransformerName="SwiftBaas.NodeHashValueTransformer" syncable="YES"/>
+        <attribute name="urls" optional="YES" attributeType="Transformable" valueTransformerName="BaaServiceKit.NodeHashValueTransformer" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
