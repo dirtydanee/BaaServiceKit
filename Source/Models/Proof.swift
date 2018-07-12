@@ -14,6 +14,6 @@ public struct Proof {
     
     static func create(from chainPointProof: ChainpointProofResponse) -> Proof {
         return Proof(hashIdNode: chainPointProof.hashIdNode,
-                     hash: chainPointProof.proof?.hash)
+                     hash: "")//chainPointProof.proof?.hash)
     }
 }
