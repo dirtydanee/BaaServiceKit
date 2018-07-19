@@ -68,6 +68,13 @@
 		3154424C20E2D6F900075C8E /* ChainpointHashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */; };
 		3154424D20E2D6F900075C8E /* ChainpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424A20E2D6F900075C8E /* ChainpointError.swift */; };
 		317D756720F7E57300CDB8E9 /* ProofModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D756620F7E57300CDB8E9 /* ProofModelTests.swift */; };
+		31A3DCCE210127240041BA03 /* ConfigResponse.json in Sources */ = {isa = PBXBuildFile; fileRef = 31A3DCCD210127240041BA03 /* ConfigResponse.json */; };
+		31A3DCD3210128090041BA03 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3DCD1210127EE0041BA03 /* Config.swift */; };
+		31A3DCD4210128110041BA03 /* ChainpointConfigResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3DCCF210127400041BA03 /* ChainpointConfigResponse.swift */; };
+		31A3DCD7210129A00041BA03 /* ConfigurationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3DCD52101297C0041BA03 /* ConfigurationRequest.swift */; };
+		31A3DCDA21012BF10041BA03 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3DCD921012BF10041BA03 /* ConfigTests.swift */; };
+		31A3DCDB21012D3D0041BA03 /* FakeProofResponse2.json in Resources */ = {isa = PBXBuildFile; fileRef = 1838547B20E905DC00D7E7A4 /* FakeProofResponse2.json */; };
+		31A3DCDC21012D440041BA03 /* ConfigResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 31A3DCCD210127240041BA03 /* ConfigResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +161,11 @@
 		3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointHashResponse.swift; sourceTree = "<group>"; };
 		3154424A20E2D6F900075C8E /* ChainpointError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointError.swift; sourceTree = "<group>"; };
 		317D756620F7E57300CDB8E9 /* ProofModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofModelTests.swift; sourceTree = "<group>"; };
+		31A3DCCD210127240041BA03 /* ConfigResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ConfigResponse.json; sourceTree = "<group>"; };
+		31A3DCCF210127400041BA03 /* ChainpointConfigResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainpointConfigResponse.swift; sourceTree = "<group>"; };
+		31A3DCD1210127EE0041BA03 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		31A3DCD52101297C0041BA03 /* ConfigurationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationRequest.swift; sourceTree = "<group>"; };
+		31A3DCD921012BF10041BA03 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +205,7 @@
 				1838547A20E905DC00D7E7A4 /* SuccessFakeHashRespons.json */,
 				1838547B20E905DC00D7E7A4 /* FakeProofResponse2.json */,
 				1838547C20E905DC00D7E7A4 /* FakeProofResponse1.json */,
+				31A3DCCD210127240041BA03 /* ConfigResponse.json */,
 			);
 			path = ChainpontResponses;
 			sourceTree = "<group>";
@@ -268,6 +281,7 @@
 		183D56BD20E01CA3004925C7 /* BaaServiceKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				31A3DCD821012BE70041BA03 /* ConfigTests */,
 				317D756520F7E55A00CDB8E9 /* ProofTests */,
 				1838547420E905BB00D7E7A4 /* NodeHash+Fake.swift */,
 				1838547620E905DC00D7E7A4 /* Resources */,
@@ -429,6 +443,7 @@
 				3154423E20E2D6CB00075C8E /* ChainpointRequests */,
 				18852B5A20CB168100A38852 /* BlockchainRequest.swift */,
 				18852B6A20CC087F00A38852 /* DiscoverNodesRequest.swift */,
+				31A3DCD52101297C0041BA03 /* ConfigurationRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -449,6 +464,7 @@
 				3154424520E2D6F300075C8E /* Proof.swift */,
 				18852B6620CB1B8E00A38852 /* NodeHash.swift */,
 				1804F60C20D4007C004A1C4B /* Node.swift */,
+				31A3DCD1210127EE0041BA03 /* Config.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -468,6 +484,7 @@
 				3154424820E2D6F900075C8E /* ChainpointProofResponse.swift */,
 				3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */,
 				3154424A20E2D6F900075C8E /* ChainpointError.swift */,
+				31A3DCCF210127400041BA03 /* ChainpointConfigResponse.swift */,
 			);
 			path = ChainpointResponse;
 			sourceTree = "<group>";
@@ -478,6 +495,14 @@
 				317D756620F7E57300CDB8E9 /* ProofModelTests.swift */,
 			);
 			path = ProofTests;
+			sourceTree = "<group>";
+		};
+		31A3DCD821012BE70041BA03 /* ConfigTests */ = {
+			isa = PBXGroup;
+			children = (
+				31A3DCD921012BF10041BA03 /* ConfigTests.swift */,
+			);
+			path = ConfigTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -586,6 +611,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A3DCDC21012D440041BA03 /* ConfigResponse.json in Resources */,
+				31A3DCDB21012D3D0041BA03 /* FakeProofResponse2.json in Resources */,
 				1838548120E905DC00D7E7A4 /* FakeProofResponse1.json in Resources */,
 				1838547D20E905DC00D7E7A4 /* PartialFakeProofResponse.json in Resources */,
 				1838547F20E905DC00D7E7A4 /* SuccessFakeHashRespons.json in Resources */,
@@ -618,6 +645,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18852B4D20CB02C700A38852 /* BlockchainService.swift in Sources */,
+				31A3DCD4210128110041BA03 /* ChainpointConfigResponse.swift in Sources */,
 				187C01BE20C85538008DA9A3 /* BaaService.swift in Sources */,
 				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
 				3154424B20E2D6F900075C8E /* ChainpointProofResponse.swift in Sources */,
@@ -639,6 +667,7 @@
 				183854A220E9104900D7E7A4 /* CoreData+BaasKit.swift in Sources */,
 				183854A320E9104900D7E7A4 /* NSManagedObjectModel+BaasKit.swift in Sources */,
 				1838549820E9104900D7E7A4 /* CoreDataStack.swift in Sources */,
+				31A3DCD7210129A00041BA03 /* ConfigurationRequest.swift in Sources */,
 				1804F60D20D4007C004A1C4B /* Node.swift in Sources */,
 				1838549920E9104900D7E7A4 /* CoreDataService.swift in Sources */,
 				1838549D20E9104900D7E7A4 /* NodeHashToEntityMapper.swift in Sources */,
@@ -649,6 +678,7 @@
 				3154424C20E2D6F900075C8E /* ChainpointHashResponse.swift in Sources */,
 				1838549F20E9104900D7E7A4 /* NodeHashEntity.swift in Sources */,
 				3154424220E2D6CB00075C8E /* ProofRequest.swift in Sources */,
+				31A3DCD3210128090041BA03 /* Config.swift in Sources */,
 				3154424120E2D6CB00075C8E /* SubmitHashRequest.swift in Sources */,
 				1838549B20E9104900D7E7A4 /* NodeHashStore.swift in Sources */,
 				183854A020E9104900D7E7A4 /* Records.xcdatamodeld in Sources */,
@@ -664,6 +694,8 @@
 				183D56DD20E01E6A004925C7 /* SubmitHashRequestTests.swift in Sources */,
 				317D756720F7E57300CDB8E9 /* ProofModelTests.swift in Sources */,
 				183D56DC20E01E65004925C7 /* CoreDataTestCase.swift in Sources */,
+				31A3DCDA21012BF10041BA03 /* ConfigTests.swift in Sources */,
+				31A3DCCE210127240041BA03 /* ConfigResponse.json in Sources */,
 				183D56DB20E01E62004925C7 /* CoreDataServiceTests.swift in Sources */,
 				183D56D920E01E5E004925C7 /* NodeHashStoreTests.swift in Sources */,
 				183D56D820E01E5B004925C7 /* DiscoveryRequestTransformerTests.swift in Sources */,

@@ -33,11 +33,6 @@ final class ChainpointService: BlockchainService {
         }
     }
     
-    func configuration(ofNodeAtURL url: URL, completion: ((Result<[Node]>) -> Void)?) {
-        // TODO: Daniel Metzing - Implement me
-        // http://nodeURI/config -> see swagger https://app.swaggerhub.com/apis/chainpoint/node/1.0.0#/config
-    }
-    
     // MARK: - Submit
     
     func submit(hashes: [String],
@@ -93,13 +88,40 @@ final class ChainpointService: BlockchainService {
                         return
                     }
                     
-                    let decodedProofs = try JSONDecoder().decode([ChainpointProofResponse].self, from: data)
+                    let decodedProofs = try ChainpointConfigResponse.jsonDecoder.decode([ChainpointProofResponse].self, from: data)
                     var proofs = [Proof]()
                     for decodedProof in decodedProofs {
-                        proofs.append(Proof.create(from: decodedProof))
+                        proofs.append(Proof.make(from: decodedProof))
                     }
                     
                     completion?(.success(proofs))
+                } catch let error {
+                    completion?(.failure(error))
+                }
+                
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+        }
+    }
+    
+    func configuration(ofNodeAtURL url: URL, completion: ((Result<Config>) -> Void)?) {
+        let configurationRequest = ConfigurationRequest(configurationURL: url)
+        self.apiClient.execute(request: configurationRequest) { [weak self] result in
+            switch result {
+            case .success(let response):
+                
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: response.result)
+                    if let error = self?.apiClient.handleErrorIfNeeded(from: data) {
+                        completion?(.failure(error))
+                        return
+                    }
+                    
+                    let configResponse = try ChainpointConfigResponse.jsonDecoder.decode(ChainpointConfigResponse.self, from: data)
+                    let config = Config(chainpointConfigResponse: configResponse)
+                    completion?(.success(config))
+                    
                 } catch let error {
                     completion?(.failure(error))
                 }
