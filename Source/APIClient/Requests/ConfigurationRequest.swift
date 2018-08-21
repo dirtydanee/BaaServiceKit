@@ -4,8 +4,8 @@ final class ConfigurationRequest: BlockchainRequest {
     
     let configurationURL: URL
     
-    init(configurationURL: URL) {
-        self.configurationURL = configurationURL
+    init(atURL url: URL) {
+        self.configurationURL = url
     }
     
     var httpMethod: HTTPMethod {

@@ -67,6 +67,7 @@
 		3154424B20E2D6F900075C8E /* ChainpointProofResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424820E2D6F900075C8E /* ChainpointProofResponse.swift */; };
 		3154424C20E2D6F900075C8E /* ChainpointHashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */; };
 		3154424D20E2D6F900075C8E /* ChainpointError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424A20E2D6F900075C8E /* ChainpointError.swift */; };
+		3159ADA2212CB2550094A5C1 /* CodingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3159ADA1212CB2550094A5C1 /* CodingExtensions.swift */; };
 		317D756720F7E57300CDB8E9 /* ProofModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D756620F7E57300CDB8E9 /* ProofModelTests.swift */; };
 		31A3DCCE210127240041BA03 /* ConfigResponse.json in Sources */ = {isa = PBXBuildFile; fileRef = 31A3DCCD210127240041BA03 /* ConfigResponse.json */; };
 		31A3DCD3210128090041BA03 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3DCD1210127EE0041BA03 /* Config.swift */; };
@@ -160,6 +161,7 @@
 		3154424820E2D6F900075C8E /* ChainpointProofResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointProofResponse.swift; sourceTree = "<group>"; };
 		3154424920E2D6F900075C8E /* ChainpointHashResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointHashResponse.swift; sourceTree = "<group>"; };
 		3154424A20E2D6F900075C8E /* ChainpointError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainpointError.swift; sourceTree = "<group>"; };
+		3159ADA1212CB2550094A5C1 /* CodingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingExtensions.swift; sourceTree = "<group>"; };
 		317D756620F7E57300CDB8E9 /* ProofModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofModelTests.swift; sourceTree = "<group>"; };
 		31A3DCCD210127240041BA03 /* ConfigResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ConfigResponse.json; sourceTree = "<group>"; };
 		31A3DCCF210127400041BA03 /* ChainpointConfigResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainpointConfigResponse.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				18432BB120CEF128009163CE /* Transformers */,
 				18852B6520CB1B8E00A38852 /* Models */,
 				18852B5020CB03C100A38852 /* APIClient */,
+				3159ADA0212CB2450094A5C1 /* Extensions */,
 				187C01B720C85538008DA9A3 /* Hasher */,
 				18852B6020CB17D200A38852 /* General */,
 				187C01BA20C85538008DA9A3 /* Resources */,
@@ -487,6 +490,14 @@
 				31A3DCCF210127400041BA03 /* ChainpointConfigResponse.swift */,
 			);
 			path = ChainpointResponse;
+			sourceTree = "<group>";
+		};
+		3159ADA0212CB2450094A5C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3159ADA1212CB2550094A5C1 /* CodingExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		317D756520F7E55A00CDB8E9 /* ProofTests */ = {
@@ -649,6 +660,7 @@
 				187C01BE20C85538008DA9A3 /* BaaService.swift in Sources */,
 				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
 				3154424B20E2D6F900075C8E /* ChainpointProofResponse.swift in Sources */,
+				3159ADA2212CB2550094A5C1 /* CodingExtensions.swift in Sources */,
 				1838549A20E9104900D7E7A4 /* CoreDataServiceBuilder.swift in Sources */,
 				183854A420E9104900D7E7A4 /* PersistencyService.swift in Sources */,
 				18852B6920CB1C3600A38852 /* SwiftBaas+Typealiases.swift in Sources */,

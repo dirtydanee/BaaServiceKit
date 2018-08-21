@@ -106,7 +106,7 @@ final class ChainpointService: BlockchainService {
     }
     
     func configuration(ofNodeAtURL url: URL, completion: ((Result<Config>) -> Void)?) {
-        let configurationRequest = ConfigurationRequest(configurationURL: url)
+        let configurationRequest = ConfigurationRequest(atURL: url)
         self.apiClient.execute(request: configurationRequest) { [weak self] result in
             switch result {
             case .success(let response):

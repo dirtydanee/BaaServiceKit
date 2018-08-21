@@ -3,14 +3,6 @@ import XCTest
 
 class ConfigTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
     func testConfigModel() throws {
         let file = Bundle(for: type(of: self)).url(forResource: "ConfigResponse", withExtension: "json")!
         
