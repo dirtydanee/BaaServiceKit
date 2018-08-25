@@ -5,11 +5,20 @@ struct ChainpointProofResponse: Decodable {
         
         struct Branch: Decodable {
             
-            // TODO: Discuss how to parse ops variable, is it needed at all?
             let label: String
+            let ops: [ Any ]
             
+            // swiftlint:disable nesting
             enum CodingKeys: String, CodingKey {
                 case label
+                case ops
+            }
+            
+            public init(from decoder: Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                label = try container.decode(String.self, forKey: .label)
+                
+                ops = try container.decode([Any].self, forKey: CodingKeys.ops)
             }
         }
         
@@ -36,11 +45,33 @@ struct ChainpointProofResponse: Decodable {
     
     let hashIdNode: String
     let proof: ChainpointProofResponse.Proof?
-    let anchorsComplete: [String]
+    let anchorsComplete: [String]?
 
     enum CodingKeys: String, CodingKey {
         case hashIdNode
         case proof
         case anchorsComplete
+    }
+    
+    static var jsonDecoder: JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dataDecodingStrategy = .deferredToData
+        return decoder
+    }
+}
+
+public struct JSONCodingKeys: CodingKey {
+    public var stringValue: String
+    
+    public init(stringValue: String) {
+        self.stringValue = stringValue
+    }
+    
+    public var intValue: Int?
+    
+    public init?(intValue: Int) {
+        self.init(stringValue: "\(intValue)")
+        self.intValue = intValue
     }
 }

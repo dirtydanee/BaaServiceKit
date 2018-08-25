@@ -16,9 +16,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Config example
+        let configURL = URL(string: "http://35.230.179.171")
+        self.blockchainService.configuration(ofNodeAtURL: configURL!) { (result) in
+            switch result {
+            case .success(let config):
+                
+                print("==== CONFIG ====")
+                print(config)
+                print("==== ====== ====")
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
         let record = Record(identifier: "1", description: self.randomString(length: 7))
         print(record)
         
+        // Create node example
         do {
             
             // 1. Generate SHA-256

@@ -12,8 +12,8 @@ public struct Proof {
     let hash: Hash?
     let status = Proof.Status.partial
     
-    static func create(from chainPointProof: ChainpointProofResponse) -> Proof {
+    static func make(from chainPointProof: ChainpointProofResponse) -> Proof {
         return Proof(hashIdNode: chainPointProof.hashIdNode,
-                     hash: chainPointProof.proof?.hash)
+                     hash: "")//chainPointProof.proof?.hash)
     }
 }

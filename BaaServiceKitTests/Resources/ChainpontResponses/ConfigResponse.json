@@ -1,0 +1,12 @@
+{
+    "version": "1.5.1",
+    "proof_expire_minutes": 1440,
+    "get_proofs_max_rest": 250,
+    "post_hashes_max": 1000,
+    "post_verify_proofs_max": 1000,
+    "time": "2018-07-19T20:07:17.101Z",
+    "calendar": {
+        "height": 1772299,
+        "audit_response": "1532028600104:8ce99803cee84fc452725b2c0496b750d6bba87d86d308696d6cf326b1b18aca"
+    }
+}
