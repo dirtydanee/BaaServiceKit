@@ -159,10 +159,10 @@ public extension BaaService {
     /// Retrieve a partial Chainpoint Proof
     ///
     /// - Parameters:
-    ///   - nodeHashes:
-    ///   - completion: On success a collection of Proof objects
+    ///   - nodeHashes: NodeHash object
+    ///   - completion: On success a collection of Results holding Proof objects
     func proof(for nodeHashes: [NodeHash],
-               completion: ((Result<[Proof]>) -> Void)?) {
+               completion: (([Result<Proof>]) -> Void)?) {
         self.blockchainService.proof(for: nodeHashes, completion: completion)
     }
 

@@ -67,14 +67,14 @@ class ViewController: UIViewController {
     }
     
     func proof(for nodeHashes: [NodeHash]) {
-        self.blockchainService.proof(for: nodeHashes) { (result) in
-            switch result {
-            case .success(let proofs):
-                for proof in proofs {
+        self.blockchainService.proof(for: nodeHashes) { results in
+            for result in results {
+                switch result {
+                case .success(let proof):
                     print(proof)
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
             }
         }
     }

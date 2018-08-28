@@ -1,6 +1,6 @@
 import Alamofire
 
-final class APIClient {
+class APIClient {
     
     // TODO: David Szurma - merge APIErrorTransformer Error type
     private let errorTransformer = APIErrorTransformer()
@@ -9,8 +9,7 @@ final class APIClient {
         case missingResponseValue
     }
     
-    // TODO: Daniel Metzing - write tests
-    func execute(request: BlockchainRequest, completion: @escaping (Result<APIResponse>) -> Void ) {
+    func execute(request: BlockchainRequest, completion: @escaping (Result<APIResponse>) -> Swift.Void ) {
         
         Alamofire.request(request.url,
                           method: request.httpMethod,
@@ -26,7 +25,6 @@ final class APIClient {
 
                 guard let result = response.result.value,
                     let request = response.request else {
-                        // TODO: Daniel Metzing - Check if the payload is invalid what happens than
                         completion(.failure(Error.missingResponseValue))
                         return
                 }
@@ -37,6 +35,6 @@ final class APIClient {
     }
     
     func handleErrorIfNeeded(from data: Data) -> Swift.Error? {
-        return self.errorTransformer.tryToParseError(from: data)
+        return try? self.errorTransformer.parseError(from: data)
     }
 }
