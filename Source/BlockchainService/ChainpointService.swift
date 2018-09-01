@@ -12,9 +12,16 @@ final class ChainpointService: BlockchainService {
                                BaseNodeURI(string: "https://b.chainpoint.org/nodes/random")!,
                                BaseNodeURI(string: "https://c.chainpoint.org/nodes/random")!]
     }
-    
+
+    private lazy var queue: OperationQueue = {
+        let queue = OperationQueue()
+        queue.name = "com.dirtylabs.BaaServiceKit.ChainpointServiceQueue"
+        queue.maxConcurrentOperationCount = 1
+        return queue
+    }()
+
     let apiClient: APIClient
-    
+
     init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
@@ -66,45 +73,33 @@ final class ChainpointService: BlockchainService {
     
     // MARK: Proof
     
-    // TODO: David Szurma - support proof request from different endpoints
     func proof(for nodeHashes: [NodeHash],
-               completion: ((Result<[Proof]>) -> Void)?) {
-        
-        // TODO: David Szurma - Handle force unwrap
-        let url = nodeHashes.first!.urls.first!
-        let hashes: [Hash] = nodeHashes.reduce(into: []) { (result, nodeHash) in
-            return result.append(nodeHash.hashIdentifier)
-        }
-        let proofRequest = ProofRequest(baseUrl: url, hashes: hashes, headerType: .chainpointLdJson)
-        self.apiClient.execute(request: proofRequest) { [weak self] result in
-            
-            switch result {
-            case .success(let response):
+               completion: (([Result<Proof>]) -> Void)?) {
 
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: response.result)
-                    if let error = self?.apiClient.handleErrorIfNeeded(from: data) {
-                        completion?(.failure(error))
-                        return
-                    }
-                    
-                    let decodedProofs = try ChainpointConfigResponse.jsonDecoder.decode([ChainpointProofResponse].self, from: data)
-                    var proofs = [Proof]()
-                    for decodedProof in decodedProofs {
-                        proofs.append(Proof.make(from: decodedProof))
-                    }
-                    
-                    completion?(.success(proofs))
-                } catch let error {
-                    completion?(.failure(error))
-                }
-                
-            case .failure(let error):
-                completion?(.failure(error))
+        let operations: [ProofOperation] = nodeHashes.reduce(into: []) { results, nodeHash in
+            nodeHash.urls.forEach {
+                let operation = ProofOperation(nodeHash: nodeHash, url: $0, apiClient: self.apiClient)
+                results.append(operation)
             }
         }
+        let completionOperation = BlockOperation {
+            print(operations)
+            completion?(operations.compactMap { $0.result })
+        }
+
+        guard let lastOperation = operations.last else {
+            // TODO: Daniel Metzing - Introduce some logging framework
+            print("No operation has been created. Skipping to continue")
+            return
+        }
+
+        completionOperation.addDependency(lastOperation)
+        self.queue.addOperations(operations, waitUntilFinished: false, executionOrder: .fifo)
+        OperationQueue.main.addOperation(completionOperation)
     }
-    
+
+    // MARK: Configuration
+
     func configuration(ofNodeAtURL url: URL, completion: ((Result<Config>) -> Void)?) {
         let configurationRequest = ConfigurationRequest(atURL: url)
         self.apiClient.execute(request: configurationRequest) { [weak self] result in

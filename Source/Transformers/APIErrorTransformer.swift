@@ -4,11 +4,7 @@ import Foundation
 final class APIErrorTransformer {
     
     /// Data should be JSON
-    func tryToParseError(from data: Data) -> Error? {
-        do {
-            return try JSONDecoder().decode(ChainpointError.self, from: data)
-        } catch {
-            return nil
-        }
+    func parseError(from data: Data) throws -> Error {
+        return try JSONDecoder().decode(ChainpointError.self, from: data)
     }
 }

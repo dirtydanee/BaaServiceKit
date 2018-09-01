@@ -8,12 +8,11 @@ public struct Proof {
         case full
     }
     
-    let hashIdNode: String
-    let hash: Hash?
-    let status = Proof.Status.partial
+    let nodeHash: NodeHash
+    let status: Status
     
-    static func make(from chainPointProof: ChainpointProofResponse) -> Proof {
-        return Proof(hashIdNode: chainPointProof.hashIdNode,
-                     hash: "")//chainPointProof.proof?.hash)
+    static func make(from chainPointProof: ChainpointProofResponse, with nodeHash: NodeHash) -> Proof {
+        return Proof(nodeHash: nodeHash,
+                     status: .partial) // TODO: Daniel Metzing - what is the status? Discuss: What should be saved from the response?
     }
 }
