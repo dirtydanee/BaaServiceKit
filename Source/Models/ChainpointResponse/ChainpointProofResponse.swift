@@ -6,7 +6,7 @@ struct ChainpointProofResponse: Decodable {
         struct Branch: Decodable {
             
             let label: String
-            let ops: [ Any ]
+            let ops: [Any]
             
             // swiftlint:disable nesting
             enum CodingKeys: String, CodingKey {
@@ -46,12 +46,6 @@ struct ChainpointProofResponse: Decodable {
     let hashIdNode: String
     let proof: ChainpointProofResponse.Proof?
     let anchorsComplete: [String]?
-
-    enum CodingKeys: String, CodingKey {
-        case hashIdNode
-        case proof
-        case anchorsComplete
-    }
     
     static var jsonDecoder: JSONDecoder {
         let decoder = JSONDecoder()

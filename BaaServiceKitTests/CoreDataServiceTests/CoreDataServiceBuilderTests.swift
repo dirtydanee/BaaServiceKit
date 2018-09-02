@@ -22,6 +22,8 @@ class CoreDataServiceBuilderTests: CoreDataTestCase {
         _ = builder.withStorageType(.inMemory)
         XCTAssertThrowsError(try builder.build())
         _ = builder.withNodeHashEntityName("a")
+        XCTAssertThrowsError(try builder.build())
+        _ = builder.withProofEntityName("a")
         XCTAssertNoThrow(try builder.build())
     }
 }

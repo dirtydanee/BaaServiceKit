@@ -4,13 +4,19 @@
         <attribute name="hashIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urls" optional="YES" attributeType="Transformable" valueTransformerName="BaaServiceKit.NodeHashValueTransformer" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="proofs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Proof" inverseName="nodeHash" inverseEntity="Proof" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="value"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="Proof" representedClassName=".ProofEntity" syncable="YES">
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="nodeHash" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NodeHash" inverseName="proofs" inverseEntity="NodeHash" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="NodeHash" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="NodeHash" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Proof" positionX="-63" positionY="9" width="128" height="75"/>
     </elements>
 </model>
