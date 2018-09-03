@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             }
         }
         
-        let record = Record(identifier: "1", description: self.randomString(length: 7))
+        let record = Record(identifier: "123", description: self.randomString(length: 11))
         print(record)
         
         // Create node example
@@ -51,11 +51,10 @@ class ViewController: UIViewController {
                     
                     // 4. Proof for submitted hashes
                     // Waiting to create the node on the service
-//                    delay(seconds: 20.0, completion: { [weak self] in
-//                        self?.proof(for: nodeResults)
-//                    })
+                    delay(seconds: 15.0, completion: { [weak self] in
+                        self?.proof(for: nodeResults)
+                    })
 
-                     self?.proof(for: NodeHash.makeSampleNodeHash())
                     
                 case .failure(let error):
                     print(error)
