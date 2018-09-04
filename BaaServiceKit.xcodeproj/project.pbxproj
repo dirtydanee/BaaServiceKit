@@ -69,6 +69,9 @@
 		18D77A452133285D00E55BD2 /* URL+BaaServiceKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D77A442133285D00E55BD2 /* URL+BaaServiceKitTests.swift */; };
 		18D77A472133344700E55BD2 /* Error+BaaServiceKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D77A462133344700E55BD2 /* Error+BaaServiceKitTests.swift */; };
 		18D77A49213B03BA00E55BD2 /* BSKOperationQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D77A48213B03BA00E55BD2 /* BSKOperationQueueTests.swift */; };
+		18D77A4B213B064300E55BD2 /* ProofStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D77A4A213B064300E55BD2 /* ProofStore.swift */; };
+		18D77A4D213B065C00E55BD2 /* ProofEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D77A4C213B065C00E55BD2 /* ProofEntity.swift */; };
+		18D77A4F213B087800E55BD2 /* ProofToEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D77A4E213B087800E55BD2 /* ProofToEntityMapper.swift */; };
 		3154423D20E2D6C000075C8E /* APIErrorTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154423C20E2D6BF00075C8E /* APIErrorTransformer.swift */; };
 		3154424120E2D6CB00075C8E /* SubmitHashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154423F20E2D6CB00075C8E /* SubmitHashRequest.swift */; };
 		3154424220E2D6CB00075C8E /* ProofRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3154424020E2D6CB00075C8E /* ProofRequest.swift */; };
@@ -171,6 +174,9 @@
 		18D77A442133285D00E55BD2 /* URL+BaaServiceKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+BaaServiceKitTests.swift"; sourceTree = "<group>"; };
 		18D77A462133344700E55BD2 /* Error+BaaServiceKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+BaaServiceKitTests.swift"; sourceTree = "<group>"; };
 		18D77A48213B03BA00E55BD2 /* BSKOperationQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSKOperationQueueTests.swift; sourceTree = "<group>"; };
+		18D77A4A213B064300E55BD2 /* ProofStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofStore.swift; sourceTree = "<group>"; };
+		18D77A4C213B065C00E55BD2 /* ProofEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofEntity.swift; sourceTree = "<group>"; };
+		18D77A4E213B087800E55BD2 /* ProofToEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofToEntityMapper.swift; sourceTree = "<group>"; };
 		3154423C20E2D6BF00075C8E /* APIErrorTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIErrorTransformer.swift; sourceTree = "<group>"; };
 		3154423F20E2D6CB00075C8E /* SubmitHashRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitHashRequest.swift; sourceTree = "<group>"; };
 		3154424020E2D6CB00075C8E /* ProofRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProofRequest.swift; sourceTree = "<group>"; };
@@ -262,8 +268,9 @@
 		1838548920E9104900D7E7A4 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				1838548A20E9104900D7E7A4 /* NodeHashStore.swift */,
 				1838548B20E9104900D7E7A4 /* DataStore.swift */,
+				1838548A20E9104900D7E7A4 /* NodeHashStore.swift */,
+				18D77A4A213B064300E55BD2 /* ProofStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -272,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				1838548D20E9104900D7E7A4 /* NodeHashToEntityMapper.swift */,
+				18D77A4E213B087800E55BD2 /* ProofToEntityMapper.swift */,
 				1838548E20E9104900D7E7A4 /* NodeHashValueTransformer.swift */,
 			);
 			path = ValueTransformers;
@@ -281,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				1838549020E9104900D7E7A4 /* NodeHashEntity.swift */,
+				18D77A4C213B065C00E55BD2 /* ProofEntity.swift */,
 				1838549120E9104900D7E7A4 /* Records.xcdatamodeld */,
 			);
 			path = Models;
@@ -725,6 +734,7 @@
 				31A3DCD4210128110041BA03 /* ChainpointConfigResponse.swift in Sources */,
 				187C01BE20C85538008DA9A3 /* BaaService.swift in Sources */,
 				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
+				18D77A4B213B064300E55BD2 /* ProofStore.swift in Sources */,
 				3154424B20E2D6F900075C8E /* ChainpointProofResponse.swift in Sources */,
 				18D77A282132D45A00E55BD2 /* AsynchronousOperation.swift in Sources */,
 				3159ADA2212CB2550094A5C1 /* CodingExtensions.swift in Sources */,
@@ -745,9 +755,11 @@
 				3154423D20E2D6C000075C8E /* APIErrorTransformer.swift in Sources */,
 				183854A220E9104900D7E7A4 /* CoreData+BaasKit.swift in Sources */,
 				183854A320E9104900D7E7A4 /* NSManagedObjectModel+BaasKit.swift in Sources */,
+				18D77A4F213B087800E55BD2 /* ProofToEntityMapper.swift in Sources */,
 				1838549820E9104900D7E7A4 /* CoreDataStack.swift in Sources */,
 				31A3DCD7210129A00041BA03 /* ConfigurationRequest.swift in Sources */,
 				1804F60D20D4007C004A1C4B /* Node.swift in Sources */,
+				18D77A4D213B065C00E55BD2 /* ProofEntity.swift in Sources */,
 				1838549920E9104900D7E7A4 /* CoreDataService.swift in Sources */,
 				1838549D20E9104900D7E7A4 /* NodeHashToEntityMapper.swift in Sources */,
 				18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */,
