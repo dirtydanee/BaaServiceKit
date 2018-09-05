@@ -157,8 +157,7 @@ private extension ChainpointService {
                     }
                     
                     let chainpointHashResponse = try ChainpointHashResponse.jsonDecoder.decode(ChainpointHashResponse.self, from: data)
-                    hashes.append(NodeHash.make(from: chainpointHashResponse, url: response.request.url))
-                    
+                    hashes.append(contentsOf: NodeHash.make(from: chainpointHashResponse, url: response.request.url))
                 } catch let error {
                     print(error)
                 }
