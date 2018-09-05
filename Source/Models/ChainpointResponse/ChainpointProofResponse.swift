@@ -6,7 +6,7 @@ struct ChainpointProofResponse: Codable {
         struct Branch: Codable {
             
             let label: String
-            let ops: [ Any ]
+            let ops: [Any]
             
             // swiftlint:disable nesting
             enum CodingKeys: String, CodingKey {
@@ -51,32 +51,11 @@ struct ChainpointProofResponse: Codable {
     let hashIdNode: String
     let proof: ChainpointProofResponse.Proof?
     let anchorsComplete: [String]?
-
-    enum CodingKeys: String, CodingKey {
-        case hashIdNode
-        case proof
-        case anchorsComplete
-    }
     
     static var jsonDecoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         decoder.dataDecodingStrategy = .deferredToData
         return decoder
-    }
-}
-
-public struct JSONCodingKeys: CodingKey {
-    public var stringValue: String
-    
-    public init(stringValue: String) {
-        self.stringValue = stringValue
-    }
-    
-    public var intValue: Int?
-    
-    public init?(intValue: Int) {
-        self.init(stringValue: "\(intValue)")
-        self.intValue = intValue
     }
 }

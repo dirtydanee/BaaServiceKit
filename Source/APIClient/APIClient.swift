@@ -2,7 +2,6 @@ import Alamofire
 
 class APIClient {
     
-    // TODO: David Szurma - merge APIErrorTransformer Error type
     private let errorTransformer = APIErrorTransformer()
     
     enum Error: Swift.Error {

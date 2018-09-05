@@ -1,15 +1,6 @@
 public struct Proof {
     
-    // TODO: David Szurma - Discuss: Is it true for all services?
-    public enum Status {
-        // Proof after ~15 minutes of submission
-        case partial
-        // Proof after ~120 minutes of submission
-        case full
-    }
-    
     let nodeHash: NodeHash
-    let status: Status
     let metadata: [String: Any]
     
     static func make(from chainPointProof: ChainpointProofResponse, with nodeHash: NodeHash) -> Proof {
@@ -27,7 +18,7 @@ public struct Proof {
             print("Proof.make -> json error: \(error)")
         }
 
-        let proof = Proof(nodeHash: nodeHash, status: .partial, metadata: metadata)
+        let proof = Proof(nodeHash: nodeHash, metadata: metadata)
         return proof
     }
 }

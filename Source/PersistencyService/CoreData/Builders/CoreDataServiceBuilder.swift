@@ -3,6 +3,7 @@ final class CoreDataServiceBuilder {
     private var modelName: String?
     private var storageType: StorageType?
     private var nodeHashEntityName: String?
+    private var proofEntityName: String?
 
     func withModelName(_ modelName: String) -> CoreDataServiceBuilder {
         self.modelName = modelName
@@ -19,15 +20,22 @@ final class CoreDataServiceBuilder {
         return self
     }
 
+    func withProofEntityName(_ name: String) -> CoreDataServiceBuilder {
+        self.proofEntityName = name
+        return self
+    }
+
     func build() throws -> CoreDataService {
         guard let modelName = self.modelName,
               let storageType = self.storageType,
-              let nodeHashEntityName = self.nodeHashEntityName else {
+              let nodeHashEntityName = self.nodeHashEntityName,
+              let proofEntityName = self.proofEntityName else {
             throw BuilderError.missingParameter
         }
         
         let coreDataStack = try CoreDataStack(modelName: modelName, storageType: storageType)
         let nodeHashStore = NodeHashStore(entityName: nodeHashEntityName)
-        return CoreDataService(coreDataStack: coreDataStack, nodeHashStore: nodeHashStore)
+        let proofStore = ProofStore(entityName: proofEntityName)
+        return CoreDataService(coreDataStack: coreDataStack, nodeHashStore: nodeHashStore, proofStore: proofStore)
     }
 }

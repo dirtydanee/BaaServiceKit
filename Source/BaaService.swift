@@ -11,6 +11,7 @@ public class BaaService {
         self.persistencyService = try CoreDataServiceBuilder().withModelName("Records")
                                                               .withStorageType(.SQLite(filename: "Records.sqlite"))
                                                               .withNodeHashEntityName("HashNode")
+                                                              .withProofEntityName("Proof")
                                                               .build()
         self.blockchainService = ChainpointService(apiClient: self.apiClient)
     }
@@ -26,6 +27,14 @@ public extension BaaService {
     /// - Throws: Errors occuring while saving
     func save(nodeHash: NodeHash) throws {
         try self.persistencyService.save(nodeHashes: [nodeHash])
+    }
+
+    /// Save multiple node hashes
+    ///
+    /// - Parameter nodeHash: NodeHash instances desired to be saved
+    /// - Throws: Errors occuring while saving
+    func save(nodeHashes: [NodeHash]) throws {
+        try self.persistencyService.save(nodeHashes: nodeHashes)
     }
     
     /// Read a previously saved node hash
@@ -75,6 +84,53 @@ public extension BaaService {
     /// - Throws: Errors while deleting the given node hash
     func delete(forHashValue hashValue: String) throws {
         try self.persistencyService.deleteNodeHash(forHashValue: hashValue)
+    }
+
+    /// Save a proof
+    ///
+    /// - Parameter proof: Proof instance desired to be saved
+    /// - Throws: Errors occuring while saving
+    func save(proof: Proof) throws {
+        try self.persistencyService.save(proofs: [proof])
+    }
+
+    /// Save multiple proofs
+    ///
+    /// - Parameter proofs: Proof instances desired to be saved
+    /// - Throws: Errors occuring while saving
+    func save(proofs: [Proof]) throws {
+        try self.persistencyService.save(proofs: proofs)
+    }
+
+    /// Proof instances for a given nodeHash
+    ///
+    /// - Parameter nodeHash: The NodeHash instace's saved proofs
+    /// - Returns: Collection of Proof instances if found any, otherwise empty array
+    /// - Throws: Errors occuring while searching
+    func proofs(of nodeHash: NodeHash) throws -> [Proof] {
+        return try self.persistencyService.proofs(of: nodeHash)
+    }
+
+    /// Read all previously saved proofs
+    ///
+    /// - Returns: Collection of Proof instances if found any, otherwise empty array
+    /// - Throws: Errors occuring while searching
+    func storedProofs() throws -> [Proof] {
+        return try self.persistencyService.storedProofs()
+    }
+
+    /// Delete all stored proofs
+    ///
+    /// - Throws: Errors while deleting proofs
+    func deleteProofs() throws {
+        try self.persistencyService.deleteProofs()
+    }
+
+    /// Delete a previously saved proof
+    ///
+    /// - Throws: Errors while deleting proof
+    func deleteProof(proof: Proof) throws {
+        try self.persistencyService.deleteProof(proof: proof)
     }
 }
 

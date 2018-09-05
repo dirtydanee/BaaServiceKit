@@ -18,24 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LaunchScreen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhD-96-Acd">
-                                <rect key="frame" x="132" y="333" width="110" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-background" translatesAutoresizingMaskIntoConstraints="NO" id="yJT-xv-JcW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="FhD-96-Acd" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7vh-Tz-pEL"/>
-                            <constraint firstItem="FhD-96-Acd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gCm-su-zaa"/>
+                            <constraint firstItem="yJT-xv-JcW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GGc-hY-1ee"/>
+                            <constraint firstItem="yJT-xv-JcW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="X8e-Ad-ER1"/>
+                            <constraint firstItem="yJT-xv-JcW" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="omE-fV-C1j"/>
+                            <constraint firstItem="yJT-xv-JcW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wcD-Jg-oXI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launch-background" width="375" height="667"/>
+    </resources>
 </document>

@@ -30,10 +30,17 @@ extension DataStore {
         fetchRequest.predicate = predicate
         return try context.fetch(fetchRequest).first
     }
+
+    func fetchEntities<T: NSFetchRequestResult>(withName name: String,
+                                                in context: NSManagedObjectContext,
+                                                usingPredicate predicate: NSPredicate? = nil) throws -> [T] {
+        let fetchRequest = NSFetchRequest<T>(entityName: name)
+        fetchRequest.predicate = predicate
+        return try context.fetch(fetchRequest)
+    }
     
     func fetchAllEntities<T: NSFetchRequestResult>(withName name: String, in context: NSManagedObjectContext) throws -> [T] {
-        let fetchRequest = NSFetchRequest<T>(entityName: name)
-        return try context.fetch(fetchRequest)
+        return try self.fetchEntities(withName: name, in: context, usingPredicate: nil)
     }
     
     func deleteAllEntities(withName name: String,

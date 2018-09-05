@@ -6,6 +6,7 @@ class CoreDataTestCase: XCTestCase {
     
     var coreDataStack: CoreDataStack!
     var nodeHashStore: NodeHashStore!
+    var proofStore: ProofStore!
     var coreDataService: CoreDataService!
     
     override func setUp() {
@@ -13,7 +14,9 @@ class CoreDataTestCase: XCTestCase {
         self.coreDataStack = try! CoreDataStack(modelName: "Records",
                                                 storageType: .inMemory)
         self.nodeHashStore = NodeHashStore(entityName: "NodeHash")
-        self.coreDataService = CoreDataService(coreDataStack: self.coreDataStack, nodeHashStore: nodeHashStore)
+        self.proofStore = ProofStore(entityName: "Proof")
+
+        self.coreDataService = CoreDataService(coreDataStack: self.coreDataStack, nodeHashStore: nodeHashStore, proofStore: proofStore)
     }
     
     override func tearDown() {
