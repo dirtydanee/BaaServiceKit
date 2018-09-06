@@ -30,7 +30,6 @@ class ProofOperationTests: XCTestCase {
                 return
             }
             XCTAssertEqual(proof.nodeHash, nodeHash)
-            XCTAssertEqual(proof.status, .partial)
             expectation.fulfill()
         }
         self.waitForExpectations(timeout: 2, handler: nil)

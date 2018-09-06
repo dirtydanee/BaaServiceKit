@@ -3,6 +3,7 @@ public struct NodeHash: Codable, Equatable {
     public let hashIdentifier: Hash
     public let urls: [NodeURI]
     
+    // TODO: David Szurma - Write tests
     static func make(from response: ChainpointHashResponse, url: URL?) -> [NodeHash] {
 
         var nodesHashes = [NodeHash]()
