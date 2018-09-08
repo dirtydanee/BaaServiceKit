@@ -17,7 +17,6 @@ class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }
 
@@ -60,11 +59,9 @@ extension ListViewController {
 
                     // 4. Proof for submitted hashes
                     // Waiting to create the node on the service
-                    //                    delay(seconds: 20.0, completion: { [weak self] in
-                    //                        self?.proof(for: nodeResults)
-                    //                    })
-
-                    self?.proof(for: NodeHash.makeSampleNodeHash())
+                    // delay(seconds: 15.0, completion: { [weak self] in
+                        self?.proof(for: nodeResults)
+                    // })
 
                 case .failure(let error):
                     print(error)

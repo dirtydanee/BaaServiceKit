@@ -1,9 +1,9 @@
 // TODO: David Szurma - Write tests
-struct ChainpointProofResponse: Decodable {
+struct ChainpointProofResponse: Codable {
     
-    struct Proof: Decodable {
+    struct Proof: Codable {
         
-        struct Branch: Decodable {
+        struct Branch: Codable {
             
             let label: String
             let ops: [Any]
@@ -17,8 +17,13 @@ struct ChainpointProofResponse: Decodable {
             public init(from decoder: Decoder) throws {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
                 label = try container.decode(String.self, forKey: .label)
-                
                 ops = try container.decode([Any].self, forKey: CodingKeys.ops)
+            }
+            
+            public func encode(to encoder: Encoder) throws {
+                var container = encoder.container(keyedBy: CodingKeys.self)
+                try container.encode(label, forKey: .label)
+                try container.encode(ops, forKey: .ops)
             }
         }
         
@@ -52,20 +57,5 @@ struct ChainpointProofResponse: Decodable {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         decoder.dataDecodingStrategy = .deferredToData
         return decoder
-    }
-}
-
-public struct JSONCodingKeys: CodingKey {
-    public var stringValue: String
-    
-    public init(stringValue: String) {
-        self.stringValue = stringValue
-    }
-    
-    public var intValue: Int?
-    
-    public init?(intValue: Int) {
-        self.init(stringValue: "\(intValue)")
-        self.intValue = intValue
     }
 }

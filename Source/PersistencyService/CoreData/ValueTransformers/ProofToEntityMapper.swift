@@ -1,7 +1,6 @@
 final class ProofToEntityMapper {
 
     func map(proof: Proof, toProofEntity entity: ProofEntity) -> ProofEntity {
-        entity.status = proof.status.rawValue
         return entity
     }
 
@@ -9,7 +8,6 @@ final class ProofToEntityMapper {
         let nodeHash = NodeHash(hashValue: entity.nodeHashEntity.value,
                                 hashIdentifier: entity.nodeHashEntity.hashIdentifier,
                                 urls: entity.nodeHashEntity.urls)
-        let status = Proof.Status(rawValue: entity.status)
-        return Proof(nodeHash: nodeHash, status: status!)
+        return Proof(nodeHash: nodeHash, metadata: entity.metaData)
     }
 }
