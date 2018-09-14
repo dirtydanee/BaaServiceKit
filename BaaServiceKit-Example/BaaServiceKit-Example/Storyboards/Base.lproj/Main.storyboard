@@ -64,10 +64,14 @@
                     <navigationItem key="navigationItem" id="LAA-cY-VCa">
                         <barButtonItem key="rightBarButtonItem" title="+" id="GwL-BM-raq">
                             <connections>
-                                <segue destination="t9n-tp-Uq4" kind="show" id="KI0-tR-oN1"/>
+                                <action selector="didPressCreateButton:" destination="BYZ-38-t0r" id="2Yc-24-6Jg"/>
+                                <segue destination="t9n-tp-Uq4" kind="show" identifier="showCreateRecord" id="KI0-tR-oN1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="5EF-Zq-SWw" id="F2l-sT-B4F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,7 +135,7 @@
         <!--Create-->
         <scene sceneID="UcY-be-HY1">
             <objects>
-                <viewController title="Create" id="t9n-tp-Uq4" customClass="CreateRecordViewController" customModule="BaaServiceKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createRecordViewController" title="Create" id="t9n-tp-Uq4" customClass="CreateRecordViewController" customModule="BaaServiceKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3b7-El-7ak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,7 +275,7 @@
         <!--Save-->
         <scene sceneID="8Hn-En-wH2">
             <objects>
-                <viewController title="Save" id="6FL-3p-Gr0" customClass="SaveNodeHashViewController" customModule="BaaServiceKit_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="saveNodeHashViewController" title="Save" id="6FL-3p-Gr0" customClass="SaveNodeHashViewController" customModule="BaaServiceKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZMr-1q-431">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,19 +283,124 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SS-9r-PSX">
                                 <rect key="frame" x="147" y="617" width="81" height="30"/>
                                 <state key="normal" title="Save locally"/>
+                                <connections>
+                                    <action selector="didPressSaveButton:" destination="6FL-3p-Gr0" eventType="touchUpInside" id="Uqx-R7-sZQ"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQ8-hL-Mal" customClass="SummaryView" customModule="BaaServiceKit_Example" customModuleProvider="target">
+                                <rect key="frame" x="16" y="80" width="343" height="303.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hS5-97-mxC">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="303.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1u6-xe-4e4">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Identifier" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89d-rf-CL5">
+                                                <rect key="frame" x="0.0" y="30.5" width="343" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Identifier value" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvy-lZ-fK2">
+                                                <rect key="frame" x="0.0" y="56.5" width="343" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTg-nu-10P">
+                                                <rect key="frame" x="0.0" y="81" width="343" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUr-PM-yiE">
+                                                <rect key="frame" x="0.0" y="107" width="343" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Node Hash Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KL-88-bu8">
+                                                <rect key="frame" x="0.0" y="131.5" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hash" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkF-ZS-jqn">
+                                                <rect key="frame" x="0.0" y="162" width="343" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hash value" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pw5-ma-eX7">
+                                                <rect key="frame" x="0.0" y="188" width="343" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hash identifier" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6V-6g-nX2">
+                                                <rect key="frame" x="0.0" y="212.5" width="343" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hash identifier value" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3I-VU-TRr">
+                                                <rect key="frame" x="0.0" y="238.5" width="343" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submitted URL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svd-gQ-buc">
+                                                <rect key="frame" x="0.0" y="263" width="343" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submitted URL value" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-Tu-M5c">
+                                                <rect key="frame" x="0.0" y="289" width="343" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hS5-97-mxC" secondAttribute="bottom" id="BaK-Cv-vyw"/>
+                                    <constraint firstItem="hS5-97-mxC" firstAttribute="top" secondItem="zQ8-hL-Mal" secondAttribute="top" id="OpR-iz-vNA"/>
+                                    <constraint firstItem="hS5-97-mxC" firstAttribute="leading" secondItem="zQ8-hL-Mal" secondAttribute="leading" id="gcs-X9-MJM"/>
+                                    <constraint firstAttribute="trailing" secondItem="hS5-97-mxC" secondAttribute="trailing" id="t8V-vg-18C"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataHashValue" destination="pw5-ma-eX7" id="1Yf-zO-l2O"/>
+                                    <outlet property="descriptionValue" destination="bUr-PM-yiE" id="Ldf-sN-gDv"/>
+                                    <outlet property="hashIdentifierValue" destination="i3I-VU-TRr" id="ea5-09-xym"/>
+                                    <outlet property="identifierValue" destination="vvy-lZ-fK2" id="Jc5-5i-w3Q"/>
+                                    <outlet property="submittedURLValue" destination="m3D-Tu-M5c" id="Q7t-SU-SaF"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="zQ8-hL-Mal" firstAttribute="leading" secondItem="XWZ-fS-ixD" secondAttribute="leading" constant="16" id="Ia9-h7-6dD"/>
                             <constraint firstItem="5SS-9r-PSX" firstAttribute="centerX" secondItem="XWZ-fS-ixD" secondAttribute="centerX" id="Oec-kf-Ras"/>
+                            <constraint firstItem="XWZ-fS-ixD" firstAttribute="trailing" secondItem="zQ8-hL-Mal" secondAttribute="trailing" constant="16" id="ciL-jf-4bl"/>
+                            <constraint firstItem="zQ8-hL-Mal" firstAttribute="top" secondItem="XWZ-fS-ixD" secondAttribute="top" constant="16" id="fuz-Oq-gQi"/>
                             <constraint firstItem="XWZ-fS-ixD" firstAttribute="bottom" secondItem="5SS-9r-PSX" secondAttribute="bottom" constant="20" id="gvn-Pr-lKt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XWZ-fS-ixD"/>
                     </view>
+                    <connections>
+                        <outlet property="summaryView" destination="zQ8-hL-Mal" id="GO8-s1-58Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPP-NW-04z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="-141"/>
+            <point key="canvasLocation" x="2084" y="-141.67916041979012"/>
         </scene>
     </scenes>
 </document>
