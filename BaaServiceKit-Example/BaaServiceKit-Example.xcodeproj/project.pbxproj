@@ -11,7 +11,12 @@
 		1823E84E214BA7C100B5991E /* UIStoryboard+BSKExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E84D214BA7C100B5991E /* UIStoryboard+BSKExample.swift */; };
 		1823E850214BADB100B5991E /* UIAlertController+BSKExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E84F214BADB100B5991E /* UIAlertController+BSKExample.swift */; };
 		1823E852214C246800B5991E /* BlockchainServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E851214C246800B5991E /* BlockchainServiceProvider.swift */; };
-		1823E854214C256000B5991E /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E853214C256000B5991E /* SummaryView.swift */; };
+		1823E856214E915400B5991E /* RecordSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E855214E915400B5991E /* RecordSummaryView.swift */; };
+		1823E858214E93EC00B5991E /* UIView+BSKExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E857214E93EC00B5991E /* UIView+BSKExample.swift */; };
+		1823E85A214EB2A600B5991E /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E859214EB2A600B5991E /* InfoView.swift */; };
+		1823E85C214EB42E00B5991E /* NodeHashSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E85B214EB42E00B5991E /* NodeHashSummaryView.swift */; };
+		1823E85F214EB74400B5991E /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E85E214EB74400B5991E /* Reusable.swift */; };
+		1823E861214EB96D00B5991E /* UITableView+BSKExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E860214EB96D00B5991E /* UITableView+BSKExample.swift */; };
 		183D56B620E01BB1004925C7 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D56AC20E01BB1004925C7 /* ListViewController.swift */; };
 		183D56B720E01BB1004925C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183D56AD20E01BB1004925C7 /* Assets.xcassets */; };
 		183D56B820E01BB1004925C7 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D56AF20E01BB1004925C7 /* Record.swift */; };
@@ -45,7 +50,12 @@
 		1823E84D214BA7C100B5991E /* UIStoryboard+BSKExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+BSKExample.swift"; sourceTree = "<group>"; };
 		1823E84F214BADB100B5991E /* UIAlertController+BSKExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+BSKExample.swift"; sourceTree = "<group>"; };
 		1823E851214C246800B5991E /* BlockchainServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainServiceProvider.swift; sourceTree = "<group>"; };
-		1823E853214C256000B5991E /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		1823E855214E915400B5991E /* RecordSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSummaryView.swift; sourceTree = "<group>"; };
+		1823E857214E93EC00B5991E /* UIView+BSKExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BSKExample.swift"; sourceTree = "<group>"; };
+		1823E859214EB2A600B5991E /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		1823E85B214EB42E00B5991E /* NodeHashSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeHashSummaryView.swift; sourceTree = "<group>"; };
+		1823E85E214EB74400B5991E /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		1823E860214EB96D00B5991E /* UITableView+BSKExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+BSKExample.swift"; sourceTree = "<group>"; };
 		183D56AC20E01BB1004925C7 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		183D56AD20E01BB1004925C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		183D56AF20E01BB1004925C7 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -87,11 +97,23 @@
 			path = Discover;
 			sourceTree = "<group>";
 		};
+		1823E85D214EB43500B5991E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1823E859214EB2A600B5991E /* InfoView.swift */,
+				1823E855214E915400B5991E /* RecordSummaryView.swift */,
+				1823E85B214EB42E00B5991E /* NodeHashSummaryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		183D56AB20E01BB1004925C7 /* BaaServiceKit-Example */ = {
 			isa = PBXGroup;
 			children = (
 				183D56B420E01BB1004925C7 /* AppDelegate.swift */,
 				1823E851214C246800B5991E /* BlockchainServiceProvider.swift */,
+				1823E85E214EB74400B5991E /* Reusable.swift */,
+				1823E85D214EB43500B5991E /* Views */,
 				188C66D4213C47640075D65D /* ActivityHandler */,
 				188C66C3213B1CD20075D65D /* Extensions */,
 				18D77A50213B1C5800E55BD2 /* Modules */,
@@ -135,6 +157,8 @@
 				188C66C1213B1CCB0075D65D /* String+BSKExample.swift */,
 				1823E84D214BA7C100B5991E /* UIStoryboard+BSKExample.swift */,
 				1823E84F214BADB100B5991E /* UIAlertController+BSKExample.swift */,
+				1823E857214E93EC00B5991E /* UIView+BSKExample.swift */,
+				1823E860214EB96D00B5991E /* UITableView+BSKExample.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -160,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				188C66CF213C37350075D65D /* SaveNodeHashViewController.swift */,
-				1823E853214C256000B5991E /* SummaryView.swift */,
 			);
 			path = Save;
 			sourceTree = "<group>";
@@ -331,13 +354,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1823E854214C256000B5991E /* SummaryView.swift in Sources */,
+				1823E85F214EB74400B5991E /* Reusable.swift in Sources */,
+				1823E85A214EB2A600B5991E /* InfoView.swift in Sources */,
+				1823E858214E93EC00B5991E /* UIView+BSKExample.swift in Sources */,
 				1823E852214C246800B5991E /* BlockchainServiceProvider.swift in Sources */,
 				1823E850214BADB100B5991E /* UIAlertController+BSKExample.swift in Sources */,
 				188C66C2213B1CCB0075D65D /* String+BSKExample.swift in Sources */,
+				1823E85C214EB42E00B5991E /* NodeHashSummaryView.swift in Sources */,
 				188C66D3213C47600075D65D /* ActivityIndicatorHandler.swift in Sources */,
 				1823E84E214BA7C100B5991E /* UIStoryboard+BSKExample.swift in Sources */,
+				1823E856214E915400B5991E /* RecordSummaryView.swift in Sources */,
 				188C66D0213C37350075D65D /* SaveNodeHashViewController.swift in Sources */,
+				1823E861214EB96D00B5991E /* UITableView+BSKExample.swift in Sources */,
 				183D56BB20E01BB1004925C7 /* AppDelegate.swift in Sources */,
 				183D56B820E01BB1004925C7 /* Record.swift in Sources */,
 				1823E84C213C4ED600B5991E /* DiscoverNodesViewController.swift in Sources */,

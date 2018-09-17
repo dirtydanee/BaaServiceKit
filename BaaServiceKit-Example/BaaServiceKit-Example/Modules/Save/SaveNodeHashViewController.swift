@@ -5,11 +5,20 @@ final class SaveNodeHashViewController: UIViewController {
     var nodeHash: NodeHash!
     var record: Record!
 
-    @IBOutlet weak var summaryView: SummaryView!
+    @IBOutlet private weak var stackView: UIStackView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.summaryView.setup(with: record, and: nodeHash)
+        setUpStackView()
+    }
+
+    func setUpStackView() {
+        let recordSummary = RecordSummaryView(frame: .zero)
+        recordSummary.setUp(with: record)
+        let nodeHashSummary = NodeHashSummaryView(frame: .zero)
+        nodeHashSummary.setUp(with: nodeHash)
+        stackView.addArrangedSubview(recordSummary)
+        stackView.addArrangedSubview(nodeHashSummary)
     }
 
     @IBAction func didPressSaveButton(_ sender: UIButton) {

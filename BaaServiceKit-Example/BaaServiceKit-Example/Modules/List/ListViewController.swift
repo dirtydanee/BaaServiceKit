@@ -12,27 +12,33 @@ class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+        setUpTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupDataSource()
+        updateDataSource()
     }
 
-    private func setupDataSource() {
+    private func setUpTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.reuseIdentifier)
+        tableView.tableFooterView = UIView()
+    }
+
+    private func updateDataSource() {
         do {
             nodeHashes = try ServiceProvider.shared.blockchainService.storedHashes()
-            self.tableView.reloadData()
+            tableView.reloadData()
         } catch {
-            self.showAlert(for: error)
+            showAlert(for: error)
         }
     }
 
 
     @IBAction func didPressCreateButton(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: SequeIdentifier.showCreateRecord.rawValue, sender: self)
+        performSegue(withIdentifier: SequeIdentifier.showCreateRecord.rawValue, sender: self)
     }
 }
 
@@ -43,7 +49,12 @@ extension ListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let nodeHash = nodeHashes[indexPath.row]
+        let cell: ListCell = tableView.dequeueReusableCell(withIdentifier: ListCell.reuseIdentifier)
+        cell.configure(with: nodeHash)
+        cell.sizeToFit()
+        cell.layoutIfNeeded()
+        return cell
     }
 }
 
