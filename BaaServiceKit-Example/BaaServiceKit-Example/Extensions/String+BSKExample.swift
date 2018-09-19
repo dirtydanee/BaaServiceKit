@@ -1,7 +1,7 @@
 import Foundation
 
 extension String {
-
+    // TODO: Daniel Metzing - not used ATM
     static func random(length: Int) -> String {
 
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"

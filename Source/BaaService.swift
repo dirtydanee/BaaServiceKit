@@ -10,7 +10,7 @@ public class BaaService {
         self.apiClient = APIClient()
         self.persistencyService = try CoreDataServiceBuilder().withModelName("Records")
                                                               .withStorageType(.SQLite(filename: "Records.sqlite"))
-                                                              .withNodeHashEntityName("HashNode")
+                                                              .withNodeHashEntityName("NodeHash")
                                                               .withProofEntityName("Proof")
                                                               .build()
         self.blockchainService = ChainpointService(apiClient: self.apiClient)

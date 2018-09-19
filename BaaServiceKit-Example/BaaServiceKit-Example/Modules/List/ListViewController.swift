@@ -1,30 +1,70 @@
-//
-//  ViewController.swift
-//  SwiftBaas-Example
-//
-//  Created by Daniel.Metzing on 11.06.18.
-//  Copyright © 2018 DirtyLabs. All rights reserved.
-//
-
 import UIKit
 import BaaServiceKit
 
 class ListViewController: UIViewController {
 
-
     @IBOutlet weak var tableView: UITableView!
-    let blockchainService = try! BaaService()
+    private var nodeHashes: [NodeHash] = []
+
+    private enum SequeIdentifier: String {
+        case showCreateRecord
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpTableView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateDataSource()
+    }
+
+    private func setUpTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.reuseIdentifier)
+        tableView.tableFooterView = UIView()
+    }
+
+    private func updateDataSource() {
+        do {
+            nodeHashes = try ServiceProvider.shared.blockchainService.storedHashes()
+            tableView.reloadData()
+        } catch {
+            showAlert(for: error)
+        }
+    }
+
+
+    @IBAction func didPressCreateButton(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: SequeIdentifier.showCreateRecord.rawValue, sender: self)
     }
 }
+
+extension ListViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return nodeHashes.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let nodeHash = nodeHashes[indexPath.row]
+        let cell: ListCell = tableView.dequeueReusableCell(withIdentifier: ListCell.reuseIdentifier)
+        cell.configure(with: nodeHash)
+        cell.sizeToFit()
+        cell.layoutIfNeeded()
+        return cell
+    }
+}
+
+extension ListViewController: UITableViewDelegate {}
 
 extension ListViewController {
     func configExample() {
         // Config example
         let configURL = URL(string: "http://35.230.179.171")
-        self.blockchainService.configuration(ofNodeAtURL: configURL!) { (result) in
+        ServiceProvider.shared.blockchainService.configuration(ofNodeAtURL: configURL!) { (result) in
             switch result {
             case .success(let config):
 
@@ -38,42 +78,8 @@ extension ListViewController {
         }
     }
 
-    func nodeExample() {
-        let record = Record(identifier: "1", description: String.random(length: 7))
-        print(record)
-
-        // Create node example
-        do {
-
-            // 1. Generate SHA-256
-            let hashData = try self.blockchainService.generateSHA256(from: record)
-
-            // 2. Discover node URLs
-            self.blockchainService.discoverPublicNodeURLs(completion: nil)
-
-            // 3. Submit hashes
-            self.blockchainService.submit(hashes: [hashData], forNumberOfNodes: 1) {  [weak self] (result) in
-
-                switch result {
-                case .success(let nodeResults):
-
-                    // 4. Proof for submitted hashes
-                    // Waiting to create the node on the service
-                    // delay(seconds: 15.0, completion: { [weak self] in
-                        self?.proof(for: nodeResults)
-                    // })
-
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        } catch {
-            print(error)
-        }
-    }
-
     func proof(for nodeHashes: [NodeHash]) {
-        self.blockchainService.proof(for: nodeHashes) { results in
+        ServiceProvider.shared.blockchainService.proof(for: nodeHashes) { results in
             for result in results {
                 switch result {
                 case .success(let proof):
