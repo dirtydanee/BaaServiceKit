@@ -23,12 +23,12 @@
 		183D56B920E01BB1004925C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D56B020E01BB1004925C7 /* LaunchScreen.storyboard */; };
 		183D56BA20E01BB1004925C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D56B220E01BB1004925C7 /* Main.storyboard */; };
 		183D56BB20E01BB1004925C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D56B420E01BB1004925C7 /* AppDelegate.swift */; };
-		183D56BC20E01BB1004925C7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183D56B520E01BB1004925C7 /* Info.plist */; };
 		188C66C2213B1CCB0075D65D /* String+BSKExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C66C1213B1CCB0075D65D /* String+BSKExample.swift */; };
 		188C66C8213B1F720075D65D /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C66C7213B1F720075D65D /* ListCell.swift */; };
 		188C66CD213C37090075D65D /* CreateRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C66CC213C37090075D65D /* CreateRecordViewController.swift */; };
 		188C66D0213C37350075D65D /* SaveNodeHashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C66CF213C37350075D65D /* SaveNodeHashViewController.swift */; };
 		188C66D3213C47600075D65D /* ActivityIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C66D2213C47600075D65D /* ActivityIndicatorHandler.swift */; };
+		18A7A75C2152C289002DE2E4 /* NodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7A75B2152C289002DE2E4 /* NodeCell.swift */; };
 		1F57A70CFB86F2FB9B1FB27F /* Pods_BaaServiceKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38522D534BBD7E0B49D228AE /* Pods_BaaServiceKit_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +69,7 @@
 		188C66CC213C37090075D65D /* CreateRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordViewController.swift; sourceTree = "<group>"; };
 		188C66CF213C37350075D65D /* SaveNodeHashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNodeHashViewController.swift; sourceTree = "<group>"; };
 		188C66D2213C47600075D65D /* ActivityIndicatorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorHandler.swift; sourceTree = "<group>"; };
+		18A7A75B2152C289002DE2E4 /* NodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeCell.swift; sourceTree = "<group>"; };
 		3760B5156465F8C3ADECE6A6 /* Pods_SwiftBaas_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBaas_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38522D534BBD7E0B49D228AE /* Pods_BaaServiceKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaaServiceKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7EBEF935687854501A9B21 /* Pods-BaaServiceKit-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaaServiceKit-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaaServiceKit-Example/Pods-BaaServiceKit-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				1823E84B213C4ED600B5991E /* DiscoverNodesViewController.swift */,
+				18A7A75B2152C289002DE2E4 /* NodeCell.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -297,7 +299,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183D56BC20E01BB1004925C7 /* Info.plist in Resources */,
 				183D56BA20E01BB1004925C7 /* Main.storyboard in Resources */,
 				183D56B720E01BB1004925C7 /* Assets.xcassets in Resources */,
 				183D56B920E01BB1004925C7 /* LaunchScreen.storyboard in Resources */,
@@ -369,6 +370,7 @@
 				183D56BB20E01BB1004925C7 /* AppDelegate.swift in Sources */,
 				183D56B820E01BB1004925C7 /* Record.swift in Sources */,
 				1823E84C213C4ED600B5991E /* DiscoverNodesViewController.swift in Sources */,
+				18A7A75C2152C289002DE2E4 /* NodeCell.swift in Sources */,
 				188C66C8213B1F720075D65D /* ListCell.swift in Sources */,
 				188C66CD213C37090075D65D /* CreateRecordViewController.swift in Sources */,
 				183D56B620E01BB1004925C7 /* ListViewController.swift in Sources */,
