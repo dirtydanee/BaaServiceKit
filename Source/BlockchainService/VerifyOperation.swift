@@ -1,24 +1,30 @@
 import Foundation
 
-final class ProofOperation: AsynchronousOperation {
-
-    let nodeHash: NodeHash
-    let url: URL
+final class VerifyOperation: AsynchronousOperation {
+    
+    let proof: Proof
+    let url: NodeURI
     let apiClient: APIClient
-    var result: Result<Proof>?
-
-    init(nodeHash: NodeHash, url: URL, apiClient: APIClient) {
-        self.nodeHash = nodeHash
+    var result: Result<ProofVerification>?
+    
+    init(proof: Proof, url: NodeURI, apiClient: APIClient) {
+        self.proof = proof
         self.url = url
         self.apiClient = apiClient
         super.init()
     }
-
+    
     override func start() {
         super.start()
+        
+        guard let proofResponse = self.proof.convert() else {
+//            self.result = .failure(Err)
+            self.finish()
+            return
+        }
+        let request = VerifyRequest(url: self.url, proofs: [proofResponse], headerType: .json)
 
-        let proofRequest = ProofRequest(baseUrl: self.url, hashes: [self.nodeHash.hashIdentifier], headerType: .chainpointLdJson)
-        self.apiClient.execute(request: proofRequest) { [weak self] result in
+        self.apiClient.execute(request: request) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case .success(let response):
@@ -29,15 +35,14 @@ final class ProofOperation: AsynchronousOperation {
                         strongSelf.finish()
                         return
                     }
-
-                    // TODO: David Szurma - make general jsonDecoder
-                    let decodedProof = try ChainpointConfigResponse.jsonDecoder.decode([ChainpointProofResponse].self, from: data)
-                    let proof = Proof.make(from: decodedProof.first!, with: strongSelf.nodeHash)
-                    strongSelf.result = .success(proof)
+                    
+                    let verificationResponse = try ChainpointConfigResponse.jsonDecoder.decode(ChainpointVerifyResponse.self, from: data)
+                    let proofVerification = ProofVerification.make(from: verificationResponse)
+                    strongSelf.result = .success(proofVerification)
                 } catch {
                     strongSelf.result = .failure(error)
                 }
-
+                
             case .failure(let error):
                 strongSelf.result = .failure(error)
             }

@@ -21,4 +21,17 @@ public struct Proof {
         let proof = Proof(nodeHash: nodeHash, metadata: metadata)
         return proof
     }
+    
+    func convert() -> ChainpointProofResponse? {
+                
+        do {
+            let data = try JSONSerialization.data(withJSONObject: self.metadata)
+            // TODO: David Szurma - make general jsonDecoder
+            return try ChainpointConfigResponse.jsonDecoder.decode(ChainpointProofResponse.self, from: data)
+        } catch {
+            print("Proof.convert -> json error: \(error)")
+        }
+        
+        return nil
+    }
 }

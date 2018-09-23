@@ -100,7 +100,8 @@ final class ChainpointService: BlockchainService {
 
     // MARK: Configuration
 
-    func configuration(ofNodeAtURL url: URL, completion: ((Result<Config>) -> Void)?) {
+    func configuration(ofNodeAtURL url: URL,
+                       completion: ((Result<Config>) -> Void)?) {
         let configurationRequest = ConfigurationRequest(atURL: url)
         self.apiClient.execute(request: configurationRequest) { [weak self] result in
             switch result {
@@ -125,6 +126,33 @@ final class ChainpointService: BlockchainService {
                 completion?(.failure(error))
             }
         }
+    }
+    
+    // MARK: Verification
+    
+    func verify(proofs: [Proof],
+                completion: (([Result<ProofVerification>]) -> Void)?) {
+        
+        let operations: [VerifyOperation] = proofs.reduce(into: []) { results, proof in
+            proof.nodeHash.urlsforEach {
+                let operation = VerifyOperation(proof: proof, url: $0, apiClient: self.apiClient)
+                results.append(operation)
+            }
+        }
+        let completionOperation = BlockOperation {
+            print(operations)
+            completion?(operations.compactMap { $0.result })
+        }
+        
+        guard let lastOperation = operations.last else {
+            // TODO: Daniel Metzing - Introduce some logging framework
+            print("No operation has been created. Skipping to continue")
+            return
+        }
+        
+        completionOperation.addDependency(lastOperation)
+        self.queue.addOperations(operations, waitUntilFinished: false, executionOrder: .fifo)
+        OperationQueue.main.addOperation(completionOperation)
     }
 }
 
