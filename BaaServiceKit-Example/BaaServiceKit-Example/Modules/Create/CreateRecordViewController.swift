@@ -5,7 +5,6 @@ final class CreateRecordViewController: UIViewController, ActivityDisplayer {
 
     private enum SequeIdentifier: String {
         case showSaveNodeHash
-        case showSelectNode
     }
 
     private var latestNodeResults: [NodeHash] = []
@@ -25,10 +24,6 @@ final class CreateRecordViewController: UIViewController, ActivityDisplayer {
         let record = Record(identifier: identifier, description: description)
         self.status = .loading
         self.createNodeHash(from: record)
-    }
-
-    @IBAction func didPressSelectNode(_ sender: UIButton) {
-        self.performSegue(withIdentifier: SequeIdentifier.showSelectNode.rawValue, sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
