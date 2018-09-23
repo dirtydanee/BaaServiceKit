@@ -152,7 +152,7 @@ public extension BaaService {
     /// - Parameters:
     ///   - url: The public url of a given node
     ///   - completion: On success a Node object containing the public URL and the configuration, on failure the description of the occurred error
-    func configuration(ofNodeAtURL url: URL, completion: ((Result<Config>) -> Void)?) {
+    func configuration(ofNodeAtURL url: URL, completion: ((Result<Node>) -> Void)?) {
         self.blockchainService.configuration(ofNodeAtURL: url, completion: completion)
     }
 

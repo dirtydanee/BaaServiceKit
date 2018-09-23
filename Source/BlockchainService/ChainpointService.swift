@@ -100,8 +100,11 @@ final class ChainpointService: BlockchainService {
 
     // MARK: Configuration
 
+//    func configuration(ofNodeAtURL url: URL,
+//                       completion: ((Result<Config>) -> Void)?) {
     func configuration(ofNodeAtURL url: URL,
-                       completion: ((Result<Config>) -> Void)?) {
+                       completion: ((Result<Node>) -> Void)?) {
+
         let configurationRequest = ConfigurationRequest(atURL: url)
         self.apiClient.execute(request: configurationRequest) { [weak self] result in
             switch result {
@@ -115,8 +118,9 @@ final class ChainpointService: BlockchainService {
                     }
                     
                     let configResponse = try ChainpointConfigResponse.jsonDecoder.decode(ChainpointConfigResponse.self, from: data)
-                    let config = Config(chainpointConfigResponse: configResponse)
-                    completion?(.success(config))
+                    let config = Node.Configuration(chainpointConfigResponse: configResponse)
+                    let node = Node(publicURL: url, configuation: config)
+                    completion?(.success(node))
                     
                 } catch let error {
                     completion?(.failure(error))
@@ -134,7 +138,7 @@ final class ChainpointService: BlockchainService {
                 completion: (([Result<ProofVerification>]) -> Void)?) {
         
         let operations: [VerifyOperation] = proofs.reduce(into: []) { results, proof in
-            proof.nodeHash.urlsforEach {
+            proof.nodeHash.urls.forEach {
                 let operation = VerifyOperation(proof: proof, url: $0, apiClient: self.apiClient)
                 results.append(operation)
             }

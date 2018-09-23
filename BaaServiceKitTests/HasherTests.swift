@@ -3,7 +3,7 @@ import XCTest
 
 class HasherTests: XCTestCase {
 
-    var hasher: Hasher!
+    var hasher: BaaServiceKit.Hasher!
 
     override func setUp() {
         super.setUp()
