@@ -167,7 +167,7 @@ public extension BaaService {
     ///   - completion: On success a collection of NodeHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
     func submit(hashes: [String],
                 forNumberOfNodes numberOfNodes: UInt,
-                completion: @escaping (Result<[NodeHash]>) -> Void) {
+                completion: @escaping ([Result<[NodeHash]>]) -> Void) {
         self.blockchainService.submit(hashes: hashes, forNumberOfNodes: numberOfNodes, completion: completion)
     }
 
@@ -180,7 +180,7 @@ public extension BaaService {
     ///   - completion: On success a collection of NodeHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
     func submit(hashes: [Data],
                 forNumberOfNodes numberOfNodes: UInt,
-                completion: @escaping (Result<[NodeHash]>) -> Void) {
+                completion: @escaping ([Result<[NodeHash]>]) -> Void) {
         let hexStrings = hashes.map { self.hasher.convertToHexString(data: $0) }
         self.blockchainService.submit(hashes: hexStrings, forNumberOfNodes: numberOfNodes, completion: completion)
     }
@@ -194,7 +194,7 @@ public extension BaaService {
     ///   - completion: On success a collection of NodeHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
     func submit(hashes: [String],
                 toNodeURLs urls: [NodeURI],
-                completion: @escaping (Result<[NodeHash]>) -> Void) {
+                completion: @escaping ([Result<[NodeHash]>]) -> Void) {
         self.blockchainService.submit(hashes: hashes, toNodeURLs: urls, completion: completion)
     }
 
@@ -207,7 +207,7 @@ public extension BaaService {
     ///   - completion: On success a collection of NodeHash objects containing the public URL of the nodes it was submitted to, on failure the description of the occurred error
     func submit(hashes: [Data],
                 toNodeURLs urls: [URL],
-                completion: @escaping (Result<[NodeHash]>) -> Void) {
+                completion: @escaping ([Result<[NodeHash]>]) -> Void) {
         let hexStrings = hashes.map { self.hasher.convertToHexString(data: $0) }
         self.blockchainService.submit(hashes: hexStrings, toNodeURLs: urls, completion: completion)
     }

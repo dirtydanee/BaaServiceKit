@@ -44,7 +44,7 @@ extension CreateRecordViewController {
             // 2. Submit hashes
             ServiceProvider.shared.blockchainService.submit(hashes: [hash], forNumberOfNodes: 1) {  [weak self] result in
                 self?.status = .loaded
-                switch result {
+                switch result.first! {
                 case .success(let nodeResults):
                     self?.latestNodeResults = nodeResults
                     self?.submittedRecord = record

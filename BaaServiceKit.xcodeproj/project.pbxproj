@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1804F60D20D4007C004A1C4B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804F60C20D4007C004A1C4B /* Node.swift */; };
 		181E1F8C20D040BB00CDEF0B /* PayloadTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F8B20D040BB00CDEF0B /* PayloadTransformer.swift */; };
-		181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181E1F9720D0540F00CDEF0B /* HashRequestStack.swift */; };
 		1838547520E905BB00D7E7A4 /* NodeHash+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838547420E905BB00D7E7A4 /* NodeHash+Fake.swift */; };
 		1838547D20E905DC00D7E7A4 /* PartialFakeProofResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1838547820E905DC00D7E7A4 /* PartialFakeProofResponse.json */; };
 		1838547E20E905DC00D7E7A4 /* ErrorResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1838547920E905DC00D7E7A4 /* ErrorResponse.json */; };
@@ -38,6 +37,7 @@
 		183D56EA20E02228004925C7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D56E920E02228004925C7 /* Alamofire.framework */; };
 		18432BAE20CEEA4C009163CE /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BAD20CEEA4C009163CE /* APIResponse.swift */; };
 		18432BB320CEF128009163CE /* DiscoveryRequestTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */; };
+		186D0F192152DE5F0040F19B /* SubmitHashOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D0F182152DE5F0040F19B /* SubmitHashOperation.swift */; };
 		187C01A620C84E6E008DA9A3 /* BaaServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187C019C20C84E6E008DA9A3 /* BaaServiceKit.framework */; };
 		187C01BD20C85538008DA9A3 /* Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C01B820C85538008DA9A3 /* Hasher.swift */; };
 		187C01BE20C85538008DA9A3 /* BaaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C01B920C85538008DA9A3 /* BaaService.swift */; };
@@ -102,7 +102,6 @@
 /* Begin PBXFileReference section */
 		1804F60C20D4007C004A1C4B /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		181E1F8B20D040BB00CDEF0B /* PayloadTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadTransformer.swift; sourceTree = "<group>"; };
-		181E1F9720D0540F00CDEF0B /* HashRequestStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashRequestStack.swift; sourceTree = "<group>"; };
 		1838547420E905BB00D7E7A4 /* NodeHash+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NodeHash+Fake.swift"; sourceTree = "<group>"; };
 		1838547820E905DC00D7E7A4 /* PartialFakeProofResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PartialFakeProofResponse.json; sourceTree = "<group>"; };
 		1838547920E905DC00D7E7A4 /* ErrorResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ErrorResponse.json; sourceTree = "<group>"; };
@@ -136,6 +135,7 @@
 		183D56E920E02228004925C7 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18432BAD20CEEA4C009163CE /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		18432BB220CEF128009163CE /* DiscoveryRequestTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryRequestTransformer.swift; sourceTree = "<group>"; };
+		186D0F182152DE5F0040F19B /* SubmitHashOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitHashOperation.swift; sourceTree = "<group>"; };
 		187C019C20C84E6E008DA9A3 /* BaaServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BaaServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C01A520C84E6E008DA9A3 /* BaaServiceKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaaServiceKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C01B820C85538008DA9A3 /* Hasher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hasher.swift; sourceTree = "<group>"; };
@@ -352,6 +352,16 @@
 			path = Transformers;
 			sourceTree = "<group>";
 		};
+		186D0F1A2152DF890040F19B /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				18D77A252132D30200E55BD2 /* ProofOperation.swift */,
+				186D0F182152DE5F0040F19B /* SubmitHashOperation.swift */,
+				18D77A272132D45A00E55BD2 /* AsynchronousOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		187C019220C84E6E008DA9A3 = {
 			isa = PBXGroup;
 			children = (
@@ -441,9 +451,7 @@
 			children = (
 				18852B4C20CB02C700A38852 /* BlockchainService.swift */,
 				18852B5520CB163400A38852 /* ChainpointService.swift */,
-				181E1F9720D0540F00CDEF0B /* HashRequestStack.swift */,
-				18D77A252132D30200E55BD2 /* ProofOperation.swift */,
-				18D77A272132D45A00E55BD2 /* AsynchronousOperation.swift */,
+				186D0F1A2152DF890040F19B /* Operations */,
 			);
 			path = BlockchainService;
 			sourceTree = "<group>";
@@ -731,7 +739,6 @@
 				18852B4D20CB02C700A38852 /* BlockchainService.swift in Sources */,
 				31A3DCD4210128110041BA03 /* ChainpointConfigResponse.swift in Sources */,
 				187C01BE20C85538008DA9A3 /* BaaService.swift in Sources */,
-				181E1F9820D0540F00CDEF0B /* HashRequestStack.swift in Sources */,
 				18D77A4B213B064300E55BD2 /* ProofStore.swift in Sources */,
 				3154424B20E2D6F900075C8E /* ChainpointProofResponse.swift in Sources */,
 				18D77A282132D45A00E55BD2 /* AsynchronousOperation.swift in Sources */,
@@ -760,6 +767,7 @@
 				18D77A4D213B065C00E55BD2 /* ProofEntity.swift in Sources */,
 				1838549920E9104900D7E7A4 /* CoreDataService.swift in Sources */,
 				1838549D20E9104900D7E7A4 /* NodeHashToEntityMapper.swift in Sources */,
+				186D0F192152DE5F0040F19B /* SubmitHashOperation.swift in Sources */,
 				18852B5B20CB168100A38852 /* BlockchainRequest.swift in Sources */,
 				18852B6220CB17D200A38852 /* Result.swift in Sources */,
 				1838549C20E9104900D7E7A4 /* DataStore.swift in Sources */,
