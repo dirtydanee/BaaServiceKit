@@ -655,10 +655,11 @@
 				TargetAttributes = {
 					187C019B20C84E6E008DA9A3 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 					};
 					187C01A420C84E6E008DA9A3 = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -959,7 +960,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 			};
 			name = Debug;
@@ -985,7 +986,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 			};
 			name = Release;
@@ -1008,7 +1009,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4\n\t\t\t\t";
 			};
 			name = Debug;
@@ -1030,7 +1031,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dirtylabs.BaaServiceKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 			};
 			name = Release;

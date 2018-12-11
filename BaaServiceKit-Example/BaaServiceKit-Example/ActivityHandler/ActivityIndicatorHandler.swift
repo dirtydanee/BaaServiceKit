@@ -77,7 +77,7 @@ extension ActivityIndicatorHandler {
         activityViewController.view.backgroundColor = .gray
         let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(origin: .zero,
                                                                       size: CGSize(width: 30, height: 30)))
-        activityIndicatorView.activityIndicatorViewStyle = .whiteLarge
+        activityIndicatorView.style = .whiteLarge
         activityIndicatorView.startAnimating()
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         activityViewController.view.addSubview(activityIndicatorView)

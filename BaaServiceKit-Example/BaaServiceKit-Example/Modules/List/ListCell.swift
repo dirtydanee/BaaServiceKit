@@ -5,7 +5,7 @@ final class ListCell: UITableViewCell, Resuable {
 
     private var summaryView: NodeHashSummaryView!
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         summaryView = NodeHashSummaryView(frame: .zero)
         contentView.addSubview(summaryView)
