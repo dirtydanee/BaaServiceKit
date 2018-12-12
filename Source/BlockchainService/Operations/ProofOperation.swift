@@ -5,7 +5,7 @@ final class ProofOperation: AsynchronousOperation {
     let nodeHash: NodeHash
     let url: URL
     let apiClient: APIClient
-    var result: Result<Proof>?
+    private(set) var result: Result<Proof>?
 
     init(nodeHash: NodeHash, url: URL, apiClient: APIClient) {
         self.nodeHash = nodeHash

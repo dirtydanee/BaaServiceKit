@@ -44,46 +44,54 @@ final class ChainpointService: BlockchainService {
     
     func submit(hashes: [String],
                 forNumberOfNodes numberOfNodes: UInt,
-                completion: ((Result<[NodeHash]>) -> Void)?) {
+                completion: (([Result<[NodeHash]>]) -> Void)?) {
         self.discoverPublicNodeURLs { [weak self] result in
             switch result {
             case .success(let nodes):
                 // The maximum number of nodes returned from one discovery is 25
                 if numberOfNodes > nodes.count {
-                    completion?(.failure(Error.maximumAmountOfNodesExceeded))
+                    completion?([.failure(Error.maximumAmountOfNodesExceeded)])
                     return
                 }
                 self?.submit(hashes: hashes, toNodeURLs: Array(nodes[0..<Int(numberOfNodes)]), completion: completion)
             case .failure(let error):
-                completion?(.failure(error))
+                completion?([.failure(error)])
             }
         }
     }
-    
+
     func submit(hashes: [String],
                 toNodeURLs urls: [NodeURI],
-                completion: ((Result<[NodeHash]>) -> Void)?) {
-        var hashRequestStack = HashRequestStack(hashes: hashes)
-        urls.forEach { hashRequestStack.push(SubmitHashRequest(url: $0, hashes: hashes, headerType: .json)) }
-        self.submitHashRequest(hashRequestStack.pop(),
-                               fromStack: hashRequestStack,
-                               submittedHashes: [],
-                               completion: completion)
+                completion: (([Result<[NodeHash]>]) -> Void)?) {
+
+        let operations: [SubmitHashOperation] = urls.reduce(into: []) { result, url in
+           result.append(SubmitHashOperation(hashes: hashes, url: url, apiClient: self.apiClient))
+        }
+        let completionOperation = BlockOperation {
+            completion?(operations.compactMap { $0.result })
+        }
+
+        guard let lastOperation = operations.last else {
+            // TODO: Daniel Metzing - Introduce some logging framework
+            print("No operation has been created. Skipping to continue")
+            return
+        }
+
+        completionOperation.addDependency(lastOperation)
+        self.queue.addOperations(operations, waitUntilFinished: false, executionOrder: .fifo)
+        OperationQueue.main.addOperation(completionOperation)
+
     }
-    
+
     // MARK: Proof
     
     func proof(for nodeHashes: [NodeHash],
                completion: (([Result<Proof>]) -> Void)?) {
 
-        let operations: [ProofOperation] = nodeHashes.reduce(into: []) { results, nodeHash in
-            nodeHash.urls.forEach {
-                let operation = ProofOperation(nodeHash: nodeHash, url: $0, apiClient: self.apiClient)
-                results.append(operation)
-            }
+        let operations: [ProofOperation] = nodeHashes.reduce(into: []) { result, nodeHash in
+            nodeHash.urls.forEach { result.append(ProofOperation(nodeHash: nodeHash, url: $0, apiClient: self.apiClient)) }
         }
         let completionOperation = BlockOperation {
-            print(operations)
             completion?(operations.compactMap { $0.result })
         }
 
@@ -124,49 +132,6 @@ final class ChainpointService: BlockchainService {
                 
             case .failure(let error):
                 completion?(.failure(error))
-            }
-        }
-    }
-}
-
-// MARK: - Private methods
-
-private extension ChainpointService {
-    
-    func submitHashRequest(_ request: SubmitHashRequest?,
-                           fromStack _stack: HashRequestStack,
-                           submittedHashes _hashes: [NodeHash],
-                           completion: ((Result<[NodeHash]>) -> Void)?) {
-        if request == nil {
-            completion?(.success(_hashes))
-            return
-        }
-        
-        var stack = _stack
-        var hashes = _hashes
-        
-        // TODO: David Szurma - Throw error somehow
-        self.apiClient.execute(request: request!) { [weak self] result in
-            switch result {
-            case .success(let response):
-                
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: response.result)
-                    
-                    if let error = self?.apiClient.handleErrorIfNeeded(from: data) {
-                        print(error)
-                    }
-                    
-                    let chainpointHashResponse = try ChainpointHashResponse.jsonDecoder.decode(ChainpointHashResponse.self, from: data)
-                    hashes.append(contentsOf: NodeHash.make(from: chainpointHashResponse, url: response.request.url))
-                } catch let error {
-                    print(error)
-                }
-            
-                self?.submitHashRequest(stack.pop(), fromStack: stack, submittedHashes: hashes, completion: completion)
-            case .failure(let error):
-                print(error)
-                self?.submitHashRequest(stack.pop(), fromStack: stack, submittedHashes: hashes, completion: completion)
             }
         }
     }
