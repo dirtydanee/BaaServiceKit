@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="NodeHash" representedClassName="BaaServiceKit.NodeHashEntity" syncable="YES">
         <attribute name="hashIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urls" optional="YES" attributeType="Transformable" valueTransformerName="BaaServiceKit.NodeHashValueTransformer" syncable="YES"/>
@@ -12,7 +12,7 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Proof" representedClassName=".ProofEntity" syncable="YES">
-        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="nodeHash" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NodeHash" inverseName="proofs" inverseEntity="NodeHash" syncable="YES"/>
     </entity>
     <elements>

@@ -20,7 +20,7 @@ final class ProofStore: DataStore {
     // MARK: Fetching
 
     func fetchEntities(with nodeHash: NodeHash, in context: NSManagedObjectContext) throws -> [ProofEntity] {
-        let predicate = NSPredicate(format: "nodeHashEntity.value == %@ AND nodeHashEntity.hashIdentifier == %@",
+        let predicate = NSPredicate(format: "nodeHash.value == %@ AND nodeHash.hashIdentifier == %@",
                                     nodeHash.hashValue,
                                     nodeHash.hashIdentifier)
         return try self.fetchEntities(withName: self.entityName, in: context, usingPredicate: predicate)
@@ -37,7 +37,7 @@ final class ProofStore: DataStore {
     }
 
     func delete(proof: Proof, in context: NSManagedObjectContext) throws {
-        let predicate = NSPredicate(format: "nodeHashEntity.value == %@ AND nodeHashEntity.hashIdentifier == %@",
+        let predicate = NSPredicate(format: "nodeHash.value == %@ AND nodeHash.hashIdentifier == %@",
                                     proof.nodeHash.hashValue,
                                     proof.nodeHash.hashIdentifier)
         try self.deleteEntity(withName: self.entityName,

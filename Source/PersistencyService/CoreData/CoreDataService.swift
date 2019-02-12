@@ -101,7 +101,14 @@ private extension CoreDataService {
     @discardableResult
     func createEntity(from proof: Proof) throws -> ProofEntity {
         let entity = try self.proofStore.createEntity(in: self.stack.writeContext)
-        return self.proofMapper.map(proof: proof, toProofEntity: entity)
+        let nodeHash: NodeHashEntity
+        if let existingEntity = try self.nodeHashStore.fetchEntity(withHash: proof.nodeHash.hashValue, in: self.stack.writeContext) {
+            nodeHash = existingEntity
+        } else {
+            nodeHash = self.nodeHashMapper.map(nodeHash: proof.nodeHash, toNodeHashEntity: try self.nodeHashStore.createEntity(in: self.stack.writeContext))
+        }
+        
+        return self.proofMapper.map(proof: proof, nodeHashEntity: nodeHash, toProofEntity: entity)
     }
     
     func saveChanges() {

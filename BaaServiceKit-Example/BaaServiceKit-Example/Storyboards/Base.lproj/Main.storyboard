@@ -46,7 +46,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="PJM-IQ-8Pm" kind="show" id="YuT-Kz-KZJ"/>
+                                            <segue destination="PJM-IQ-8Pm" kind="show" identifier="showNodeHashDetails" id="YuT-Kz-KZJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -168,7 +168,7 @@
         <!--NodeHash Details-->
         <scene sceneID="dcU-bI-Qzk">
             <objects>
-                <viewController title="NodeHash Details" id="PJM-IQ-8Pm" sceneMemberID="viewController">
+                <viewController title="NodeHash Details" id="PJM-IQ-8Pm" customClass="NodeHashDetailsViewController" customModule="BaaServiceKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9FS-5q-LY2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,17 +177,35 @@
                                 <rect key="frame" x="151" y="617" width="73" height="30"/>
                                 <state key="normal" title="Get proofs"/>
                                 <connections>
-                                    <segue destination="Oc8-Wa-Dtw" kind="show" id="hrg-Gx-IJX"/>
+                                    <action selector="didPressGetProof:" destination="PJM-IQ-8Pm" eventType="touchUpInside" id="i1s-J8-BAo"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dhG-65-G4i">
+                                <rect key="frame" x="16" y="64" width="343" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3K-SU-ufI">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Iuo-R6-9QD" firstAttribute="bottom" secondItem="w3n-x5-7DW" secondAttribute="bottom" constant="20" id="6FX-4s-WeJ"/>
+                            <constraint firstItem="dhG-65-G4i" firstAttribute="leading" secondItem="Iuo-R6-9QD" secondAttribute="leading" constant="16" id="LED-Ae-BFe"/>
                             <constraint firstItem="w3n-x5-7DW" firstAttribute="centerX" secondItem="Iuo-R6-9QD" secondAttribute="centerX" id="iFE-J5-47f"/>
+                            <constraint firstItem="dhG-65-G4i" firstAttribute="top" secondItem="Iuo-R6-9QD" secondAttribute="top" id="n9Y-mo-8RE"/>
+                            <constraint firstItem="Iuo-R6-9QD" firstAttribute="trailing" secondItem="dhG-65-G4i" secondAttribute="trailing" constant="16" id="vqL-NU-Xxa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iuo-R6-9QD"/>
                     </view>
+                    <connections>
+                        <outlet property="stackView" destination="dhG-65-G4i" id="Fg2-Nr-yXi"/>
+                        <segue destination="Oc8-Wa-Dtw" kind="show" identifier="showGetProofs" id="lEZ-P2-ofC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKf-mm-MNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,7 +214,7 @@
         <!--Proofs-->
         <scene sceneID="AsF-0Y-OlR">
             <objects>
-                <viewController title="Proofs" id="Oc8-Wa-Dtw" sceneMemberID="viewController">
+                <viewController title="Proofs" id="Oc8-Wa-Dtw" customClass="GetProofViewController" customModule="BaaServiceKit_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WLy-F0-qoh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,7 +223,7 @@
                                 <rect key="frame" x="147" y="617" width="81" height="30"/>
                                 <state key="normal" title="Save proofs"/>
                                 <connections>
-                                    <segue destination="Uvq-bP-fm8" kind="show" id="Rfm-IR-Xgu"/>
+                                    <action selector="didPressSaveProof:" destination="Oc8-Wa-Dtw" eventType="touchUpInside" id="kQD-Qn-lJy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -220,31 +238,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USb-3O-Q1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2084" y="626"/>
-        </scene>
-        <!--Verify-->
-        <scene sceneID="aun-cq-xLp">
-            <objects>
-                <viewController title="Verify" id="Uvq-bP-fm8" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dhu-5a-DOv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aT-9I-zP4">
-                                <rect key="frame" x="143.5" y="617" width="88" height="30"/>
-                                <state key="normal" title="Verify proofs"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="IB2-mD-0XZ" firstAttribute="bottom" secondItem="4aT-9I-zP4" secondAttribute="bottom" constant="20" id="YC2-Ox-wkf"/>
-                            <constraint firstItem="4aT-9I-zP4" firstAttribute="centerX" secondItem="IB2-mD-0XZ" secondAttribute="centerX" id="fVI-Ke-FCr"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="IB2-mD-0XZ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JOV-c6-vj3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2927" y="626"/>
         </scene>
         <!--Save-->
         <scene sceneID="8Hn-En-wH2">

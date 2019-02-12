@@ -18,7 +18,7 @@ final class CoreDataStack {
 
         let writeContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         writeContext.persistentStoreCoordinator = persistentStoreCoordinator
-        writeContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
+        writeContext.mergePolicy = NSMergePolicy(merge: .overwriteMergePolicyType)
         
         let readContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         readContext.persistentStoreCoordinator = persistentStoreCoordinator

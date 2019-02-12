@@ -17,6 +17,8 @@
 		1823E85C214EB42E00B5991E /* NodeHashSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E85B214EB42E00B5991E /* NodeHashSummaryView.swift */; };
 		1823E85F214EB74400B5991E /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E85E214EB74400B5991E /* Reusable.swift */; };
 		1823E861214EB96D00B5991E /* UITableView+BSKExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823E860214EB96D00B5991E /* UITableView+BSKExample.swift */; };
+		1825572F21C053B8001EAAA7 /* NodeHashDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825572E21C053B8001EAAA7 /* NodeHashDetailsViewController.swift */; };
+		1825573221C05589001EAAA7 /* GetProofsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1825573121C05589001EAAA7 /* GetProofsViewController.swift */; };
 		183D56B620E01BB1004925C7 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D56AC20E01BB1004925C7 /* ListViewController.swift */; };
 		183D56B720E01BB1004925C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183D56AD20E01BB1004925C7 /* Assets.xcassets */; };
 		183D56B820E01BB1004925C7 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D56AF20E01BB1004925C7 /* Record.swift */; };
@@ -56,6 +58,8 @@
 		1823E85B214EB42E00B5991E /* NodeHashSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeHashSummaryView.swift; sourceTree = "<group>"; };
 		1823E85E214EB74400B5991E /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		1823E860214EB96D00B5991E /* UITableView+BSKExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+BSKExample.swift"; sourceTree = "<group>"; };
+		1825572E21C053B8001EAAA7 /* NodeHashDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeHashDetailsViewController.swift; sourceTree = "<group>"; };
+		1825573121C05589001EAAA7 /* GetProofsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProofsViewController.swift; sourceTree = "<group>"; };
 		183D56AC20E01BB1004925C7 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		183D56AD20E01BB1004925C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		183D56AF20E01BB1004925C7 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -107,6 +111,22 @@
 				1823E85B214EB42E00B5991E /* NodeHashSummaryView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1825573021C053BD001EAAA7 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				1825572E21C053B8001EAAA7 /* NodeHashDetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		1825573321C05596001EAAA7 /* GetProof */ = {
+			isa = PBXGroup;
+			children = (
+				1825573121C05589001EAAA7 /* GetProofsViewController.swift */,
+			);
+			path = GetProof;
 			sourceTree = "<group>";
 		};
 		183D56AB20E01BB1004925C7 /* BaaServiceKit-Example */ = {
@@ -205,6 +225,8 @@
 				188C66C6213B1F600075D65D /* List */,
 				188C66CE213C370E0075D65D /* Create */,
 				188C66D1213C37390075D65D /* Save */,
+				1825573021C053BD001EAAA7 /* Details */,
+				1825573321C05596001EAAA7 /* GetProof */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -357,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1823E85F214EB74400B5991E /* Reusable.swift in Sources */,
+				1825572F21C053B8001EAAA7 /* NodeHashDetailsViewController.swift in Sources */,
 				1823E85A214EB2A600B5991E /* InfoView.swift in Sources */,
 				1823E858214E93EC00B5991E /* UIView+BSKExample.swift in Sources */,
 				1823E852214C246800B5991E /* BlockchainServiceProvider.swift in Sources */,
@@ -368,6 +391,7 @@
 				1823E856214E915400B5991E /* RecordSummaryView.swift in Sources */,
 				188C66D0213C37350075D65D /* SaveNodeHashViewController.swift in Sources */,
 				1823E861214EB96D00B5991E /* UITableView+BSKExample.swift in Sources */,
+				1825573221C05589001EAAA7 /* GetProofsViewController.swift in Sources */,
 				183D56BB20E01BB1004925C7 /* AppDelegate.swift in Sources */,
 				183D56B820E01BB1004925C7 /* Record.swift in Sources */,
 				1823E84C213C4ED600B5991E /* DiscoverNodesViewController.swift in Sources */,

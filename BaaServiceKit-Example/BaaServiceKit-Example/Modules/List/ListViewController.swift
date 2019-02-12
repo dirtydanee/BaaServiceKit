@@ -5,9 +5,11 @@ class ListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private var nodeHashes: [NodeHash] = []
+    private var selectedNodeHash: NodeHash?
 
     private enum SequeIdentifier: String {
         case showCreateRecord
+        case showNodeHashDetails
     }
 
     override func viewDidLoad() {
@@ -40,6 +42,14 @@ class ListViewController: UIViewController {
     @IBAction func didPressCreateButton(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: SequeIdentifier.showCreateRecord.rawValue, sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SequeIdentifier.showNodeHashDetails.rawValue,
+           let selectedNodeHash = selectedNodeHash,
+           let targetVC = segue.destination as? NodeHashDetailsViewController {
+            targetVC.nodeHash = selectedNodeHash
+        }
+    }
 }
 
 extension ListViewController: UITableViewDataSource {
@@ -58,7 +68,12 @@ extension ListViewController: UITableViewDataSource {
     }
 }
 
-extension ListViewController: UITableViewDelegate {}
+extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedNodeHash = nodeHashes[indexPath.row]
+        performSegue(withIdentifier: SequeIdentifier.showNodeHashDetails.rawValue, sender: self)
+    }
+}
 
 extension ListViewController {
     func configExample() {
@@ -74,19 +89,6 @@ extension ListViewController {
 
             case .failure(let error):
                 print(error)
-            }
-        }
-    }
-
-    func proof(for nodeHashes: [NodeHash]) {
-        ServiceProvider.shared.blockchainService.proof(for: nodeHashes) { results in
-            for result in results {
-                switch result {
-                case .success(let proof):
-                    print(proof)
-                case .failure(let error):
-                    print(error)
-                }
             }
         }
     }
