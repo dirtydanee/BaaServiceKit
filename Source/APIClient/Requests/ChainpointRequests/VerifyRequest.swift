@@ -21,7 +21,26 @@ final class VerifyRequest: BlockchainRequest {
     }
     
     var parameters: [String: Any]? {
-        return ["proofs": self.proofs]
+        
+        let encode = JSONEncoder()
+        encode.dataEncodingStrategy = .deferredToData
+        encode.keyEncodingStrategy = .convertToSnakeCase
+        
+        var metadata = [ [String: Any] ]()
+        
+        // swiftlint disable: force_try
+        for p in self.proofs {
+            if let proof = p.proof {
+                let jsonData = try! encode.encode(proof)
+                let decoded = try! JSONSerialization.jsonObject(with: jsonData, options: [])
+                
+                if let dict = decoded as? [String: Any] {
+                    metadata = metadata + [dict]
+                }
+            }
+        }
+        
+        return ["proofs": metadata]
     }
     
     var headers: HTTPHeaders? {

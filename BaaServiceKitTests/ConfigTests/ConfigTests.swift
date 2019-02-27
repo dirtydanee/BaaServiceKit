@@ -7,7 +7,7 @@ class ConfigTests: XCTestCase {
         let file = Bundle(for: type(of: self)).url(forResource: "ConfigResponse", withExtension: "json")!
         
         let data = try Data(contentsOf: file)
-        let configResponse = try ChainpointConfigResponse.jsonDecoder.decode(ChainpointConfigResponse.self, from: data)
+        let configResponse = try JSONDecoder.chainpoint.decode(ChainpointConfigResponse.self, from: data)
         
         XCTAssertEqual(configResponse.version, "1.5.1")
         XCTAssertEqual(configResponse.proofExpireMinutes, 1440)

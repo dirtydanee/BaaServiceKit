@@ -30,8 +30,9 @@ final class ProofOperation: AsynchronousOperation {
                         return
                     }
 
-                    // TODO: David Szurma - make general jsonDecoder
-                    let decodedProof = try ChainpointConfigResponse.jsonDecoder.decode([ChainpointProofResponse].self, from: data)
+                    print("Proof resp: \(response.result)")
+                    let decodedProof = try JSONDecoder.chainpoint.decode([ChainpointProofResponse].self, from: data)
+                    // TODO:
                     let proof = Proof.make(from: decodedProof.first!, with: strongSelf.nodeHash)
                     strongSelf.result = .success(proof)
                 } catch {

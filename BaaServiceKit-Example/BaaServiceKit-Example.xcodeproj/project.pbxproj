@@ -30,6 +30,8 @@
 		188C66D3213C47600075D65D /* ActivityIndicatorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C66D2213C47600075D65D /* ActivityIndicatorHandler.swift */; };
 		18A7A75C2152C289002DE2E4 /* NodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7A75B2152C289002DE2E4 /* NodeCell.swift */; };
 		1F57A70CFB86F2FB9B1FB27F /* Pods_BaaServiceKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38522D534BBD7E0B49D228AE /* Pods_BaaServiceKit_Example.framework */; };
+		315A2495218667D900A1687C /* ProofSample.json in Sources */ = {isa = PBXBuildFile; fileRef = 315A2494218667D900A1687C /* ProofSample.json */; };
+		315A24962186697100A1687C /* ProofSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 315A2494218667D900A1687C /* ProofSample.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +72,7 @@
 		188C66CF213C37350075D65D /* SaveNodeHashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNodeHashViewController.swift; sourceTree = "<group>"; };
 		188C66D2213C47600075D65D /* ActivityIndicatorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorHandler.swift; sourceTree = "<group>"; };
 		18A7A75B2152C289002DE2E4 /* NodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeCell.swift; sourceTree = "<group>"; };
+		315A2494218667D900A1687C /* ProofSample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProofSample.json; sourceTree = "<group>"; };
 		3760B5156465F8C3ADECE6A6 /* Pods_SwiftBaas_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftBaas_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38522D534BBD7E0B49D228AE /* Pods_BaaServiceKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaaServiceKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7EBEF935687854501A9B21 /* Pods-BaaServiceKit-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaaServiceKit-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaaServiceKit-Example/Pods-BaaServiceKit-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 			children = (
 				183D56B420E01BB1004925C7 /* AppDelegate.swift */,
 				1823E851214C246800B5991E /* BlockchainServiceProvider.swift */,
+				315A2494218667D900A1687C /* ProofSample.json */,
 				1823E85E214EB74400B5991E /* Reusable.swift */,
 				1823E85D214EB43500B5991E /* Views */,
 				188C66D4213C47640075D65D /* ActivityHandler */,
@@ -299,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				315A24962186697100A1687C /* ProofSample.json in Resources */,
 				183D56BA20E01BB1004925C7 /* Main.storyboard in Resources */,
 				183D56B720E01BB1004925C7 /* Assets.xcassets in Resources */,
 				183D56B920E01BB1004925C7 /* LaunchScreen.storyboard in Resources */,
@@ -363,6 +368,7 @@
 				188C66C2213B1CCB0075D65D /* String+BSKExample.swift in Sources */,
 				1823E85C214EB42E00B5991E /* NodeHashSummaryView.swift in Sources */,
 				188C66D3213C47600075D65D /* ActivityIndicatorHandler.swift in Sources */,
+				315A2495218667D900A1687C /* ProofSample.json in Sources */,
 				1823E84E214BA7C100B5991E /* UIStoryboard+BSKExample.swift in Sources */,
 				1823E856214E915400B5991E /* RecordSummaryView.swift in Sources */,
 				188C66D0213C37350075D65D /* SaveNodeHashViewController.swift in Sources */,
@@ -518,8 +524,9 @@
 			baseConfigurationReference = EEBC036A534748C5E1504E9B /* Pods-BaaServiceKit-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86FW86T6N7;
 				INFOPLIST_FILE = "$(SRCROOT)/BaaServiceKit-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,8 +545,9 @@
 			baseConfigurationReference = 3A7EBEF935687854501A9B21 /* Pods-BaaServiceKit-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86FW86T6N7;
 				INFOPLIST_FILE = "$(SRCROOT)/BaaServiceKit-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

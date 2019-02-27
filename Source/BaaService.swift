@@ -222,8 +222,17 @@ public extension BaaService {
         self.blockchainService.proof(for: nodeHashes, completion: completion)
     }
 
-    func verify(_ proof: Proof, completion: () -> Result<Bool>) {
-
+    /// Retrive a verification object for proofs, if the url parameter is filled the Proof's request try to reach the verification object from that URL.
+    /// If the url parameter is nil, every request try to reach the verification object from related url
+    ///
+    /// - Parameters:
+    ///   - proofs: Proofs objects
+    ///   - atUrl: request url for all Proof
+    ///   - completion: On success a collection of Results holding ProofVerification objects
+    func verify(proofs: [Proof],
+                atUrl url: URL?,
+                completion: (([Result<[ProofVerification]>]) -> Void)?) {
+        self.blockchainService.verify(proofs: proofs, atUrl: url, completion: completion)
     }
 }
 

@@ -1,5 +1,5 @@
-// TODO: David Szurma - Write tests
-struct ChainpointProofResponse: Codable {
+// TODO: David Szurma - Write tests, remove public
+public struct ChainpointProofResponse: Codable {
     
     struct Proof: Codable {
         
@@ -17,7 +17,7 @@ struct ChainpointProofResponse: Codable {
             public init(from decoder: Decoder) throws {
                 let container = try decoder.container(keyedBy: CodingKeys.self)
                 label = try container.decode(String.self, forKey: .label)
-                ops = try container.decode([Any].self, forKey: CodingKeys.ops)
+                ops = try container.decode([Any].self, forKey: .ops)
             }
             
             public func encode(to encoder: Encoder) throws {
@@ -51,11 +51,5 @@ struct ChainpointProofResponse: Codable {
     let hashIdNode: String
     let proof: ChainpointProofResponse.Proof?
     let anchorsComplete: [String]?
-    
-    static var jsonDecoder: JSONDecoder {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dataDecodingStrategy = .deferredToData
-        return decoder
-    }
+
 }

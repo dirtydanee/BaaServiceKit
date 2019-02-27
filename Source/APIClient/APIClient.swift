@@ -10,6 +10,7 @@ class APIClient {
     
     func execute(request: BlockchainRequest, completion: @escaping (Result<APIResponse>) -> Swift.Void ) {
         
+//        print("curl: \(Alamofire.request(request.url, method: request.httpMethod, parameters: request.parameters, encoding: request.encoding, headers: request.headers).debugDescription)")
         Alamofire.request(request.url,
                           method: request.httpMethod,
                           parameters: request.parameters,

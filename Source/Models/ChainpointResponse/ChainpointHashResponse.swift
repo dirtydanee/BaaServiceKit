@@ -7,11 +7,4 @@ struct ChainpointHashResponse: Decodable {
     
     let meta: ChainpointHashResponse.Meta
     let hashes: [[String: String]]
-    
-    static var jsonDecoder: JSONDecoder {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dataDecodingStrategy = .deferredToData
-        return decoder
-    }
 }

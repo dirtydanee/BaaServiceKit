@@ -1,14 +1,18 @@
 public struct ProofVerification {
-//    let branch: String
-//    let type: String
-//    let valid: Bool
-    let proofIndex: Int
-    let hash: Hash
-    let hashIdNode: String
-    let hashSubmittedNodeAt: String //Date
-    let hashIdCore: String
-    let hashSubmittedCoreAt: String
-    let status: String
+
+    public enum Status: String {
+        case verified
+        case invalid
+        case unknown
+    }
+    
+    public let proofIndex: Int
+    public let hash: Hash
+    public let hashIdNode: String
+    public let hashSubmittedNodeAt: String //Date
+    public let hashIdCore: String
+    public let hashSubmittedCoreAt: String
+    public let status: Status
     
     static func make(from chainPointProof: ChainpointVerifyResponse) -> ProofVerification {
         return ProofVerification(proofIndex: chainPointProof.proofIndex,
@@ -17,6 +21,6 @@ public struct ProofVerification {
                                  hashSubmittedNodeAt: chainPointProof.hashSubmittedNodeAt,
                                  hashIdCore: chainPointProof.hashIdCore,
                                  hashSubmittedCoreAt: chainPointProof.hashSubmittedCoreAt,
-                                 status: chainPointProof.status)
+                                 status: ProofVerification.Status(rawValue: chainPointProof.status) ?? Status.unknown )
     }
 }

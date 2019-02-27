@@ -1,0 +1,74 @@
+[
+    {
+        "hash_id_node": "f797ea40-daee-11e8-992b-017423dbd52f",
+        "proof": {
+            "@context": "https://w3id.org/chainpoint/v3",
+            "type": "Chainpoint",
+            "hash": "1957db7fe23e4be1740ddeb941ddda7ae0a6c482e536a9e00b5aa82db1e84547",
+            "hash_id_node": "f797ea40-daee-11e8-992b-017423dbd52f",
+            "hash_submitted_node_at": "2018-10-28T20:20:52Z",
+            "hash_id_core": "f7cdee60-daee-11e8-9190-01602a642f06",
+            "hash_submitted_core_at": "2018-10-28T20:20:52Z",
+            "branches": [
+            {
+            "label": "cal_anchor_branch",
+            "ops": [
+            {
+            "l": "node_id:f797ea40-daee-11e8-992b-017423dbd52f"
+            },
+            {
+            "op": "sha-256"
+            },
+            {
+            "l": "core_id:f7cdee60-daee-11e8-9190-01602a642f06"
+            },
+            {
+            "op": "sha-256"
+            },
+            {
+            "l": "nistv2:1540582680000:d8fdcdc1736960204cf0b717d5aab9c0a09f240c288730ca787762f277679c0b98ab325004be6f5a941d01dc46794afd3e8661f3e022cfd766f17b80a06443e5"
+            },
+            {
+            "op": "sha-256"
+            },
+            {
+            "l": "11fd0c1e406efbff98bffb526eab02c3866f8558be5916bc81e8a9405a8dfc5a"
+            },
+            {
+            "op": "sha-256"
+            },
+            {
+            "l": "74eef6c436283bf379daa038d09c1174a3e72bb89d084ef2fc923598e7b3251f"
+            },
+            {
+            "op": "sha-256"
+            },
+            {
+            "l": "2210394:1540758056:1:https://b.chainpoint.org:cal:2210394"
+            },
+            {
+            "r": "d1256ab5b49199e80c6040e1b71b5e9b4b03abc706ff5c6d19028eb947057817"
+            },
+            {
+            "op": "sha-256"
+            },
+            {
+            "anchors": [
+            {
+            "type": "cal",
+            "anchor_id": "2210394",
+            "uris": [
+            "https://b.chainpoint.org/calendar/2210394/hash"
+            ]
+            }
+            ]
+            }
+            ]
+            }
+            ]
+        },
+        "anchors_complete": [
+        "cal"
+        ]
+    }
+]

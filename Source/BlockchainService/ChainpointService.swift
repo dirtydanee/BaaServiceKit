@@ -54,6 +54,7 @@ final class ChainpointService: BlockchainService {
                     return
                 }
                 self?.submit(hashes: hashes, toNodeURLs: Array(nodes[0..<Int(numberOfNodes)]), completion: completion)
+                break
             case .failure(let error):
                 completion?(.failure(error))
             }
@@ -100,8 +101,6 @@ final class ChainpointService: BlockchainService {
 
     // MARK: Configuration
 
-//    func configuration(ofNodeAtURL url: URL,
-//                       completion: ((Result<Config>) -> Void)?) {
     func configuration(ofNodeAtURL url: URL,
                        completion: ((Result<Node>) -> Void)?) {
 
@@ -117,7 +116,7 @@ final class ChainpointService: BlockchainService {
                         return
                     }
                     
-                    let configResponse = try ChainpointConfigResponse.jsonDecoder.decode(ChainpointConfigResponse.self, from: data)
+                    let configResponse = try JSONDecoder.chainpoint.decode(ChainpointConfigResponse.self, from: data)
                     let config = Node.Configuration(chainpointConfigResponse: configResponse)
                     let node = Node(publicURL: url, configuation: config)
                     completion?(.success(node))
@@ -134,17 +133,32 @@ final class ChainpointService: BlockchainService {
     
     // MARK: Verification
     
+    // TODO: David Szurma - Add tests for chainpoint verify
     func verify(proofs: [Proof],
-                completion: (([Result<ProofVerification>]) -> Void)?) {
+                atUrl url: URL?,
+                completion: (([Result<[ProofVerification]>]) -> Void)?) {
         
-        let operations: [VerifyOperation] = proofs.reduce(into: []) { results, proof in
-            proof.nodeHash.urls.forEach {
-                let operation = VerifyOperation(proof: proof, url: $0, apiClient: self.apiClient)
-                results.append(operation)
+        var operations = [VerifyOperation]()
+
+        if let url = url {
+            operations = [VerifyOperation(proofs: proofs, url: url, apiClient: self.apiClient)]
+        } else {
+            
+            var proofsByUrl = [ URL: [Proof] ]()
+            
+            for p in proofs {
+                for url in p.nodeHash.urls {
+                    proofsByUrl.append(element: p, toValueOfKey: url)
+                }
+            }
+            
+            for (key, value) in proofsByUrl {
+                let operation = VerifyOperation(proofs: value, url: key, apiClient: self.apiClient)
+                operations.append(operation)
             }
         }
+
         let completionOperation = BlockOperation {
-            print(operations)
             completion?(operations.compactMap { $0.result })
         }
         
@@ -182,23 +196,35 @@ private extension ChainpointService {
             case .success(let response):
                 
                 do {
+                    print("r: \(response.result)")
                     let data = try JSONSerialization.data(withJSONObject: response.result)
                     
                     if let error = self?.apiClient.handleErrorIfNeeded(from: data) {
-                        print(error)
+                        print("submitHashRequest1: \(error)")
                     }
                     
-                    let chainpointHashResponse = try ChainpointHashResponse.jsonDecoder.decode(ChainpointHashResponse.self, from: data)
+                    let chainpointHashResponse = try JSONDecoder.chainpoint.decode(ChainpointHashResponse.self, from: data)
                     hashes.append(contentsOf: NodeHash.make(from: chainpointHashResponse, url: response.request.url))
                 } catch let error {
-                    print(error)
+                    print("submitHashRequest2: \(error)")
                 }
             
                 self?.submitHashRequest(stack.pop(), fromStack: stack, submittedHashes: hashes, completion: completion)
             case .failure(let error):
-                print(error)
+                print("submitHashRequest3: \(error)")
                 self?.submitHashRequest(stack.pop(), fromStack: stack, submittedHashes: hashes, completion: completion)
             }
         }
+    }
+}
+
+extension Dictionary where Value: RangeReplaceableCollection {
+    
+    @discardableResult
+    public mutating func append(element: Value.Iterator.Element, toValueOfKey key: Key) -> Value? {
+        var value: Value = self[key] ?? Value()
+        value.append(element)
+        self[key] = value
+        return value
     }
 }

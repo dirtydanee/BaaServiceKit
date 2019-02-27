@@ -7,7 +7,7 @@ class ProofModelTests: XCTestCase {
         let file = Bundle(for: type(of: self)).url(forResource: "PartialFakeProofResponse", withExtension: "json")!
         
         let data = try Data(contentsOf: file)
-        let proofResponse = try ChainpointProofResponse.jsonDecoder.decode([ChainpointProofResponse].self, from: data)
+        let proofResponse = try JSONDecoder.chainpoint.decode([ChainpointProofResponse].self, from: data)
         
         // Proof reponse root object tests
         XCTAssertEqual(proofResponse.count, 1)
